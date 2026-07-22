@@ -47,7 +47,7 @@ export default function Home() {
             <a href="https://github.com/Ryan-hub-bit" target="_blank" rel="noreferrer">
               GitHub
             </a>
-            ?<a href="#">Google Scholar</a>
+            <a href="#">Google Scholar</a>
             <a href="#">CV</a>
             <a href="mailto:your.email@university.edu">Email</a>
           </div>
