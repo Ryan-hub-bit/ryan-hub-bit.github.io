@@ -39,15 +39,15 @@ export default function Home() {
     <main className="page-shell">
       <header className="profile" aria-labelledby="profile-name">
         <div className="identity">
-          <h1 id="profile-name">Ryan [Full Name]</h1>
+          <h1 id="profile-name">Kun Liu [刘坤]</h1>
           <p className="position">Ph.D. Student</p>
-          <p className="affiliation">University / Institution</p>
+          <p className="affiliation">Tulane University / Department of computer science</p>
 
           <div className="profile-links" aria-label="Academic profile links">
             <a href="https://github.com/Ryan-hub-bit" target="_blank" rel="noreferrer">
               GitHub
             </a>
-            <a href="#">Google Scholar</a>
+            ?<a href="#">Google Scholar</a>
             <a href="#">CV</a>
             <a href="mailto:your.email@university.edu">Email</a>
           </div>
