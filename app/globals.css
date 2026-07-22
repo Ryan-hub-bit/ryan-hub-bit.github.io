@@ -31,6 +31,37 @@ strong { color: #333; font-weight: 600; }
   padding: 78px 0 58px;
 }
 
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 28px;
+  margin-bottom: 56px;
+  padding: 14px 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.96);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.79rem;
+  font-weight: 600;
+}
+
+.top-nav a {
+  color: var(--heading);
+}
+
+.top-nav a:hover {
+  color: var(--link);
+  text-decoration: none;
+}
+
+#about,
+#news,
+#publications,
+#service {
+  scroll-margin-top: 70px;
+}
+
 .profile {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 245px;
@@ -219,6 +250,7 @@ footer p { margin: 0; }
 
 @media (max-width: 590px) {
   .page-shell { width: min(100% - 34px, 460px); padding-top: 38px; }
+  .top-nav { gap: 18px; margin-bottom: 42px; font-size: 0.73rem; }
   .profile { grid-template-columns: 1fr; gap: 30px; margin-bottom: 42px; }
   .portrait { grid-row: 2; justify-self: start; width: 165px; }
   .identity h1 { font-size: 1.95rem; }

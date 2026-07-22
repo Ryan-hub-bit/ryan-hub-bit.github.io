@@ -37,6 +37,13 @@ const publications = [
 export default function Home() {
   return (
     <main className="page-shell">
+      <nav className="top-nav" aria-label="Page navigation">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#service">Service</a>
+      </nav>
+
       <header className="profile" aria-labelledby="profile-name">
         <div className="identity">
           <h1 id="profile-name">Kun Liu [刘坤]</h1>
@@ -59,7 +66,7 @@ export default function Home() {
       </header>
 
       <div className="content-column">
-        <section className="introduction" aria-label="Biography">
+        <section className="introduction" id="about" aria-label="Biography">
           <p>
             I am a Ph.D. student at <strong>[University / Institution]</strong>.
             My work focuses on <strong>[your broad research area]</strong>, with
