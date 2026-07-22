@@ -41,7 +41,7 @@ export default function Home() {
         <div className="identity">
           <h1 id="profile-name">Kun Liu [刘坤]</h1>
           <p className="position">Ph.D. Student</p>
-          <p className="affiliation">Tulane University / Department of computer science</p>
+          <p className="affiliation">Tulane University / Department of Computer Science</p>
 
           <div className="profile-links" aria-label="Academic profile links">
             <a href="https://github.com/Ryan-hub-bit" target="_blank" rel="noreferrer">
