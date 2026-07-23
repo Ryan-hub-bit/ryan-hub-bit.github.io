@@ -48,7 +48,8 @@ export default function Home() {
         <div className="identity">
           <h1 id="profile-name">Kun Liu [刘坤]</h1>
           <p className="position">Ph.D. Student</p>
-          <p className="affiliation">Tulane University / Department of Computer Science</p>
+          <p className="affiliation">Department of Computer Science</p>
+          <p className="affiliation">Tulane University</p>
 
           <div className="profile-links" aria-label="Academic profile links">
             <a href="https://github.com/Ryan-hub-bit" target="_blank" rel="noreferrer">
@@ -68,7 +69,7 @@ export default function Home() {
       <div className="content-column">
         <section className="introduction" id="about" aria-label="Biography">
           <p>
-            I am a Ph.D. student at <strong>[University / Institution]</strong>.
+            I am a Ph.D. student at <strong>Tulane University</strong>.
             My work focuses on <strong>[your broad research area]</strong>, with
             particular interests in [research interest one], [research interest
             two], and [research interest three].
