@@ -1,3 +1,10 @@
+import {
+  BookOpenText,
+  Handshake,
+  Newspaper,
+  UserRound,
+} from "lucide-react";
+
 const news = [
   {
     date: "Jul. 2026",
@@ -38,10 +45,48 @@ export default function Home() {
   return (
     <main className="page-shell">
       <nav className="top-nav" aria-label="Page navigation">
-        <a href="#about"><span className="nav-icon" aria-hidden="true">A</span><span>About</span></a>
-        <a href="#news"><span className="nav-icon" aria-hidden="true">N</span><span>News</span></a>
-        <a href="#publications"><span className="nav-icon" aria-hidden="true">P</span><span>Publications</span></a>
-        <a href="#service"><span className="nav-icon" aria-hidden="true">S</span><span>Service</span></a>
+        <div className="nav-inner">
+          <a
+            className="university-mark"
+            href="https://tulane.edu/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit Tulane University"
+          >
+            <img
+              className="tulane-shield"
+              src="https://communications.tulane.edu/sites/default/files/2024-03/tu_new_shield.svg"
+              alt=""
+            />
+            <span className="university-copy">
+              <img
+                className="tulane-wordmark"
+                src="https://communications.tulane.edu/sites/default/files/2024-03/tulane-text-only-white.svg"
+                alt="Tulane University"
+              />
+              <small>Department of Computer Science</small>
+            </span>
+          </a>
+
+          <div className="nav-links">
+            <a href="#about">
+              <UserRound className="nav-icon" aria-hidden="true" />
+              <span>About</span>
+            </a>
+            <a href="#news">
+              <Newspaper className="nav-icon" aria-hidden="true" />
+              <span>News</span>
+            </a>
+            <a href="#publications">
+              <BookOpenText className="nav-icon" aria-hidden="true" />
+              <span>Publications</span>
+            </a>
+            <a href="#service">
+              <Handshake className="nav-icon" aria-hidden="true" />
+              <span>Service</span>
+            </a>
+          </div>
+        </div>
       </nav>
 
       <header className="profile" aria-labelledby="profile-name">
