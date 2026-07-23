@@ -1,6 +1,8 @@
 import {
   BookOpenText,
+  FileText,
   Handshake,
+  Mail,
   Newspaper,
   UserRound,
 } from "lucide-react";
@@ -8,36 +10,30 @@ import {
 const news = [
   {
     date: "Jul. 2026",
-    text: "Add a recent paper acceptance, award, presentation, or research update here.",
+    text: "One paper was directly accepted to ACM CCS 2026 (Cycle 2).",
   },
   {
-    date: "May 2026",
-    text: "Add another short academic or professional announcement here.",
-  },
-  {
-    date: "Jan. 2026",
-    text: "Add an earlier milestone. Keep each news item to one concise sentence.",
+    date: "Jul. 2026",
+    text: "One poster was accepted to USENIX Security 2026. See you in Baltimore!",
   },
 ];
 
 const publications = [
   {
-    title: "Title of Your Most Recent Research Paper",
-    authors: "Ryan [Last Name], Collaborator One, and Collaborator Two",
-    venue: "Conference or Journal Name, 2026",
-    note: "Featured Paper",
-  },
-  {
-    title: "A Second Publication or Working Paper Title",
-    authors: "Collaborator One, Ryan [Last Name], and Collaborator Two",
-    venue: "Conference, Journal, or Preprint, 2025",
-    note: "Oral Presentation",
-  },
-  {
-    title: "An Earlier Publication That Shows the Development of Your Work",
-    authors: "Ryan [Last Name] and Collaborator One",
-    venue: "Conference or Journal Name, 2024",
-    note: "Published",
+    venueLabel: "CCS '26",
+    title:
+      "Long-Range Indirect Control-Flow Prediction in Stripped Binaries via Dual Virtual Hubs and Multi-Task Graph Learning",
+    authors: [
+      "Kun Liu",
+      "Zhengming Ding",
+      "Chenke Luo",
+      "Tianyi Xu",
+      "Zizhan Zheng",
+      "Haotian Zhang",
+      "Jiang Ming",
+    ],
+    venue: "to appear in ACM Conference on Computer and Communications Security",
+    venueDate: "November 2026",
   },
 ];
 
@@ -96,68 +92,125 @@ export default function Home() {
           <p className="affiliation">Department of Computer Science</p>
           <p className="affiliation">Tulane University</p>
 
-          <div className="profile-links" aria-label="Academic profile links">
-            <a href="https://github.com/Ryan-hub-bit" target="_blank" rel="noreferrer">
-              GitHub
+          <div className="social-links" aria-label="Profile links">
+            <a
+              className="social-link"
+              href="https://www.linkedin.com/in/kun-liu-6b2397192/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn profile"
+              title="LinkedIn"
+            >
+              <span className="social-icon linkedin-icon" aria-hidden="true">
+                in
+              </span>
             </a>
-            <a href="#">Google Scholar</a>
-            <a href="#">CV</a>
-            <a href="mailto:your.email@university.edu">Email</a>
+            <a
+              className="social-link"
+              href="https://github.com/Ryan-hub-bit"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub profile"
+              title="GitHub"
+            >
+              <span className="social-icon github-icon" aria-hidden="true" />
+            </a>
+            <a
+              className="social-link"
+              href="mailto:kliu14@tulane.edu"
+              aria-label="Email Kun Liu"
+              title="Email"
+            >
+              <Mail className="social-icon" aria-hidden="true" />
+            </a>
+            <span
+              className="social-link social-link-disabled"
+              role="img"
+              aria-label="CV coming soon"
+              title="CV coming soon"
+            >
+              <FileText className="social-icon" aria-hidden="true" />
+            </span>
           </div>
         </div>
 
-        <div className="portrait" role="img" aria-label="Placeholder for Ryan's portrait">
-          <span>YOUR PHOTO</span>
-        </div>
+        <img
+          className="portrait"
+          src="/profile.jpeg"
+          alt="Portrait of Kun Liu"
+          width="220"
+          height="220"
+        />
       </header>
 
       <div className="content-column">
         <section className="introduction" id="about" aria-label="Biography">
           <p>
-            I am a Ph.D. student at <strong>Tulane University</strong>.
-            My work focuses on <strong>[your broad research area]</strong>, with
-            particular interests in [research interest one], [research interest
-            two], and [research interest three].
-          </p>
-          <p>
-            I study [the central question that motivates your research] using
-            methods from [field or method one] and [field or method two]. My goal
-            is to develop research that is theoretically grounded, methodologically
-            careful, and useful beyond the academy. I welcome conversations and
-            collaborations around these topics.
+            I am a Ph.D. student in{" "}
+            <a href="https://sse.tulane.edu/cs" target="_blank" rel="noreferrer">
+              Computer Science
+            </a>{" "}
+            at Tulane University, advised by{" "}
+            <a href="https://cs.tulane.edu/~jming/" target="_blank" rel="noreferrer">
+              Dr. Jiang Ming
+            </a>
+            . Prior to joining Tulane, I received my master&apos;s degree from{" "}
+            <a href="https://isi.jhu.edu/" target="_blank" rel="noreferrer">
+              Johns Hopkins University
+            </a>
+            . My research focuses on developing AI techniques for software
+            security, particularly binary code analysis. I am always open to
+            research collaborations and discussions—please feel free to contact
+            me at <a href="mailto:kliu14@tulane.edu">kliu14@tulane.edu</a>.
           </p>
         </section>
 
         <section className="content-section" id="news">
           <h2>News</h2>
-          <ul className="news-list">
-            {news.map((item) => (
-              <li key={item.date}>
-                <span>[{item.date}]</span> {item.text}
-              </li>
-            ))}
-          </ul>
+          <div
+            className={`news-scroll${news.length > 3 ? " is-scrollable" : ""}`}
+            tabIndex={news.length > 3 ? 0 : undefined}
+            aria-label={news.length > 3 ? "Scrollable news list" : undefined}
+          >
+            <ul className="news-list">
+              {news.map((item) => (
+                <li key={`${item.date}-${item.text}`}>
+                  <span>[{item.date}]</span> {item.text}
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         <section className="content-section" id="publications">
           <div className="section-heading">
             <h2>Publications</h2>
-            <a href="#">Full list on Google Scholar</a>
           </div>
 
           <div className="publication-list">
             {publications.map((publication) => (
               <article className="publication" key={publication.title}>
                 <div className="paper-details">
-                  <h3>{publication.title}</h3>
-                  <p>{publication.authors}</p>
-                  <p className="venue">{publication.venue}</p>
-                  <div className="paper-actions" aria-label={`Links for ${publication.title}`}>
-                    <a href="#">PDF</a>
-                    <a href="#">Code</a>
-                    <a href="#">Project</a>
-                    <em>{publication.note}</em>
-                  </div>
+                  <h3>
+                    <span className="publication-tag">[{publication.venueLabel}]</span>
+                    {" "}
+                    {publication.title}
+                  </h3>
+                  <p className="authors">
+                    {publication.authors.map((author, index) => (
+                      <span key={author}>
+                        {author === "Kun Liu" ? <strong>{author}</strong> : author}
+                        {index < publication.authors.length - 2
+                          ? ", "
+                          : index === publication.authors.length - 2
+                            ? ", and "
+                            : ""}
+                      </span>
+                    ))}
+                  </p>
+                  <p className="venue">
+                    <em>{publication.venue}</em>, {publication.venueDate}
+                  </p>
                 </div>
               </article>
             ))}
@@ -166,32 +219,24 @@ export default function Home() {
 
         <section className="content-section service" id="service">
           <h2>Academic Service</h2>
-
-          <h3>Conference Reviewers</h3>
-          <ul>
-            <li>Conference Name — Reviewer, 2025–2026</li>
-            <li>Conference Name — Reviewer, 2024–2025</li>
-          </ul>
-
-          <h3>Journal Reviewers</h3>
-          <ul>
-            <li>Journal Name — Reviewer, 2025–Present</li>
-            <li>Journal Name — Reviewer, 2024–Present</li>
-          </ul>
-
-          <h3>Teaching &amp; Mentoring</h3>
-          <ul>
-            <li>Course or mentoring role, University / Institution, 2025</li>
+          <ul className="experience-list">
+            <li>
+              <strong>Research Assistant</strong>, Department of Computer Science,
+              Tulane University — Jan 2023 – Present
+            </li>
+            <li>
+              <strong>Course Assistant</strong>, Computer Networks, Johns Hopkins
+              University — Sep 2020 – Dec 2020
+            </li>
+            <li>
+              <strong>External Reviewer</strong>: USENIX Security Symposium
+              2024–2026; PLDI 2026
+            </li>
           </ul>
         </section>
 
         <footer>
           <p>Last updated July 2026</p>
-          <p>
-            <a href="https://github.com/Ryan-hub-bit" target="_blank" rel="noreferrer">
-              github.com/Ryan-hub-bit
-            </a>
-          </p>
         </footer>
       </div>
     </main>

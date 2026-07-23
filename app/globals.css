@@ -174,45 +174,81 @@ strong { color: #333; font-weight: 600; }
   font-size: 1.08rem;
 }
 
-.profile-links {
+.social-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 9px 18px;
-  margin-top: 24px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.86rem;
-  font-weight: 600;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.profile-links a:not(:last-child)::after {
-  content: "·";
-  display: inline-block;
-  margin-left: 18px;
-  color: #aaa;
+.social-link {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #f8fbfa;
+  color: var(--heading);
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+a.social-link:hover {
+  transform: translateY(-1px);
+  background: var(--tulane-green);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 5px 14px rgba(0, 70, 56, 0.16);
+}
+
+a.social-link:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
+.social-link-disabled {
+  color: #8a9994;
+  cursor: default;
+  opacity: 0.72;
+}
+
+.social-icon {
+  display: block;
+  width: 19px;
+  height: 19px;
+}
+
+.linkedin-icon {
+  color: currentColor;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 19px;
+  text-align: center;
+}
+
+.github-icon {
+  background: currentColor;
+  mask-image: url("https://cdn.simpleicons.org/github");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
 }
 
 .portrait {
+  display: block;
   width: 220px;
   aspect-ratio: 1 / 1;
   justify-self: end;
-  display: grid;
-  place-items: center;
   overflow: hidden;
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 38%, #f5f7f8 0 23%, transparent 24%),
-    radial-gradient(circle at 50% 100%, #c8d7df 0 43%, transparent 44%),
-    #e7ecef;
   border: 1px solid #dde4e7;
-}
-
-.portrait span {
-  margin-top: 100px;
-  color: #708693;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  object-fit: cover;
+  object-position: center 35%;
 }
 
 .content-column { margin-left: 0; }
@@ -234,7 +270,32 @@ h2 {
   line-height: 1.25;
 }
 
-.news-list,
+.news-scroll {
+  max-width: 860px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f9fbfa;
+}
+
+.news-scroll.is-scrollable {
+  max-height: 8.5rem;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-color: #94afa6 transparent;
+  scrollbar-gutter: stable;
+}
+
+.news-scroll.is-scrollable:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
+.news-list {
+  margin: 0;
+  padding: 13px 22px 5px 39px;
+}
+
 .service ul {
   margin: 0;
   padding-left: 25px;
@@ -277,37 +338,30 @@ h2 {
   font-size: 0.97rem;
 }
 
+.authors strong {
+  color: var(--heading);
+  font-weight: 700;
+}
+
 .paper-details .venue {
   color: #555;
-  font-style: italic;
 }
 
-.paper-actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 7px;
-}
+.paper-details .venue em { font-style: italic; }
 
-.paper-actions a {
-  padding: 1px 7px;
-  border: 1px solid #777;
-  color: #333;
+.publication-tag {
+  display: inline-block;
+  margin: 0 8px 3px 0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--tulane-green);
+  color: #fff;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
   line-height: 1.45;
-}
-
-.paper-actions a:hover {
-  background: #f1f4f5;
-  text-decoration: none;
-}
-
-.paper-actions em {
-  margin-left: 3px;
-  color: #bb5c55;
-  font-size: 0.82rem;
+  vertical-align: 0.12em;
 }
 
 .service h3 {
@@ -366,8 +420,6 @@ footer p { margin: 0; }
   .profile { grid-template-columns: 1fr; gap: 30px; margin-bottom: 42px; }
   .portrait { grid-row: 2; justify-self: start; width: 165px; }
   .identity h1 { font-size: 1.95rem; }
-  .profile-links { gap: 8px 14px; }
-  .profile-links a:not(:last-child)::after { margin-left: 14px; }
   .section-heading { align-items: flex-start; flex-direction: column; gap: 0; }
   footer { flex-direction: column; gap: 4px; }
 }
