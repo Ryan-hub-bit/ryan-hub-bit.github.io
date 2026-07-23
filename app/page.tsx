@@ -87,6 +87,7 @@ export default function Home() {
 
       <header className="profile" aria-labelledby="profile-name">
         <div className="identity">
+          <p className="name-pronunciation">Pronounced “Koon Lee-oh”</p>
           <h1 id="profile-name">Kun Liu [刘坤]</h1>
           <p className="position">Ph.D. Student</p>
           <p className="affiliation">Department of Computer Science</p>
