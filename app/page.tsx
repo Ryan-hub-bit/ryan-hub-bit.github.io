@@ -38,10 +38,10 @@ export default function Home() {
   return (
     <main className="page-shell">
       <nav className="top-nav" aria-label="Page navigation">
-        <a href="#about">About</a>
-        <a href="#news">News</a>
-        <a href="#publications">Publications</a>
-        <a href="#service">Service</a>
+        <a href="#about"><span className="nav-icon" aria-hidden="true">A</span><span>About</span></a>
+        <a href="#news"><span className="nav-icon" aria-hidden="true">N</span><span>News</span></a>
+        <a href="#publications"><span className="nav-icon" aria-hidden="true">P</span><span>Publications</span></a>
+        <a href="#service"><span className="nav-icon" aria-hidden="true">S</span><span>Service</span></a>
       </nav>
 
       <header className="profile" aria-labelledby="profile-name">
