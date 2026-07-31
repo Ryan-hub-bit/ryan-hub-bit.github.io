@@ -116,14 +116,14 @@ export default function Home() {
             >
               <span className="social-icon github-icon" aria-hidden="true" />
             </a>
-            <a
+            <span
               className="social-link"
-              href="mailto:kliu14@tulane.edu"
-              aria-label="Email Kun Liu"
-              title="Email"
+              role="img"
+              aria-label="Email address listed in biography"
+              title="Email address listed below"
             >
               <Mail className="social-icon" aria-hidden="true" />
-            </a>
+            </span>
             <span
               className="social-link social-link-disabled"
               role="img"
@@ -179,8 +179,7 @@ export default function Home() {
               BJTU
             </a>
             . I am always open to research collaborations and discussions—please
-            feel free to contact me at{" "}
-            <a href="mailto:kliu14@tulane.edu">kliu14@tulane.edu</a>.
+            feel free to contact me at kliu14 [AT] tulane.edu.
           </p>
         </section>
 
