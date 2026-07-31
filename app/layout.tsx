@@ -3,18 +3,18 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ryan-hub-bit.github.io"),
-  title: "Ryan — Academic Homepage",
-  description: "Research, publications, news, and academic service of Ryan.",
+  title: "Kun Liu — Academic Homepage",
+  description: "Research, publications, news, and academic service of Kun Liu.",
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "Ryan — Academic Homepage",
-    description: "Research, publications, news, and academic service of Ryan.",
-    images: [{ url: "/og.png", width: 1536, height: 1024, alt: "Ryan Academic Homepage" }],
+    title: "Kun Liu — Academic Homepage",
+    description: "Research, publications, news, and academic service of Kun Liu.",
+    images: [{ url: "/og.png", width: 1536, height: 1024, alt: "Kun Liu Academic Homepage" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ryan — Academic Homepage",
-    description: "Research, publications, news, and academic service of Ryan.",
+    title: "Kun Liu — Academic Homepage",
+    description: "Research, publications, news, and academic service of Kun Liu.",
     images: ["/og.png"],
   },
 };
