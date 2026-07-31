@@ -178,8 +178,8 @@ export default function Home() {
             <a href="https://en.bjtu.edu.cn/" target="_blank" rel="noreferrer">
               BJTU
             </a>
-            . I am always open to research collaborations and discussions—please
-            feel free to contact me at{" "}
+            . I am always open to research collaborations and discussions. If you are
+            interested in my work, please feel free to reach out at{" "}
             <span className="email-address">kliu14 [AT] tulane.edu</span>.
           </p>
         </section>
