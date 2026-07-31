@@ -151,18 +151,31 @@ export default function Home() {
             <a href="https://sse.tulane.edu/cs" target="_blank" rel="noreferrer">
               Computer Science
             </a>{" "}
-            at Tulane University, advised by{" "}
+            at{" "}
+            <a href="https://tulane.edu/" target="_blank" rel="noreferrer">
+              Tulane University
+            </a>
+            , advised by{" "}
             <a href="https://cs.tulane.edu/~jming/" target="_blank" rel="noreferrer">
               Dr. Jiang Ming
             </a>
-            . Prior to joining Tulane, I received my master&apos;s degree from{" "}
+            . I also work closely with{" "}
+            <a href="https://allanding.github.io/" target="_blank" rel="noreferrer">
+              Dr. Zhengming (Allan) Ding
+            </a>{" "}
+            on the AI aspects of my research. My research focuses on developing AI
+            techniques for software security, particularly binary code analysis.
+            Prior to joining Tulane, I received my master&apos;s degree from{" "}
             <a href="https://isi.jhu.edu/" target="_blank" rel="noreferrer">
               Johns Hopkins University
+            </a>{" "}
+            and my bachelor&apos;s degree from{" "}
+            <a href="https://en.bjtu.edu.cn/" target="_blank" rel="noreferrer">
+              Beijing Jiaotong University (BJTU)
             </a>
-            . My research focuses on developing AI techniques for software
-            security, particularly binary code analysis. I am always open to
-            research collaborations and discussions—please feel free to contact
-            me at <a href="mailto:kliu14@tulane.edu">kliu14@tulane.edu</a>.
+            . I am always open to research collaborations and discussions—please
+            feel free to contact me at{" "}
+            <a href="mailto:kliu14@tulane.edu">kliu14@tulane.edu</a>.
           </p>
         </section>
 
