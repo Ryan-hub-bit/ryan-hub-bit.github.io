@@ -163,19 +163,21 @@ export default function Home() {
             <a href="https://allanding.github.io/" target="_blank" rel="noreferrer">
               Dr. Zhengming (Allan) Ding
             </a>{" "}
-            on the AI aspects of my research. I also collaborate closely with{" "}
+            on the AI aspects of my research and with{" "}
             <a href="https://haotianzhang.com/" target="_blank" rel="noreferrer">
               Dr. Haotian Zhang
             </a>{" "}
-            on the security aspects of my research. My research focuses on developing
-            AI techniques for software security, particularly binary code analysis.
+            on its security aspects. My research develops AI-based
+            approaches to binary program analysis, with an emphasis on instruction-level
+            representation learning and the recovery of program semantics and control
+            flow from stripped binaries.
             Prior to joining Tulane, I received my master&apos;s degree from{" "}
             <a href="https://isi.jhu.edu/" target="_blank" rel="noreferrer">
               Johns Hopkins University
             </a>{" "}
             and my bachelor&apos;s degree from{" "}
             <a href="https://en.bjtu.edu.cn/" target="_blank" rel="noreferrer">
-              Beijing Jiaotong University (BJTU)
+              BJTU
             </a>
             . I am always open to research collaborations and discussions—please
             feel free to contact me at{" "}
