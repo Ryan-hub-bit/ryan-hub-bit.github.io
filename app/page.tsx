@@ -168,8 +168,9 @@ export default function Home() {
               Dr. Haotian Zhang
             </a>{" "}
             on its security aspects. My research focuses on{" "}
-            <em>AI-based program analysis for software security</em>, spanning practical
-            applications and foundational research on{" "}
+            <em>AI-based program analysis for software security</em>, spanning{" "}
+            <span className="research-underline">practical applications</span> and
+            foundational research on{" "}
             <span className="research-underline">
               learning-based binary code representation
             </span>.
