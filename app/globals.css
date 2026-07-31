@@ -269,6 +269,13 @@ a.social-link:focus-visible {
 }
 
 .introduction p { margin: 0 0 14px; }
+.research-keyword {
+  color: var(--heading);
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
 .email-address { white-space: nowrap; }
 
 .content-section { margin-top: 42px; }
