@@ -270,7 +270,6 @@ a.social-link:focus-visible {
 
 .introduction p { margin: 0 0 14px; }
 .research-keyword {
-  color: var(--heading);
   font-style: italic;
   text-decoration: underline;
   text-decoration-thickness: 1px;
