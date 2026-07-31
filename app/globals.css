@@ -269,6 +269,7 @@ a.social-link:focus-visible {
 }
 
 .introduction p { margin: 0 0 14px; }
+.email-address { white-space: nowrap; }
 
 .content-section { margin-top: 42px; }
 

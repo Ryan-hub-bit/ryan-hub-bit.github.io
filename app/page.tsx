@@ -179,7 +179,8 @@ export default function Home() {
               BJTU
             </a>
             . I am always open to research collaborations and discussions—please
-            feel free to contact me at kliu14 [AT] tulane.edu.
+            feel free to contact me at{" "}
+            <span className="email-address">kliu14 [AT] tulane.edu</span>.
           </p>
         </section>
 
