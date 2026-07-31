@@ -168,7 +168,8 @@ export default function Home() {
               Dr. Haotian Zhang
             </a>{" "}
             on its security aspects. My research focuses on AI-based program analysis
-            for software and systems security.
+            for software security, bridging practical security applications with
+            foundational research in learning algorithms and binary code representations.
             Prior to joining Tulane, I received my master&apos;s degree from{" "}
             <a href="https://isi.jhu.edu/" target="_blank" rel="noreferrer">
               Johns Hopkins University
