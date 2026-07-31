@@ -269,8 +269,7 @@ a.social-link:focus-visible {
 }
 
 .introduction p { margin: 0 0 14px; }
-.research-keyword {
-  font-style: italic;
+.research-underline {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
