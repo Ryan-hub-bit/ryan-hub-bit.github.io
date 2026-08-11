@@ -163,11 +163,7 @@ export default function Home() {
             <a href="https://allanding.github.io/" target="_blank" rel="noreferrer">
               Dr. Zhengming (Allan) Ding
             </a>{" "}
-            on the AI aspects of my research and with{" "}
-            <a href="https://haotianzhang.com/" target="_blank" rel="noreferrer">
-              Dr. Haotian Zhang
-            </a>{" "}
-            on its security aspects. My research focuses on{" "}
+            on the AI aspects of my research. My research focuses on{" "}
             <em>AI-based program analysis for software security</em>, spanning{" "}
             <span className="research-underline">practical applications</span> and
             foundational research on{" "}
