@@ -163,12 +163,13 @@ export default function Home() {
             <a href="https://allanding.github.io/" target="_blank" rel="noreferrer">
               Dr. Zhengming (Allan) Ding
             </a>{" "}
-            on the AI aspects of my research. My research focuses on{" "}
+            on the AI aspects of my research. My research focuses on advancing the learning
+            foundations of{" "}
             <em>AI-based program analysis for software security</em>, spanning{" "}
             <span className="research-underline">practical applications</span> and
-            foundational research on{" "}
+            foundational research in{" "}
             <span className="research-underline">
-              learning-based binary code representation
+              learning algorithms and binary code representations
             </span>.
             Prior to joining Tulane, I received my master&apos;s degree from{" "}
             <a href="https://isi.jhu.edu/" target="_blank" rel="noreferrer">
