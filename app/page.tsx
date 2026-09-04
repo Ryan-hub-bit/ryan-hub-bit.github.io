@@ -250,7 +250,7 @@ export default function Home() {
             </li>
             <li>
               <strong>External Reviewer</strong>: USENIX Security Symposium
-              2024–2026; PLDI 2026
+              2024–2027; PLDI 2026
             </li>
           </ul>
         </section>
