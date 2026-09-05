@@ -135,13 +135,15 @@ export default function Home() {
           </div>
         </div>
 
-        <img
-          className="portrait"
-          src="/profile.png"
-          alt="Portrait of Kun Liu"
-          width="250"
-          height="250"
-        />
+        <div className="portrait">
+          <img
+            className="portrait-image"
+            src="/profile.png"
+            alt="Portrait of Kun Liu"
+            width="250"
+            height="250"
+          />
+        </div>
       </header>
 
       <div className="content-column">
