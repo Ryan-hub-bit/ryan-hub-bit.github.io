@@ -139,8 +139,8 @@ export default function Home() {
           className="portrait"
           src="/profile.png"
           alt="Portrait of Kun Liu"
-          width="220"
-          height="220"
+          width="250"
+          height="250"
         />
       </header>
 
