@@ -137,7 +137,7 @@ export default function Home() {
 
         <img
           className="portrait"
-          src="/profile.jpeg"
+          src="/profile.png"
           alt="Portrait of Kun Liu"
           width="220"
           height="220"
