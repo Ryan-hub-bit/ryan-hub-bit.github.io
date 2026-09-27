@@ -6,15 +6,23 @@ import {
   Newspaper,
   UserRound,
 } from "lucide-react";
+import NewsList from "./news-list";
 
 const news = [
   {
     date: "Jul. 2026",
+    dateTime: "2026-07",
     text: "One paper was directly accepted to ACM CCS 2026 (Cycle 2).",
   },
   {
     date: "Jul. 2026",
+    dateTime: "2026-07",
     text: "One poster was accepted to USENIX Security 2026. See you in Baltimore!",
+  },
+  {
+    date: "Apr. 2026",
+    dateTime: "2026-04",
+    text: "One poster was accepted to the PLDI Student Research Competition (SRC). See you in Denver!",
   },
 ];
 
@@ -88,7 +96,10 @@ export default function Home() {
       <header className="profile" aria-labelledby="profile-name">
         <div className="identity">
           <p className="name-pronunciation">Pronounced “Koon Lee-oh”</p>
-          <h1 id="profile-name">Kun Liu [刘坤]</h1>
+          <h1 id="profile-name">
+            Kun Liu{" "}
+            <span className="chinese-name" lang="zh-Hans">刘坤</span>
+          </h1>
           <p className="position">Ph.D. Student</p>
           <p className="affiliation">Department of Computer Science</p>
           <p className="affiliation">Tulane University</p>
@@ -188,20 +199,8 @@ export default function Home() {
         </section>
 
         <section className="content-section" id="news">
-          <h2>News</h2>
-          <div
-            className={`news-scroll${news.length > 3 ? " is-scrollable" : ""}`}
-            tabIndex={news.length > 3 ? 0 : undefined}
-            aria-label={news.length > 3 ? "Scrollable news list" : undefined}
-          >
-            <ul className="news-list">
-              {news.map((item) => (
-                <li key={`${item.date}-${item.text}`}>
-                  <span>[{item.date}]</span> {item.text}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <h2 id="news-heading">News</h2>
+          <NewsList items={news} />
         </section>
 
         <section className="content-section" id="publications">
@@ -258,7 +257,7 @@ export default function Home() {
         </section>
 
         <footer>
-          <p>Last updated July 2026</p>
+          <p>Last updated September 2026</p>
         </footer>
       </div>
     </main>
