@@ -176,14 +176,10 @@ export default function Home() {
             <a href="https://allanding.github.io/" target="_blank" rel="noreferrer">
               Dr. Zhengming (Allan) Ding
             </a>{" "}
-            on the AI aspects of my research. My research focuses on advancing the learning
-            foundations of{" "}
+            on the AI aspects of my research. My research focuses on{" "}
             <em>AI-based program analysis for software security</em>, spanning{" "}
-            <span className="research-underline">practical applications</span> and
-            foundational research in{" "}
-            <span className="research-underline">
-              learning algorithms and binary code representations
-            </span>.
+            <span className="research-underline">algorithmic foundations</span> and{" "}
+            <span className="research-underline">agentic AI systems</span>.
             Prior to joining Tulane, I received my master&apos;s degree from{" "}
             <a href="https://isi.jhu.edu/" target="_blank" rel="noreferrer">
               Johns Hopkins University
@@ -196,6 +192,17 @@ export default function Home() {
             interested in my work, please feel free to reach out at{" "}
             <span className="email-address">kliu14 [AT] tulane.edu</span>.
           </p>
+          <div className="research-interests">
+            <h2>Recent Research Interests</h2>
+            <ul>
+              <li>
+                <strong>AI algorithms</strong> for software security and binary analysis.
+              </li>
+              <li>
+                <strong>Agentic AI systems</strong> for software security and binary analysis.
+              </li>
+            </ul>
+          </div>
         </section>
 
         <section className="content-section" id="news">

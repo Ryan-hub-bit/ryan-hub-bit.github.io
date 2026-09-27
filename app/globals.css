@@ -319,6 +319,18 @@ a.social-link:focus-visible {
 }
 .email-address { white-space: nowrap; }
 
+.research-interests { margin-top: 24px; }
+.research-interests h2 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+}
+.research-interests ul {
+  margin: 0;
+  padding-left: 25px;
+  list-style: disc;
+}
+.research-interests li + li { margin-top: 6px; }
+
 .content-section { margin-top: 42px; }
 
 h2 {
