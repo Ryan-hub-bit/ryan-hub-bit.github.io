@@ -158,7 +158,8 @@ export default function Home() {
       </header>
 
       <div className="content-column">
-        <section className="introduction" id="about" aria-label="Biography">
+        <section className="introduction" id="about" aria-labelledby="about-heading">
+          <h2 id="about-heading">About Me</h2>
           <p>
             I am a Ph.D. student in{" "}
             <a href="https://sse.tulane.edu/cs" target="_blank" rel="noreferrer">
