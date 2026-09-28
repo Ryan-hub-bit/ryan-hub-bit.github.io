@@ -196,10 +196,10 @@ export default function Home() {
             <h2>Recent Research Interests</h2>
             <ul>
               <li>
-                <strong>AI algorithms</strong> for software security and binary analysis.
+                <strong>AI-driven program analysis</strong> for software security and binary analysis.
               </li>
               <li>
-                <strong>Agentic AI systems</strong> for software security and binary analysis.
+                <strong>Agentic AI systems</strong> for software engineering and security automation.
               </li>
             </ul>
           </div>
