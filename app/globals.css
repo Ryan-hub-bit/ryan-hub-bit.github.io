@@ -311,7 +311,10 @@ a.social-link:focus-visible {
   font-size: 1.08rem;
 }
 
-.introduction p { margin: 0 0 14px; }
+.introduction p {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+}
 .research-underline {
   text-decoration: underline;
   text-decoration-thickness: 1px;
