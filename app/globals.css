@@ -322,6 +322,18 @@ a.social-link:focus-visible {
 }
 .email-address { white-space: nowrap; }
 
+.opportunity-notice {
+  margin: 24px 0;
+  padding: 18px 22px;
+  border: 1px solid #e8d8ad;
+  border-left: 4px solid #b48b32;
+  border-radius: 8px;
+  background: #fff8e8;
+  color: #574626;
+}
+.opportunity-notice p { margin: 0; }
+.opportunity-notice strong { color: #574626; }
+
 .research-interests { margin-top: 24px; }
 .research-interests h2 {
   margin: 0 0 10px;

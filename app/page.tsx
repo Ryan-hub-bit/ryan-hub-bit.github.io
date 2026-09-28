@@ -194,6 +194,13 @@ export default function Home() {
             interested in my work, please feel free to reach out at{" "}
             <span className="email-address">kliu14 [AT] tulane.edu</span>.
           </p>
+          <aside className="opportunity-notice" aria-label="Academic job market availability">
+            <p>
+              I will be on the academic job market this year, seeking{" "}
+              <strong>postdoctoral and tenure-track assistant professor positions</strong>.
+              Please feel free to reach out about potential opportunities!
+            </p>
+          </aside>
           <div className="research-interests">
             <h2>Recent Research Interests</h2>
             <ul>
