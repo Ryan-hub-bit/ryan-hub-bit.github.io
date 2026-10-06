@@ -45,6 +45,29 @@ const publications = [
   },
 ];
 
+const posters = [
+  {
+    venueLabel: "USENIX Security '26",
+    title:
+      "Addresses Are Not Tokens: Grounding Numeric Operands in Learned Binary Analysis",
+    author: "Kun Liu",
+    affiliation: "Tulane University",
+    venue: "USENIX Security 2026 Poster Session",
+    venueDate: "August 2026",
+    url: "https://www.usenix.org/conference/usenixsecurity26/poster-session",
+  },
+  {
+    venueLabel: "PLDI '26 SRC",
+    title:
+      "Towards Taming Indirect Control Flow in Binaries with Multi-Task Graph Learning",
+    author: "Kun Liu",
+    affiliation: "Tulane University",
+    venue: "PLDI Student Research Competition",
+    venueDate: "June 2026",
+    url: "https://pldi26.sigplan.org/details/pldi-2026-src/16/Towards-Taming-Indirect-Control-Flow-in-Binaries-with-Multi-Task-Graph-Learning",
+  },
+];
+
 export default function Home() {
   return (
     <main className="page-shell">
@@ -254,6 +277,34 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="content-section" id="posters" aria-labelledby="posters-heading">
+          <div className="section-heading">
+            <h2 id="posters-heading">Posters</h2>
+          </div>
+
+          <div className="publication-list">
+            {posters.map((poster) => (
+              <article className="publication" key={poster.title}>
+                <div className="paper-details">
+                  <h3>
+                    <span className="publication-tag">[{poster.venueLabel}]</span>
+                    {" "}
+                    <a href={poster.url} target="_blank" rel="noreferrer">
+                      {poster.title}
+                    </a>
+                  </h3>
+                  <p className="authors">
+                    <strong>{poster.author}</strong>, <em>{poster.affiliation}</em>
+                  </p>
+                  <p className="venue">
+                    <em>{poster.venue}</em>, {poster.venueDate}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="content-section service" id="service">
           <h2>Academic Service</h2>
           <ul className="experience-list">
@@ -273,7 +324,7 @@ export default function Home() {
         </section>
 
         <footer>
-          <p>Last updated September 2026</p>
+          <p>Last updated October 2026</p>
         </footer>
       </div>
     </main>
