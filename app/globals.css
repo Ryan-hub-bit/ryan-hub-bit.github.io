@@ -423,6 +423,11 @@ h2 {
   border-bottom: 1px solid #e7e7e7;
 }
 
+#posters .publication:not(:last-child) {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+}
+
 .paper-details h3 {
   margin: 0 0 5px;
   color: var(--link);
