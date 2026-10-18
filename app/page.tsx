@@ -12,7 +12,7 @@ const news = [
   {
     date: "Jul. 2026",
     dateTime: "2026-07",
-    text: "One paper was directly accepted to ACM CCS 2026 (Cycle 2).",
+    text: "One paper was directly accepted to ACM CCS 2026 (Cycle B).",
   },
   {
     date: "Jul. 2026",
@@ -42,6 +42,13 @@ const publications = [
     ],
     venue: "to appear in ACM Conference on Computer and Communications Security",
     venueDate: "November 2026",
+    acceptance: {
+      cycle: "Cycle B",
+      // Counted from https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html.
+      accepted: 295,
+      // Submission count supplied by the site owner; not independently verified.
+      submissions: 2188,
+    },
   },
 ];
 
@@ -271,6 +278,12 @@ export default function Home() {
                   <p className="venue">
                     <em>{publication.venue}</em>, {publication.venueDate}
                   </p>
+                  {publication.acceptance && (
+                    <p className="acceptance-statistics">
+                      {publication.acceptance.cycle}: {publication.acceptance.accepted}/{publication.acceptance.submissions}
+                      {" = "}{(publication.acceptance.accepted / publication.acceptance.submissions * 100).toFixed(2)}%
+                    </p>
+                  )}
                 </div>
               </article>
             ))}
