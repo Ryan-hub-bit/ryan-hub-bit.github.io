@@ -201,6 +201,7 @@ strong { color: #333; font-weight: 600; }
 }
 
 .position,
+.profile-email,
 .affiliation {
   margin: 0 0 3px;
   font-size: 1.08rem;

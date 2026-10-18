@@ -131,6 +131,7 @@ export default function Home() {
             <span className="chinese-name" lang="zh-Hans">刘坤</span>
           </h1>
           <p className="position">Ph.D. Student</p>
+          <p className="profile-email email-address">kliu14 [AT] tulane.edu</p>
           <p className="affiliation">Department of Computer Science</p>
           <p className="affiliation">Tulane University</p>
 
