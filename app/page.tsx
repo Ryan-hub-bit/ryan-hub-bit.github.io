@@ -2,7 +2,6 @@ import {
   BookOpenText,
   FileText,
   Handshake,
-  Mail,
   Newspaper,
   UserRound,
 } from "lucide-react";
@@ -158,14 +157,6 @@ export default function Home() {
             >
               <span className="social-icon github-icon" aria-hidden="true" />
             </a>
-            <span
-              className="social-link"
-              role="img"
-              aria-label="Email address listed in biography"
-              title="Email address listed below"
-            >
-              <Mail className="social-icon" aria-hidden="true" />
-            </span>
             <span
               className="social-link social-link-disabled"
               role="img"
