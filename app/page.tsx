@@ -340,6 +340,33 @@ export default function Home() {
 
         <footer>
           <p>Last updated October 2026</p>
+          <div className="visitor-map" aria-label="Visitor map">
+            <a
+              className="visitor-map-link"
+              href="https://info.flagcounter.com/FwqY"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="View public visitor statistics on Flag Counter"
+            >
+              <img
+                src="https://s05.flagcounter.com/map/FwqY/size_s/txt_005F4A/border_FFFFFF/pageviews_0/viewers_0/flags_0/"
+                alt="World map showing visitors by country and region"
+                width="400"
+                height="205"
+                decoding="async"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </a>
+            <p className="visitor-map-caption">
+              <a href="https://info.flagcounter.com/FwqY" target="_blank" rel="noreferrer">
+                Visitor statistics
+              </a>
+              {" · "}
+              <a href="https://www.flagcounter.com/privacy.html" target="_blank" rel="noreferrer">
+                Privacy
+              </a>
+            </p>
+          </div>
         </footer>
       </div>
     </main>

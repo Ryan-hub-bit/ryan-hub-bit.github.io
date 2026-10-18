@@ -476,8 +476,9 @@ h2 {
 
 footer {
   display: flex;
-  justify-content: space-between;
-  gap: 24px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
   margin-top: 64px;
   padding-top: 18px;
   border-top: 1px solid var(--line);
@@ -487,6 +488,28 @@ footer {
 }
 
 footer p { margin: 0; }
+
+.visitor-map {
+  width: 300px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.visitor-map-link { display: block; }
+.visitor-map-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+}
+.visitor-map-link:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 4px;
+}
+.visitor-map .visitor-map-caption {
+  margin-top: 8px;
+  font-size: 0.7rem;
+}
 
 @media (max-width: 820px) {
   .page-shell { width: min(720px, calc(100% - 32px)); padding: 26px 36px 56px; }
@@ -524,5 +547,5 @@ footer p { margin: 0; }
   .identity h1 { font-size: 1.95rem; }
   .news-list li { grid-template-columns: 1fr; gap: 3px; padding: 12px 16px; }
   .section-heading { align-items: flex-start; flex-direction: column; gap: 0; }
-  footer { flex-direction: column; gap: 4px; }
+  footer { gap: 12px; }
 }
