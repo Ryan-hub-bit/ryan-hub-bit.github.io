@@ -46,6 +46,8 @@ const publications = [
       cycle: "Cycle B",
       // Direct-acceptance count supplied by the site owner.
       directAcceptances: 107,
+      // Counted from https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html.
+      overallAcceptances: 295,
       // Submission count supplied by the site owner; not independently verified.
       submissions: 2188,
     },
@@ -283,6 +285,7 @@ export default function Home() {
                       Directly accepted ({publication.acceptance.cycle}{"; "}
                       {publication.acceptance.directAcceptances}/{publication.acceptance.submissions}
                       {" = "}{(publication.acceptance.directAcceptances / publication.acceptance.submissions * 100).toFixed(2)}%)
+                      {"; overall acceptance rate: "}{(publication.acceptance.overallAcceptances / publication.acceptance.submissions * 100).toFixed(2)}%.
                     </p>
                   )}
                 </div>
