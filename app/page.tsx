@@ -168,6 +168,13 @@ export default function Home() {
           </div>
         </div>
 
+        <aside className="opportunity-notice" aria-label="Academic job market availability">
+          <p>
+            I am seeking{" "}
+            <strong>postdoctoral and tenure-track assistant professor positions</strong>.
+          </p>
+        </aside>
+
         <div className="portrait">
           <img
             className="portrait-image"
@@ -183,7 +190,7 @@ export default function Home() {
         <section className="introduction" id="about" aria-labelledby="about-heading">
           <h2 id="about-heading">About Me</h2>
           <p>
-            I am a Ph.D. student in{" "}
+            I am a final-year Ph.D. student in{" "}
             <a href="https://sse.tulane.edu/cs" target="_blank" rel="noreferrer">
               Computer Science
             </a>{" "}
@@ -200,15 +207,14 @@ export default function Home() {
               Dr. Zhengming (Allan) Ding
             </a>{" "}
             on the AI aspects of my research. My research focuses on{" "}
-            <em>AI-based program analysis for software security</em>, spanning{" "}
-            <span className="research-underline">learning-based analysis techniques</span> and{" "}
-            <span className="research-underline">agentic AI systems</span>, with broader
-            applications to software engineering.
-            Prior to joining Tulane, I briefly worked at{" "}
+            <span className="research-underline">AI-driven</span> and{" "}
+            <span className="research-underline">agentic approaches</span> at the
+            intersection of software security, program analysis, and software engineering.
+            Prior to joining Tulane, I worked at{" "}
             <a href="https://www.tencent.com/" target="_blank" rel="noreferrer">
               Tencent
-            </a>
-            . I received my master&apos;s degree from{" "}
+            </a>{" "}
+            for one year. I received my master&apos;s degree from{" "}
             <a href="https://isi.jhu.edu/" target="_blank" rel="noreferrer">
               Johns Hopkins University
             </a>{" "}
@@ -216,18 +222,10 @@ export default function Home() {
             <a href="https://en.bjtu.edu.cn/" target="_blank" rel="noreferrer">
               Beijing Jiaotong University
             </a>
-            . I am always open to research collaborations and discussions. If you are
-            interested in my research or would like to invite me to review a manuscript
-            in my areas of expertise, please feel free to contact me at{" "}
-            <span className="email-address">kliu14 [AT] tulane.edu</span>.
+            . I welcome research collaborations, discussions, and peer-review
+            invitations from anyone;{" "}
+            <span className="contact-invitation">please drop me an email.</span>
           </p>
-          <aside className="opportunity-notice" aria-label="Academic job market availability">
-            <p>
-              I will be on the academic job market this year, seeking{" "}
-              <strong>postdoctoral and tenure-track assistant professor positions</strong>.
-              Please feel free to reach out about potential opportunities!
-            </p>
-          </aside>
           <div className="research-interests">
             <h2>Recent Research Interests</h2>
             <ul>
