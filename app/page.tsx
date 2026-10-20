@@ -204,8 +204,11 @@ export default function Home() {
             <span className="research-underline">learning-based analysis techniques</span> and{" "}
             <span className="research-underline">agentic AI systems</span>, with broader
             applications to software engineering.
-            Prior to joining Tulane, I briefly worked at Tencent. I received my
-            master&apos;s degree from{" "}
+            Prior to joining Tulane, I briefly worked at{" "}
+            <a href="https://www.tencent.com/" target="_blank" rel="noreferrer">
+              Tencent
+            </a>
+            . I received my master&apos;s degree from{" "}
             <a href="https://isi.jhu.edu/" target="_blank" rel="noreferrer">
               Johns Hopkins University
             </a>{" "}
@@ -214,7 +217,8 @@ export default function Home() {
               Beijing Jiaotong University
             </a>
             . I am always open to research collaborations and discussions. If you are
-            interested in my work, please feel free to reach out at{" "}
+            interested in my research or would like to invite me to review a manuscript
+            in my areas of expertise, please feel free to contact me at{" "}
             <span className="email-address">kliu14 [AT] tulane.edu</span>.
           </p>
           <aside className="opportunity-notice" aria-label="Academic job market availability">
