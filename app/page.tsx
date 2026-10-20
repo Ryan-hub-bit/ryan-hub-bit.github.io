@@ -204,7 +204,8 @@ export default function Home() {
             <span className="research-underline">learning-based analysis techniques</span> and{" "}
             <span className="research-underline">agentic AI systems</span>, with broader
             applications to software engineering.
-            Prior to joining Tulane, I received my master&apos;s degree from{" "}
+            Prior to joining Tulane, I briefly worked at Tencent. I received my
+            master&apos;s degree from{" "}
             <a href="https://isi.jhu.edu/" target="_blank" rel="noreferrer">
               Johns Hopkins University
             </a>{" "}
