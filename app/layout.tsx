@@ -3,9 +3,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ryan-hub-bit.github.io"),
-  title: "Kun Liu",
+  title: "Kun Liu | Welcome!",
   description: "Research, publications, news, and academic service of Kun Liu.",
-  icons: { icon: "/favicon.svg" },
+  icons: { icon: { url: "/profile.png", type: "image/png" } },
   openGraph: {
     title: "Kun Liu — Academic Homepage",
     description: "Research, publications, news, and academic service of Kun Liu.",

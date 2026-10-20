@@ -170,8 +170,7 @@ export default function Home() {
 
         <aside className="opportunity-notice" aria-label="Academic job market availability">
           <p>
-            I am seeking{" "}
-            <strong>postdoctoral and tenure-track assistant professor positions</strong>.
+            I am actively seeking postdoctoral and tenure-track assistant professor positions.
           </p>
         </aside>
 
@@ -180,8 +179,8 @@ export default function Home() {
             className="portrait-image"
             src="/profile.png"
             alt="Portrait of Kun Liu"
-            width="250"
-            height="250"
+            width="200"
+            height="200"
           />
         </div>
       </header>
@@ -204,17 +203,18 @@ export default function Home() {
             </a>
             . I also work closely with{" "}
             <a href="https://allanding.github.io/" target="_blank" rel="noreferrer">
-              Dr. Zhengming (Allan) Ding
+              Dr. Zhengming Ding
             </a>{" "}
             on the AI aspects of my research. My research focuses on{" "}
             <span className="research-underline">AI-driven</span> and{" "}
             <span className="research-underline">agentic approaches</span> at the
-            intersection of software security, program analysis, and software engineering.
-            Prior to joining Tulane, I worked at{" "}
+            intersection of <em>software security</em>, <em>program analysis</em>, and{" "}
+            <em>software engineering</em>.
+            Prior to joining Tulane, I briefly worked at{" "}
             <a href="https://www.tencent.com/" target="_blank" rel="noreferrer">
               Tencent
-            </a>{" "}
-            for one year. I received my master&apos;s degree from{" "}
+            </a>
+            . I received my master&apos;s degree from{" "}
             <a href="https://isi.jhu.edu/" target="_blank" rel="noreferrer">
               Johns Hopkins University
             </a>{" "}
