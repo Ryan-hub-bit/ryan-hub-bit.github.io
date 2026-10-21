@@ -360,7 +360,7 @@ export default function Home() {
             </li>
             <li>
               Course Assistant, Computer Networks, Johns Hopkins
-              University — Sep 2020 – Dec 2020
+              University — Fall 2020
             </li>
             <li>
               External Reviewer: USENIX Security Symposium
