@@ -355,6 +355,10 @@ export default function Home() {
               Tulane University — Jan 2023 – Present
             </li>
             <li>
+              Teaching Assistant, Language-Based Security, Tulane University
+              {" — Spring 2026 & Fall 2026"}
+            </li>
+            <li>
               Course Assistant, Computer Networks, Johns Hopkins
               University — Sep 2020 – Dec 2020
             </li>
