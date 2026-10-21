@@ -70,8 +70,8 @@ const publications = [
     venueDate: "November 2026",
     acceptance: {
       cycle: "Cycle B",
-      // Direct-acceptance count supplied by the site owner.
-      directAcceptances: 107,
+      // Count supplied by the site owner: 107 direct acceptances + 76 with shepherding.
+      directAcceptances: 183,
       // Submission count supplied by the site owner; not independently verified.
       submissions: 2188,
     },
