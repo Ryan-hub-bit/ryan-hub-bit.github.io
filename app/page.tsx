@@ -305,7 +305,7 @@ export default function Home() {
                       <span className="acceptance-statistics">
                         {" (Direct acceptance rate: "}
                         <strong>
-                          {(publication.acceptance.directAcceptances / publication.acceptance.submissions * 100).toFixed(2)}%
+                          {(publication.acceptance.directAcceptances / publication.acceptance.submissions * 100).toFixed(1)}%
                         </strong>
                         {" = "}{publication.acceptance.directAcceptances}/{publication.acceptance.submissions.toLocaleString("en-US")}
                         {publication.acceptance.cycle && <> ({publication.acceptance.cycle})</>}
