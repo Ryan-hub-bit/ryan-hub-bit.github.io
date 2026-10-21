@@ -9,6 +9,11 @@ import NewsList from "./news-list";
 
 const news = [
   {
+    date: "Oct. 2026",
+    dateTime: "2026-10",
+    text: "Three papers were accepted to ICSE 2027, including one as first author and one as co-first author.",
+  },
+  {
     date: "Jul. 2026",
     dateTime: "2026-07",
     text: "One paper was directly accepted to ACM CCS 2026 (Cycle B).",
@@ -299,7 +304,9 @@ export default function Home() {
                     {publication.acceptance && (
                       <span className="acceptance-statistics">
                         {" (Direct acceptance rate: "}
-                        {(publication.acceptance.directAcceptances / publication.acceptance.submissions * 100).toFixed(2)}%
+                        <strong>
+                          {(publication.acceptance.directAcceptances / publication.acceptance.submissions * 100).toFixed(2)}%
+                        </strong>
                         {" = "}{publication.acceptance.directAcceptances}/{publication.acceptance.submissions.toLocaleString("en-US")}
                         {publication.acceptance.cycle && <> ({publication.acceptance.cycle})</>}
                         {")"}
@@ -344,15 +351,15 @@ export default function Home() {
           <h2>Academic Service</h2>
           <ul className="experience-list">
             <li>
-              <strong>Research Assistant</strong>, Department of Computer Science,
+              Research Assistant, Department of Computer Science,
               Tulane University — Jan 2023 – Present
             </li>
             <li>
-              <strong>Course Assistant</strong>, Computer Networks, Johns Hopkins
+              Course Assistant, Computer Networks, Johns Hopkins
               University — Sep 2020 – Dec 2020
             </li>
             <li>
-              <strong>External Reviewer</strong>: USENIX Security Symposium
+              External Reviewer: USENIX Security Symposium
               2024–2027; PLDI 2026
             </li>
           </ul>
