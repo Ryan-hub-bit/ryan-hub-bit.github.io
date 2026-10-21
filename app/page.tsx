@@ -46,9 +46,9 @@ const publications = [
       "Jiang Ming",
     ],
     venue: "Proceedings of the 49th IEEE/ACM International Conference on Software Engineering",
-    // Conference location: https://conf.researchr.org/home/icse-2027
+    // Conference dates and location: https://conf.researchr.org/home/icse-2027
     venueLocation: "Dublin, Ireland",
-    venueDate: "2027",
+    venueDate: "April 25–May 1, 2027",
     acceptance: {
       // Initial direct acceptances, excluding major-revision decisions, from the owner's acceptance notice.
       directAcceptances: 119,
@@ -69,9 +69,9 @@ const publications = [
       "Jiang Ming",
     ],
     venue: "Proceedings of the 33rd ACM Conference on Computer and Communications Security",
-    // Conference location: https://www.sigsac.org/ccs/CCS2026/
+    // Conference dates and location: https://www.sigsac.org/ccs/CCS2026/
     venueLocation: "The Hague, the Netherlands",
-    venueDate: "2026",
+    venueDate: "November 15–19, 2026",
     acceptance: {
       cycle: "Cycle B",
       // Count supplied by the site owner: 107 direct acceptances + 76 with shepherding.
