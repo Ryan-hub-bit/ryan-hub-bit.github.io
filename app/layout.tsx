@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ryan-hub-bit.github.io"),
   title: "Kun Liu | Welcome!",
   description: "Research, publications, news, and academic service of Kun Liu.",
-  icons: { icon: { url: "/profile.png", type: "image/png" } },
+  icons: { icon: { url: "/blank-icon.svg", type: "image/svg+xml" } },
   openGraph: {
     title: "Kun Liu — Academic Homepage",
     description: "Research, publications, news, and academic service of Kun Liu.",
