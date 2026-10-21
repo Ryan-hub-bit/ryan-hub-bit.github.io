@@ -27,6 +27,28 @@ const news = [
 
 const publications = [
   {
+    venueLabel: "ICSE '27",
+    title:
+      "Beyond Tokens: NumAnchor for Address-Grounded Numeric Operand Representation in Assembly Language Models",
+    authors: [
+      "Kun Liu",
+      "Keith Mitchell",
+      "Xin Hu",
+      "Jiangcheng Yu",
+      "Chenke Luo",
+      "Zhengming Ding",
+      "Haotian Zhang",
+      "Jiang Ming",
+    ],
+    venue: "Proceedings of the 49th IEEE/ACM International Conference on Software Engineering",
+    venueDate: "2027",
+    acceptance: {
+      // Initial direct acceptances, excluding major-revision decisions, from the owner's acceptance notice.
+      directAcceptances: 119,
+      submissions: 2375,
+    },
+  },
+  {
     venueLabel: "CCS '26",
     title:
       "Long-Range Indirect Control-Flow Prediction in Stripped Binaries via Dual Virtual Hubs and Multi-Task Graph Learning",
@@ -258,26 +280,29 @@ export default function Home() {
                     {" "}
                     {publication.title}
                   </h3>
-                  <p className="authors">
-                    {publication.authors.map((author, index) => (
-                      <span key={author}>
-                        {author === "Kun Liu" ? <strong>{author}</strong> : author}
-                        {index < publication.authors.length - 2
-                          ? ", "
-                          : index === publication.authors.length - 2
-                            ? ", and "
-                            : ""}
-                      </span>
-                    ))}
-                  </p>
+                  {publication.authors.length > 0 && (
+                    <p className="authors">
+                      {publication.authors.map((author, index) => (
+                        <span key={author}>
+                          {author === "Kun Liu" ? <strong>{author}</strong> : author}
+                          {index < publication.authors.length - 2
+                            ? ", "
+                            : index === publication.authors.length - 2
+                              ? ", and "
+                              : ""}
+                        </span>
+                      ))}
+                    </p>
+                  )}
                   <p className="venue">
                     To appear in <em>{publication.venue}</em>, {publication.venueDate}
                     {publication.acceptance && (
                       <span className="acceptance-statistics">
                         {" (Direct acceptance rate: "}
                         {(publication.acceptance.directAcceptances / publication.acceptance.submissions * 100).toFixed(2)}%
-                        {" = "}{publication.acceptance.directAcceptances}/{publication.acceptance.submissions}
-                        {" ("}{publication.acceptance.cycle}{"))"}
+                        {" = "}{publication.acceptance.directAcceptances}/{publication.acceptance.submissions.toLocaleString("en-US")}
+                        {publication.acceptance.cycle && <> ({publication.acceptance.cycle})</>}
+                        {")"}
                       </span>
                     )}.
                   </p>
