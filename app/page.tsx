@@ -11,7 +11,7 @@ const news = [
   {
     date: "Oct. 2026",
     dateTime: "2026-10",
-    text: "Three papers were accepted to ICSE 2027, including one as first author and one as co-first author.",
+    text: "One paper was directly accepted to ICSE 2027.",
   },
   {
     date: "Jul. 2026",
