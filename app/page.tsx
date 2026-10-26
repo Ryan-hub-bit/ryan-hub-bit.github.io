@@ -367,15 +367,18 @@ export default function Home() {
           <h2 id="invited-talks-heading">Invited Talks</h2>
           <ul className="compact-entry-list">
             <li>
+              <span className="entry-title">
+                Building More Reliable Program Maps from Stripped Binaries
+              </span>
+              {" — "}
               <a
-                className="entry-title"
                 href="https://rstcon.org/2026/talks#icflownet-building-more-reliable-program-maps-from-stripped-binaries"
                 target="_blank"
                 rel="noreferrer"
               >
-                Building More Reliable Program Maps from Stripped Binaries
+                RSTCON
               </a>
-              {" — RSTCON, Oct. 2026"}
+              {", Oct. 2026"}
             </li>
           </ul>
         </section>
