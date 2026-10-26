@@ -374,7 +374,7 @@ h2 {
   margin: 0 0 10px;
   color: var(--title);
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.25;
 }
 
@@ -469,8 +469,6 @@ h2 {
   text-wrap: pretty;
 }
 
-.paper-details h3 a { color: inherit; }
-
 .compact-entry-list {
   margin: 0;
   padding-left: 24px;
@@ -481,13 +479,6 @@ h2 {
 
 .compact-entry-list li + li { margin-top: 6px; }
 .compact-entry-list .entry-title { color: var(--title); }
-.compact-entry-list a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: #aaa;
-  text-underline-offset: 3px;
-}
-.compact-entry-list a:hover { text-decoration-color: currentColor; }
 
 .paper-details p {
   margin: 0 0 3px;
