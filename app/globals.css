@@ -14,6 +14,7 @@
   --tulane-green: #005f4a;
   --tulane-green-dark: #004638;
   --heading: #005f4a;
+  --title: #262626;
   --link: #00745d;
   --muted: #777;
   --line: #d7e2de;
@@ -158,7 +159,10 @@ strong { color: #333; font-weight: 600; }
 #news,
 #publications,
 #posters,
-#service {
+#invited-talks,
+#awards,
+#service,
+#teaching {
   scroll-margin-top: 70px;
 }
 
@@ -367,14 +371,21 @@ a.social-link:focus-visible {
 
 h2 {
   margin: 0 0 6px;
-  color: var(--heading);
-  font-size: 1.5rem;
+  color: var(--title);
+  font-size: 1.3rem;
+  font-weight: 700;
   line-height: 1.25;
 }
 
 .news-feed {
   font-size: 0.96rem;
   line-height: 1.45;
+}
+
+.news-feed strong,
+.compact-entry-list strong {
+  color: var(--title);
+  font-weight: 700;
 }
 
 .news-list {
@@ -415,12 +426,14 @@ h2 {
 .news-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
 .news-empty { margin: 6px 0 0; color: var(--muted); font-size: 0.88rem; }
 
-.service ul {
+.service ul,
+.teaching-list {
   margin: 0;
   padding-left: 25px;
 }
 
-.service li { margin-bottom: 8px; }
+.service li,
+.teaching-list li { margin-bottom: 8px; }
 
 .section-heading {
   display: flex;
@@ -449,11 +462,31 @@ h2 {
 
 .paper-details h3 {
   margin: 0 0 5px;
-  color: var(--link);
+  color: var(--title);
   font-size: 1rem;
   line-height: 1.4;
   text-wrap: pretty;
 }
+
+.paper-details h3 a { color: inherit; }
+
+.compact-entry-list {
+  margin: 0;
+  padding-left: 24px;
+  list-style: disc;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.compact-entry-list li + li { margin-top: 6px; }
+.compact-entry-list .entry-title { color: var(--title); }
+.compact-entry-list a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #aaa;
+  text-underline-offset: 3px;
+}
+.compact-entry-list a:hover { text-decoration-color: currentColor; }
 
 .paper-details p {
   margin: 0 0 3px;
@@ -487,13 +520,18 @@ h2 {
   vertical-align: 0.12em;
 }
 
-.service h3 {
-  margin: 19px 0 5px;
-  color: var(--heading);
-  font-size: 1.08rem;
+.service li,
+.teaching-list li { font-size: 0.98rem; }
+
+.teaching-institution {
+  margin: 0 0 5px;
+  color: var(--ink);
+  font-size: 0.98rem;
+  font-weight: 400;
 }
 
-.service li { font-size: 0.98rem; }
+.teaching-group + .teaching-group { margin-top: 14px; }
+.teaching-list { list-style: disc; }
 
 footer {
   display: flex;

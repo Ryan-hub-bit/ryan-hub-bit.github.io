@@ -7,9 +7,39 @@ type NewsItem = {
   date: string;
   dateTime: string;
   text: string;
+  emphasis?: string;
+  link?: {
+    text: string;
+    url: string;
+  };
 };
 
 const VISIBLE_ITEMS = 3;
+
+function NewsContent({ item }: { item: NewsItem }) {
+  const emphasisIndex = item.emphasis ? item.text.indexOf(item.emphasis) : -1;
+
+  return (
+    <span>
+      {item.emphasis && emphasisIndex >= 0 ? (
+        <>
+          {item.text.slice(0, emphasisIndex)}
+          <strong>{item.emphasis}</strong>
+          {item.text.slice(emphasisIndex + item.emphasis.length)}
+        </>
+      ) : item.text}
+      {item.link && (
+        <>
+          {" "}
+          <a href={item.link.url} target="_blank" rel="noreferrer">
+            {item.link.text}
+          </a>
+          .
+        </>
+      )}
+    </span>
+  );
+}
 
 export default function NewsList({ items }: { items: NewsItem[] }) {
   const [expanded, setExpanded] = useState(false);
@@ -27,7 +57,7 @@ export default function NewsList({ items }: { items: NewsItem[] }) {
         {recentItems.map((item) => (
           <li key={`${item.dateTime}-${item.text}`}>
             <time dateTime={item.dateTime}>[{item.date}]</time>
-            <span>{item.text}</span>
+            <NewsContent item={item} />
           </li>
         ))}
       </ul>
@@ -37,7 +67,7 @@ export default function NewsList({ items }: { items: NewsItem[] }) {
             {earlierItems.map((item) => (
               <li key={`${item.dateTime}-${item.text}`}>
                 <time dateTime={item.dateTime}>[{item.date}]</time>
-                <span>{item.text}</span>
+                <NewsContent item={item} />
               </li>
             ))}
           </ul>

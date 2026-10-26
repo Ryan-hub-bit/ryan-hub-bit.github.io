@@ -11,12 +11,24 @@ const news = [
   {
     date: "Oct. 2026",
     dateTime: "2026-10",
+    text: "I won 1st place in the Ph.D. Student Research Competition at",
+    emphasis: "1st place",
+    link: {
+      text: "RSTCON 2026",
+      url: "https://rstcon.org/2026",
+    },
+  },
+  {
+    date: "Oct. 2026",
+    dateTime: "2026-10",
     text: "One paper was directly accepted to ICSE 2027.",
+    emphasis: "directly accepted",
   },
   {
     date: "Jul. 2026",
     dateTime: "2026-07",
     text: "One paper was directly accepted to ACM CCS 2026 (Cycle B).",
+    emphasis: "directly accepted",
   },
   {
     date: "Jul. 2026",
@@ -71,7 +83,7 @@ const publications = [
     acceptance: {
       cycle: "Cycle B",
       // Direct-acceptance count supplied by the site owner.
-      directAcceptances: 107,
+      directAcceptances: 183,
       // Submission count supplied by the site owner; not independently verified.
       submissions: 2188,
     },
@@ -234,7 +246,7 @@ export default function Home() {
             </a>{" "}
             on the AI aspects of my research. My research focuses on{" "}
             <span className="research-underline">AI-driven</span> and{" "}
-            <span className="research-underline">agentic approaches</span> at the
+            <span className="research-underline">agentic system</span> at the
             intersection of <em>software security</em>, <em>program analysis</em>, and{" "}
             <em>software engineering</em>.
             Prior to joining Tulane, I briefly worked at{" "}
@@ -305,7 +317,7 @@ export default function Home() {
                       <span className="acceptance-statistics">
                         {" (Direct acceptance rate: "}
                         <strong>
-                          {(publication.acceptance.directAcceptances / publication.acceptance.submissions * 100).toFixed(2)}%
+                          {(publication.acceptance.directAcceptances / publication.acceptance.submissions * 100).toFixed(1)}%
                         </strong>
                         {" = "}{publication.acceptance.directAcceptances}/{publication.acceptance.submissions.toLocaleString("en-US")}
                         {publication.acceptance.cycle && <> ({publication.acceptance.cycle})</>}
@@ -347,22 +359,66 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="content-section service" id="service">
-          <h2>Academic Service</h2>
+        <section className="content-section" id="invited-talks" aria-labelledby="invited-talks-heading">
+          <h2 id="invited-talks-heading">Invited Talks</h2>
+          <ul className="compact-entry-list">
+            <li>
+              <a
+                className="entry-title"
+                href="https://rstcon.org/2026/talks#icflownet-building-more-reliable-program-maps-from-stripped-binaries"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Building More Reliable Program Maps from Stripped Binaries
+              </a>
+              {" — RSTCON, Oct. 2026"}
+            </li>
+          </ul>
+        </section>
+
+        <section className="content-section" id="awards" aria-labelledby="awards-heading">
+          <h2 id="awards-heading">Awards</h2>
+          <ul className="compact-entry-list">
+            <li>
+              <span className="entry-title"><strong>1st Place</strong> — Ph.D. Student Research Competition</span>
+              {", "}
+              <a href="https://rstcon.org/2026" target="_blank" rel="noreferrer">
+                RSTCON 2026
+              </a>
+              {" (Oct. 2026)"}
+            </li>
+          </ul>
+        </section>
+
+        <section className="content-section teaching" id="teaching" aria-labelledby="teaching-heading">
+          <h2 id="teaching-heading">Teaching</h2>
+          <div className="teaching-group">
+            <h3 className="teaching-institution">Tulane University</h3>
+            <ul className="teaching-list">
+              <li>Language-Based Security (Fall 2026, Spring 2026)</li>
+            </ul>
+          </div>
+          <div className="teaching-group">
+            <h3 className="teaching-institution">Johns Hopkins University</h3>
+            <ul className="teaching-list">
+              <li>Computer Networks, Course Assistant (Fall 2020)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="content-section service" id="service" aria-labelledby="service-heading">
+          <h2 id="service-heading">Academic Service</h2>
           <ul className="experience-list">
             <li>
               Research Assistant, Department of Computer Science,
               Tulane University — Jan 2023 – Present
             </li>
             <li>
-              Course Assistant, Computer Networks, Johns Hopkins
-              University — Sep 2020 – Dec 2020
-            </li>
-            <li>
               External Reviewer: USENIX Security Symposium
               2024–2027; PLDI 2026
             </li>
           </ul>
+
         </section>
 
         <footer>
