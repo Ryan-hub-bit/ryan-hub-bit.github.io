@@ -58,7 +58,9 @@ const publications = [
       "Jiang Ming",
     ],
     venue: "Proceedings of the 49th IEEE/ACM International Conference on Software Engineering",
-    venueDate: "2027",
+    // Conference dates and location: https://conf.researchr.org/home/icse-2027
+    venueLocation: "Dublin, Ireland",
+    venueDate: "April 25–May 1, 2027",
     acceptance: {
       // Initial direct acceptances, excluding major-revision decisions, from the owner's acceptance notice.
       directAcceptances: 119,
@@ -78,11 +80,13 @@ const publications = [
       "Haotian Zhang",
       "Jiang Ming",
     ],
-    venue: "Proceedings of the ACM Conference on Computer and Communications Security",
-    venueDate: "November 2026",
+    venue: "Proceedings of the 33rd ACM Conference on Computer and Communications Security",
+    // Conference dates and location: https://www.sigsac.org/ccs/CCS2026/
+    venueLocation: "The Hague, the Netherlands",
+    venueDate: "November 15–19, 2026",
     acceptance: {
       cycle: "Cycle B",
-      // Direct-acceptance count supplied by the site owner.
+      // Count supplied by the site owner: 107 direct acceptances + 76 with shepherding.
       directAcceptances: 183,
       // Submission count supplied by the site owner; not independently verified.
       submissions: 2188,
@@ -312,14 +316,14 @@ export default function Home() {
                     </p>
                   )}
                   <p className="venue">
-                    To appear in <em>{publication.venue}</em>, {publication.venueDate}
+                    To appear in <em>{publication.venue}</em>, {publication.venueLocation}, {publication.venueDate}
                     {publication.acceptance && (
                       <span className="acceptance-statistics">
-                        {" (Direct acceptance rate: "}
+                        {" (Direct acceptance rate "}
                         <strong>
                           {(publication.acceptance.directAcceptances / publication.acceptance.submissions * 100).toFixed(1)}%
                         </strong>
-                        {" = "}{publication.acceptance.directAcceptances}/{publication.acceptance.submissions.toLocaleString("en-US")}
+                        {"="}{publication.acceptance.directAcceptances}/{publication.acceptance.submissions}
                         {publication.acceptance.cycle && <> ({publication.acceptance.cycle})</>}
                         {")"}
                       </span>
@@ -395,7 +399,7 @@ export default function Home() {
           <div className="teaching-group">
             <h3 className="teaching-institution">Tulane University</h3>
             <ul className="teaching-list">
-              <li>Language-Based Security (Fall 2026, Spring 2026)</li>
+              <li>Language-Based Security, Teaching Assistant (Fall 2026, Spring 2026)</li>
             </ul>
           </div>
           <div className="teaching-group">
@@ -418,7 +422,6 @@ export default function Home() {
               2024–2027; PLDI 2026
             </li>
           </ul>
-
         </section>
 
         <footer>
