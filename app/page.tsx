@@ -211,12 +211,6 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className="opportunity-notice" aria-label="Academic job market availability">
-          <p>
-            I am actively seeking postdoctoral and tenure-track assistant professor positions.
-          </p>
-        </aside>
-
         <div className="portrait">
           <img
             className="portrait-image"
@@ -230,7 +224,14 @@ export default function Home() {
 
       <div className="content-column">
         <section className="introduction" id="about" aria-labelledby="about-heading">
-          <h2 id="about-heading">About Me</h2>
+          <div className="introduction-heading">
+            <aside className="opportunity-notice" aria-label="Academic job market availability">
+              <p>
+                I am actively seeking postdoctoral and tenure-track assistant professor positions.
+              </p>
+            </aside>
+            <h2 id="about-heading">About Me</h2>
+          </div>
           <p>
             I am a final-year Ph.D. student in{" "}
             <a href="https://sse.tulane.edu/cs" target="_blank" rel="noreferrer">
@@ -370,7 +371,7 @@ export default function Home() {
               <span className="entry-title">
                 Building More Reliable Program Maps from Stripped Binaries
               </span>
-              {" — "}
+              {" @ "}
               <a
                 href="https://rstcon.org/2026/talks#icflownet-building-more-reliable-program-maps-from-stripped-binaries"
                 target="_blank"
