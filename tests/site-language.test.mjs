@@ -40,8 +40,8 @@ test("translates every main content section, including the newest remote updates
 
 test("adds the Wuhan University talk after RSTCON in both languages without an inferred date", () => {
   for (const [html, title, institution] of [
-    [en, "Can AI Reverse-Engineer Everything? From Incomplete Program Maps to More Reliable Binary Analysis", "Wuhan University"],
-    [zh, "AI 能逆向一切吗？从不完整的程序地图到更可靠的二进制分析", "武汉大学"],
+    [en, "Can AI Reverse-Engineer Everything? From Incomplete Program Maps to More Reliable Binary Analysis", "School of Cyber Science and Engineering, Wuhan University"],
+    [zh, "AI 能逆向一切吗？从不完整的程序地图到更可靠的二进制分析", "武汉大学国家网络安全学院"],
   ]) {
     const section = main(html).match(/<section[^>]*id="invited-talks"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(section);

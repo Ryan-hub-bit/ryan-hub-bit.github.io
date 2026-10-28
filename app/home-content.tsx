@@ -442,7 +442,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
                 )}
               </span>
               {" @ "}
-              {t("Wuhan University", "武汉大学")}
+              {t("School of Cyber Science and Engineering, Wuhan University", "武汉大学国家网络安全学院")}
             </li>
           </ul>
         </section>
