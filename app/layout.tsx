@@ -14,7 +14,10 @@ export const metadata: Metadata = {
   title: "Kun Liu\u2003|\u2003Welcome!",
   applicationName: "Kun Liu",
   description: "Research, publications, news, and academic service of Kun Liu.",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: { en: "/", "zh-CN": "/zh/", "x-default": "/" },
+  },
   icons: {
     icon: { url: "/portrait-icon.png", type: "image/png", sizes: "96x96" },
   },
@@ -22,6 +25,8 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Kun Liu",
     url: "/",
+    locale: "en_US",
+    alternateLocale: "zh_CN",
     title: "Kun Liu — Academic Homepage",
     description: "Research, publications, news, and academic service of Kun Liu.",
     images: [{ url: "/og.png", width: 1536, height: 1024, alt: "Kun Liu Academic Homepage" }],

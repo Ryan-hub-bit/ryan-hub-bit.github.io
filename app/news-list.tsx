@@ -16,7 +16,7 @@ type NewsItem = {
 
 const VISIBLE_ITEMS = 3;
 
-function NewsContent({ item }: { item: NewsItem }) {
+function NewsContent({ item, language }: { item: NewsItem; language: "en" | "zh" }) {
   const emphasisIndex = item.emphasis ? item.text.indexOf(item.emphasis) : -1;
 
   return (
@@ -34,14 +34,14 @@ function NewsContent({ item }: { item: NewsItem }) {
           <a href={item.link.url} target="_blank" rel="noreferrer">
             {item.link.text}
           </a>
-          .
+          {language === "zh" ? "。" : "."}
         </>
       )}
     </span>
   );
 }
 
-export default function NewsList({ items }: { items: NewsItem[] }) {
+export default function NewsList({ items, language = "en" }: { items: NewsItem[]; language?: "en" | "zh" }) {
   const [expanded, setExpanded] = useState(false);
   const archiveId = useId();
   const sortedItems = useMemo(
@@ -57,7 +57,7 @@ export default function NewsList({ items }: { items: NewsItem[] }) {
         {recentItems.map((item) => (
           <li key={`${item.dateTime}-${item.text}`}>
             <time dateTime={item.dateTime}>[{item.date}]</time>
-            <NewsContent item={item} />
+            <NewsContent item={item} language={language} />
           </li>
         ))}
       </ul>
@@ -67,12 +67,12 @@ export default function NewsList({ items }: { items: NewsItem[] }) {
             {earlierItems.map((item) => (
               <li key={`${item.dateTime}-${item.text}`}>
                 <time dateTime={item.dateTime}>[{item.date}]</time>
-                <NewsContent item={item} />
+                <NewsContent item={item} language={language} />
               </li>
             ))}
           </ul>
         ) : (
-          <p className="news-empty">No earlier news to display.</p>
+          <p className="news-empty">{language === "zh" ? "暂无更早的动态。" : "No earlier news to display."}</p>
         )}
       </div>
       <button
@@ -82,7 +82,7 @@ export default function NewsList({ items }: { items: NewsItem[] }) {
         aria-controls={archiveId}
         onClick={() => setExpanded((current) => !current)}
       >
-        {expanded ? "Less news" : "More news"}
+        {language === "zh" ? (expanded ? "收起动态" : "更多动态") : (expanded ? "Less news" : "More news")}
         <ChevronDown aria-hidden="true" />
       </button>
     </div>
