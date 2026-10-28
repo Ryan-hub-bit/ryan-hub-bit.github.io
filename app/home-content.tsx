@@ -273,7 +273,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
                 专业的博士生，目前处于博士学习的最后一年，导师是
                 <a href="https://cs.tulane.edu/~jming/" target="_blank" rel="noreferrer"> Jiang Ming 博士</a>。
                 我也与<a href="https://allanding.github.io/" target="_blank" rel="noreferrer"> Zhengming Ding 博士</a>
-                在人工智能方向开展紧密合作。我的研究聚焦于<em>软件安全</em>、<em>程序分析</em>与<em>软件工程</em>
+                在人工智能方向开展紧密合作。我的研究聚焦于<em>软件安全</em>、<em>程序分析</em>与<em>软件工程</em>{" "}
                 的交叉领域，探索<span className="research-underline">人工智能驱动的方法</span>与
                 <span className="research-underline">智能体系统</span>。
                 加入杜兰大学之前，我曾在<a href="https://www.tencent.com/" target="_blank" rel="noreferrer">腾讯</a>
