@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   BookOpenText,
   FileText,
@@ -186,7 +185,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               <span>{t("Service", "学术服务")}</span>
             </a>
           </div>
-          <Link
+          <a
             className="language-switch"
             href={isChinese ? "/" : "/zh/"}
             hrefLang={isChinese ? "en" : "zh-CN"}
@@ -195,7 +194,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             title={t("切换到中文", "Switch to English")}
           >
             {isChinese ? "EN" : "中"}
-          </Link>
+          </a>
         </div>
       </nav>
 
