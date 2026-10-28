@@ -443,6 +443,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               </span>
               {" @ "}
               {t("School of Cyber Science and Engineering, Wuhan University", "武汉大学国家网络安全学院")}
+              {t(", Oct. 2026", "，2026 年 10 月")}
             </li>
           </ul>
         </section>
