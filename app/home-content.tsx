@@ -434,6 +434,17 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               </a>
               {t(", Oct. 2026", "，2026 年 10 月")}
             </li>
+            <li>
+              <span className="entry-title">
+                {t(
+                  "Can AI Reverse-Engineer Everything? From Incomplete Program Maps to More Reliable Binary Analysis",
+                  "AI 能逆向一切吗？从不完整的程序地图到更可靠的二进制分析",
+                )}
+              </span>
+              {" @ "}
+              {t("School of Cyber Science and Engineering, Wuhan University", "武汉大学国家网络安全学院")}
+              {t(", Oct. 2026", "，2026 年 10 月")}
+            </li>
           </ul>
         </section>
 

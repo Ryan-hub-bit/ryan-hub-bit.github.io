@@ -38,19 +38,20 @@ test("translates every main content section, including the newest remote updates
   assert.ok(text(en).includes("Teaching"));
 });
 
-test("temporarily omits the Wuhan University talk and keeps RSTCON in both languages", () => {
-  for (const [html, title, date] of [
-    [en, "Building More Reliable Program Maps from Stripped Binaries", "Oct. 2026"],
-    [zh, "从去符号二进制程序中构建更可靠的程序图", "2026 年 10 月"],
+test("lists the Wuhan University school and October 2026 talk after RSTCON in both languages", () => {
+  for (const [html, title, institution, date] of [
+    [en, "Can AI Reverse-Engineer Everything? From Incomplete Program Maps to More Reliable Binary Analysis", "School of Cyber Science and Engineering, Wuhan University", "Oct. 2026"],
+    [zh, "AI 能逆向一切吗？从不完整的程序地图到更可靠的二进制分析", "武汉大学国家网络安全学院", "2026 年 10 月"],
   ]) {
     const section = main(html).match(/<section[^>]*id="invited-talks"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(section);
     const entries = [...section.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((match) => match[1]);
-    assert.equal(entries.length, 1);
+    assert.equal(entries.length, 2);
     assert.ok(entries[0].includes("RSTCON"));
-    assert.ok(entries[0].includes(title));
-    assert.ok(entries[0].includes(date));
-    assert.doesNotMatch(section, /Wuhan|武汉|Can AI Reverse-Engineer Everything|AI 能逆向一切吗/);
+    assert.ok(entries[0].includes("2026"));
+    assert.ok(entries[1].includes(title));
+    assert.ok(entries[1].includes(institution));
+    assert.ok(entries[1].includes(date));
   }
 });
 
