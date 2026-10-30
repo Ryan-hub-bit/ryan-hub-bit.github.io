@@ -90,7 +90,6 @@ const publications = [
       "Long-Range Indirect Control-Flow Prediction in Stripped Binaries via Dual Virtual Hubs and Multi-Task Graph Learning",
     artifact: {
       label: "🎀 ACM Artifact Badges: Available, Functional",
-      url: "https://cs.tulane.edu/~jming/publication/icflownet-ccs26/",
     },
     authors: [
       "Kun Liu",
@@ -372,14 +371,9 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
                     {publication.artifact && (
                       <>
                         {" "}
-                        <a
-                          className="artifact-badge-link"
-                          href={publication.artifact.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <span className="artifact-badge">
                           {publication.artifact.label}
-                        </a>
+                        </span>
                       </>
                     )}
                   </h3>
