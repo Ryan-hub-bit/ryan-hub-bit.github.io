@@ -4,6 +4,8 @@ The shared English and Chinese homepage content is kept in `app/home-content.tsx
 
 The top-right language link switches between the two static pages, so the selected language remains available when the page is refreshed. Chinese content is marked with `lang="zh-CN"`; original English paper titles, author lists, and proceedings names retain `lang="en"`.
 
+News images are stored in `public/news/`. Each news item's `image` contains its path, English description, and original pixel dimensions; `imageAltZh` supplies the Chinese description. The preview button opens a full-image dialog with an actual-size toggle and a link to the original. Only the three newest news items are initially shown; older images appear when More news is expanded. Images in this folder are publicly downloadable, so review screenshots for private information before adding them.
+
 - `Ryan [Full Name]`: full name
 - `your.email@university.edu`: email address
 - `[your current position]`: current role

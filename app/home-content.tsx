@@ -13,6 +13,8 @@ const news = [
     dateTime: "2026-10",
     text: "I won 1st place in the Ph.D. Student Research Competition at",
     emphasis: "1st place",
+    image: { src: "/news/RSTCON.jpg", alt: "RSTCON 2026 first-place certificate", width: 1420, height: 1017 },
+    imageAltZh: "RSTCON 2026 博士生科研竞赛第一名获奖证书",
     zh: { text: "我在博士生科研竞赛中获得第一名，赛事：", emphasis: "第一名" },
     link: {
       text: "RSTCON 2026",
@@ -24,6 +26,8 @@ const news = [
     dateTime: "2026-10",
     text: "One paper was directly accepted to ICSE 2027.",
     emphasis: "directly accepted",
+    image: { src: "/news/ICSE2027.png", alt: "ICSE 2027 acceptance email", width: 2833, height: 735 },
+    imageAltZh: "ICSE 2027 论文录用邮件",
     zh: { text: "一篇论文被 ICSE 2027 直接录用。", emphasis: "直接录用" },
   },
   {
@@ -31,18 +35,24 @@ const news = [
     dateTime: "2026-07",
     text: "One paper was directly accepted to ACM CCS 2026 (Cycle B).",
     emphasis: "directly accepted",
+    image: { src: "/news/CCS2026.png", alt: "ACM CCS 2026 acceptance email", width: 2835, height: 445 },
+    imageAltZh: "ACM CCS 2026 论文录用邮件",
     zh: { text: "一篇论文被 ACM CCS 2026（Cycle B）直接录用。", emphasis: "直接录用" },
   },
   {
     date: "Jul. 2026",
     dateTime: "2026-07",
     text: "One poster was accepted to USENIX Security 2026. See you in Baltimore!",
+    image: { src: "/news/Usenix26.png", alt: "USENIX Security 2026 poster notification email", width: 2821, height: 478 },
+    imageAltZh: "USENIX Security 2026 海报通知邮件",
     zh: { text: "一项海报展示被 USENIX Security 2026 接收。巴尔的摩见！" },
   },
   {
     date: "Apr. 2026",
     dateTime: "2026-04",
     text: "One poster was accepted to the PLDI Student Research Competition (SRC). See you in Denver!",
+    image: { src: "/news/PLDISRC.png", alt: "PLDI 2026 SRC poster acceptance email", width: 2835, height: 475 },
+    imageAltZh: "PLDI 2026 SRC 海报录用邮件",
     zh: { text: "一项海报展示被 PLDI 学生科研竞赛（SRC）接收。丹佛见！" },
   },
 ];
@@ -133,9 +143,10 @@ const posters = [
 export default function HomeContent({ language = "en" }: { language?: "en" | "zh" }) {
   const isChinese = language === "zh";
   const t = (english: string, chinese: string) => isChinese ? chinese : english;
-  const localizedNews = news.map(({ zh, ...item }) => ({
+  const localizedNews = news.map(({ zh, imageAltZh, ...item }) => ({
     ...item,
     ...(isChinese ? zh : {}),
+    image: { ...item.image, alt: isChinese ? imageAltZh : item.image.alt },
     date: isChinese
       ? `${item.dateTime.slice(0, 4)}年${Number(item.dateTime.slice(5))}月`
       : item.date,
