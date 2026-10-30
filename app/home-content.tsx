@@ -43,8 +43,8 @@ const news = [
     date: "Jul. 2026",
     dateTime: "2026-07",
     text: "One poster was accepted to USENIX Security 2026. See you in Baltimore!",
-    image: { src: "/news/Usenix26.png", alt: "USENIX Security 2026 poster notification email", width: 2821, height: 478 },
-    imageAltZh: "USENIX Security 2026 海报通知邮件",
+    image: { src: "/news/Usenix26.png", alt: "USENIX Security 2026 poster acceptance email", width: 3811, height: 570 },
+    imageAltZh: "USENIX Security 2026 海报录用邮件",
     zh: { text: "一项海报展示被 USENIX Security 2026 接收。巴尔的摩见！" },
   },
   {
