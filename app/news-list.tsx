@@ -79,7 +79,7 @@ function NewsContent({ item, language, onPreview }: {
 export default function NewsList({ items, language = "en" }: { items: NewsItem[]; language?: "en" | "zh" }) {
   const [expanded, setExpanded] = useState(false);
   const [activeImage, setActiveImage] = useState<NewsImage | null>(null);
-  const [zoomed, setZoomed] = useState(true);
+  const [zoomed, setZoomed] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const previewTriggerRef = useRef<HTMLButtonElement | null>(null);
@@ -112,7 +112,7 @@ export default function NewsList({ items, language = "en" }: { items: NewsItem[]
 
   function openPreview(image: NewsImage, trigger: HTMLButtonElement) {
     previewTriggerRef.current = trigger;
-    setZoomed(true);
+    setZoomed(false);
     setActiveImage(image);
   }
 
@@ -157,7 +157,7 @@ export default function NewsList({ items, language = "en" }: { items: NewsItem[]
         aria-describedby={imageHintId}
         onClose={() => {
           setActiveImage(null);
-          setZoomed(true);
+          setZoomed(false);
         }}
         onClick={(event) => {
           if (event.target !== event.currentTarget) return;
@@ -223,8 +223,8 @@ export default function NewsList({ items, language = "en" }: { items: NewsItem[]
             </div>
             <p id={imageHintId} className="news-image-hint">
               {language === "zh"
-                ? "默认按原始尺寸显示，可滚动查看细节；关闭“原始尺寸”可适配窗口。按 Esc 键或点击图片框外关闭。"
-                : "Images open at Actual size; scroll to inspect details or turn it off to fit the window. Press Escape or click outside to close."}
+                ? "选择“原始尺寸”后可滚动查看细节。按 Esc 键或点击图片框外关闭。"
+                : "Select Actual size and scroll to inspect details. Press Escape or click outside to close."}
             </p>
           </>
         )}
