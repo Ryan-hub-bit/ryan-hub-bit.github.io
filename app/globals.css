@@ -566,6 +566,16 @@ h2 {
   text-wrap: pretty;
 }
 
+.artifact-badge-link {
+  margin-left: 0.25em;
+  font-size: 0.88em;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.artifact-badge-link:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+
 .compact-entry-list {
   margin: 0;
   padding-left: 24px;
