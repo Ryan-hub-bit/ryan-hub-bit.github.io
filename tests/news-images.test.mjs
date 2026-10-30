@@ -4,10 +4,10 @@ import test from "node:test";
 
 const images = [
   ["RSTCON.jpg", "RSTCON 2026", "RSTCON 2026"],
-  ["ICSE2027.png", "ICSE 2027", "ICSE 2027"],
-  ["CCS2026.png", "ACM CCS 2026", "ACM CCS 2026"],
-  ["Usenix26.png", "USENIX Security 2026", "USENIX Security 2026"],
-  ["PLDISRC.png", "PLDI Student Research Competition", "PLDI 学生科研竞赛"],
+  ["ICSE2027.jpg", "ICSE 2027", "ICSE 2027"],
+  ["CCS2026.jpg", "ACM CCS 2026", "ACM CCS 2026"],
+  ["Usenix26.jpg", "USENIX Security 2026", "USENIX Security 2026"],
+  ["PLDISRC.jpg", "PLDI Student Research Competition", "PLDI 学生科研竞赛"],
 ];
 
 for (const [locale, file, textIndex] of [["English", "index.html", 1], ["Chinese", "zh/index.html", 2]]) {
@@ -25,6 +25,8 @@ for (const [locale, file, textIndex] of [["English", "index.html", 1], ["Chinese
       assert.match(entries[index], /aria-label="(?:View image|查看图片): [^"]+"/);
       assert.match(entries[index], /<img[^>]*alt=""/);
       assert.match(entries[index], /loading="lazy"/);
+      const visibleText = entries[index].replace(/<!--.*?-->|<[^>]+>/g, "");
+      assert.ok(visibleText.includes(locale === "English" ? "View image" : "查看图片"));
     }
     assert.match(section, /aria-expanded="false"/);
     assert.match(section, /<div[^>]*hidden=""/);
