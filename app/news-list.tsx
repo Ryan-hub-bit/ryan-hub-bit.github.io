@@ -35,6 +35,24 @@ function NewsContent({ item, language, onPreview }: {
 
   return (
     <span className="news-entry-content">
+      {itemImage && (
+        <button
+          className="news-thumbnail"
+          type="button"
+          aria-haspopup="dialog"
+          aria-label={`${language === "zh" ? "查看图片" : "View image"}: ${itemImage.alt}`}
+          onClick={(event) => onPreview(itemImage, event.currentTarget)}
+        >
+          <Image
+            className="news-thumbnail-image"
+            src={itemImage.src}
+            alt=""
+            width={itemImage.width}
+            height={itemImage.height}
+            unoptimized
+          />
+        </button>
+      )}
       {item.emphasis && emphasisIndex >= 0 ? (
         <>
           {item.text.slice(0, emphasisIndex)}
@@ -49,27 +67,6 @@ function NewsContent({ item, language, onPreview }: {
             {item.link.text}
           </a>
           {language === "zh" ? "。" : "."}
-        </>
-      )}
-      {itemImage && (
-        <>
-          {" "}
-          <button
-            className="news-thumbnail"
-            type="button"
-            aria-haspopup="dialog"
-            aria-label={`${language === "zh" ? "查看图片" : "View image"}: ${itemImage.alt}`}
-            onClick={(event) => onPreview(itemImage, event.currentTarget)}
-          >
-            <Image
-              className="news-thumbnail-image"
-              src={itemImage.src}
-              alt=""
-              width={itemImage.width}
-              height={itemImage.height}
-              unoptimized
-            />
-          </button>
         </>
       )}
     </span>

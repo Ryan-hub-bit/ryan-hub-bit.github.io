@@ -20,8 +20,15 @@ for (const [locale, file, textIndex] of [["English", "index.html", 1], ["Chinese
     for (const [index, image] of images.entries()) {
       assert.ok(entries[index].includes(image[textIndex]));
       assert.ok(entries[index].includes(`src="/news/${image[0]}"`));
-      const thumbnail = entries[index].match(/(<button[^>]*class="news-thumbnail"[^>]*>)([\s\S]*?)<\/button>/);
+      const entryMarkup = entries[index].replace(/<!--[\s\S]*?-->/g, "").trim();
+      assert.match(entryMarkup, /^<time\b[^>]*>[\s\S]*?<\/time>\s*<span[^>]*class="news-entry-content"[^>]*>/, "The date must remain before the separate news content");
+      const content = entryMarkup.match(/<span[^>]*class="news-entry-content"[^>]*>([\s\S]*)<\/span>$/)?.[1];
+      assert.ok(content, `Missing news-entry-content for ${image[0]}`);
+      const thumbnail = content.match(/(<button[^>]*class="news-thumbnail"[^>]*>)([\s\S]*?)<\/button>/);
       assert.ok(thumbnail, `Missing thumbnail button for ${image[0]}`);
+      assert.ok(content.trimStart().startsWith(thumbnail[0]), "The thumbnail must be first inside news-entry-content");
+      const proseAfterThumbnail = content.slice(content.indexOf(thumbnail[0]) + thumbnail[0].length).replace(/<[^>]+>/g, "").trim();
+      assert.ok(proseAfterThumbnail.includes(image[textIndex]), "The matching news prose must follow the thumbnail");
       assert.match(thumbnail[1], /type="button"/);
       assert.match(thumbnail[1], /aria-haspopup="dialog"/);
       assert.match(thumbnail[1], locale === "English" ? /aria-label="View image: [^"]+"/ : /aria-label="查看图片: [^"]+"/);

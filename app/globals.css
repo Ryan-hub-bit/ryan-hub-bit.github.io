@@ -451,7 +451,7 @@ h2 {
   justify-content: center;
   width: 40px;
   height: 40px;
-  margin: 2px 0 2px 8px;
+  margin: 2px 8px 2px 0;
   padding: 2px;
   overflow: hidden;
   border: 2px solid #6b9b8b;
