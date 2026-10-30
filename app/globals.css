@@ -568,8 +568,8 @@ h2 {
 
 .artifact-badge {
   display: inline-block;
-  max-width: 100%;
-  margin: 0.15em 0 0.15em 0.25em;
+  max-width: calc(100% - 0.85em);
+  margin: 0.15em 0 0.15em 0.85em;
   padding: 2px 7px;
   border-radius: 4px;
   background: #f4ead2;
