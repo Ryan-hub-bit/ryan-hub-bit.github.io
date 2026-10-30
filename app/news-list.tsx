@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, ZoomIn } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 
@@ -69,10 +69,6 @@ function NewsContent({ item, language, onPreview }: {
               height={itemImage.height}
               unoptimized
             />
-            <span className="news-thumbnail-cue">
-              <ZoomIn aria-hidden="true" />
-              {language === "zh" ? "查看图片" : "View image"}
-            </span>
           </button>
         </>
       )}

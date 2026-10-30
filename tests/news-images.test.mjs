@@ -20,13 +20,19 @@ for (const [locale, file, textIndex] of [["English", "index.html", 1], ["Chinese
     for (const [index, image] of images.entries()) {
       assert.ok(entries[index].includes(image[textIndex]));
       assert.ok(entries[index].includes(`src="/news/${image[0]}"`));
-      assert.match(entries[index], /<button[^>]*class="news-thumbnail"[^>]*>/);
-      assert.match(entries[index], /aria-haspopup="dialog"/);
-      assert.match(entries[index], /aria-label="(?:View image|查看图片): [^"]+"/);
-      assert.match(entries[index], /<img[^>]*alt=""/);
-      assert.match(entries[index], /loading="lazy"/);
-      const visibleText = entries[index].replace(/<!--.*?-->|<[^>]+>/g, "");
-      assert.ok(visibleText.includes(locale === "English" ? "View image" : "查看图片"));
+      const thumbnail = entries[index].match(/(<button[^>]*class="news-thumbnail"[^>]*>)([\s\S]*?)<\/button>/);
+      assert.ok(thumbnail, `Missing thumbnail button for ${image[0]}`);
+      assert.match(thumbnail[1], /type="button"/);
+      assert.match(thumbnail[1], /aria-haspopup="dialog"/);
+      assert.match(thumbnail[1], locale === "English" ? /aria-label="View image: [^"]+"/ : /aria-label="查看图片: [^"]+"/);
+      assert.match(thumbnail[2], /<img[^>]*class="news-thumbnail-image"/);
+      assert.match(thumbnail[2], /<img[^>]*alt=""/);
+      assert.match(thumbnail[2], /loading="lazy"/);
+      assert.doesNotMatch(thumbnail[2], /<svg\b/);
+      const thumbnailContents = thumbnail[2].replace(/<!--[\s\S]*?-->/g, "").trim();
+      assert.match(thumbnailContents, /^<img\b[^>]*\/?\s*>$/, "The thumbnail button must contain only its image");
+      const visibleText = thumbnailContents.replace(/<[^>]+>/g, "").trim();
+      assert.equal(visibleText, "", "The thumbnail must not contain a visible text label");
     }
     assert.match(section, /aria-expanded="false"/);
     assert.match(section, /<div[^>]*hidden=""/);
