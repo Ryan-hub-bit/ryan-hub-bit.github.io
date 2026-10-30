@@ -452,18 +452,19 @@ h2 {
   width: 40px;
   height: 40px;
   margin: 2px 0 2px 8px;
-  padding: 3px;
+  padding: 2px;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 2px solid #6b9b8b;
   border-radius: 5px;
-  background: #f8fbfa;
+  background: #e6f0eb;
+  box-shadow: 0 2px 5px rgba(0, 70, 56, 0.18);
   color: var(--link);
   font: inherit;
   white-space: nowrap;
   vertical-align: middle;
   cursor: zoom-in;
 }
-.news-thumbnail:hover { border-color: var(--link); background: var(--paper); box-shadow: 0 2px 6px rgba(0, 70, 56, 0.12); }
+.news-thumbnail:hover { border-color: var(--link); background: #d9e9e1; box-shadow: 0 3px 8px rgba(0, 70, 56, 0.28); }
 .news-thumbnail:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
 .news-thumbnail-image { display: block; width: 32px; height: 32px; object-fit: contain; background: #fff; border-radius: 2px; }
 
