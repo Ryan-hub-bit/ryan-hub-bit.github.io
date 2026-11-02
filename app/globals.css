@@ -203,7 +203,7 @@ strong { color: #333; font-weight: 600; }
   grid-template-areas: "identity portrait";
   align-items: center;
   gap: 36px;
-  margin-bottom: 0;
+  margin-bottom: clamp(20px, 2vw, 24px);
 }
 
 .identity { grid-area: identity; }
@@ -660,7 +660,6 @@ footer p { margin: 0; }
 @media (max-width: 1000px) {
   .profile {
     gap: 16px 32px;
-    margin-bottom: 12px;
   }
 }
 
