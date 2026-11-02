@@ -352,13 +352,7 @@ a.social-link:focus-visible {
   font-size: 1rem;
 }
 
-.introduction-heading {
-  display: grid;
-  grid-template-columns: 1fr;
-  row-gap: 4px;
-  margin-bottom: 0;
-}
-.introduction-heading h2 { margin: 0; }
+.introduction > h2 { margin: 0; }
 
 .introduction p {
   margin: 0 0 8px;
@@ -376,15 +370,6 @@ a.social-link:focus-visible {
 }
 .email-address { white-space: nowrap; }
 .contact-invitation { white-space: nowrap; }
-
-.opportunity-notice {
-  margin: 0;
-  padding: 0;
-  color: #bf4566;
-  text-align: center;
-  transform: translateY(16px);
-}
-.opportunity-notice p { margin: 0; font-size: 1.0625rem; font-weight: 400; line-height: 1.45; }
 
 .research-interests { margin-top: 20px; }
 .research-interests h2 {
@@ -673,7 +658,6 @@ footer p { margin: 0; }
 }
 
 @media (max-width: 1000px) {
-  .opportunity-notice { transform: none; }
   .profile {
     gap: 16px 32px;
     margin-bottom: 12px;

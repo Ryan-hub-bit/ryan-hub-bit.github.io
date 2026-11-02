@@ -29,13 +29,23 @@ test("translates every main content section, including the newest remote updates
   for (const heading of ["关于我", "近期研究方向", "最新动态", "学术论文", "海报展示", "受邀报告", "获奖情况", "教学经历", "学术服务"]) {
     assert.match(zh, new RegExp(`<h2[^>]*>${heading}</h2>`));
   }
-  for (const phrase of ["博士学习的最后一年", "智能体系统", "第一名", "长聘轨助理教授", "最近更新：2026 年 10 月"]) {
+  for (const phrase of ["博士学习的最后一年", "智能体系统", "第一名", "最近更新：2026 年 10 月"]) {
     assert.ok(text(zh).includes(phrase), phrase);
   }
   assert.ok(text(en).includes("I am a final-year Ph.D. student"));
   assert.ok(text(en).includes("I won 1st place"));
   assert.ok(text(en).includes("Invited Talks"));
   assert.ok(text(en).includes("Teaching"));
+});
+
+test("omits the job-market notice from both homepages", () => {
+  for (const [html, notice] of [
+    [en, "I am actively seeking postdoctoral and tenure-track assistant professor positions."],
+    [zh, "我正在积极寻找博士后及长聘轨助理教授职位。"],
+  ]) {
+    assert.ok(!text(html).includes(notice), notice);
+    assert.ok(!main(html).includes("opportunity-notice"));
+  }
 });
 
 test("lists the Wuhan University school and October 2026 talk after RSTCON in both languages", () => {

@@ -271,14 +271,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
 
       <div className="content-column">
         <section className="introduction" id="about" aria-labelledby="about-heading">
-          <div className="introduction-heading">
-            <aside className="opportunity-notice" aria-label={t("Academic job market availability", "学术求职意向")}>
-              <p>
-                {t("I am actively seeking postdoctoral and tenure-track assistant professor positions.", "我正在积极寻找博士后及长聘轨助理教授职位。")}
-              </p>
-            </aside>
-            <h2 id="about-heading">{t("About Me", "关于我")}</h2>
-          </div>
+          <h2 id="about-heading">{t("About Me", "关于我")}</h2>
           <p>
             {isChinese ? (
               <>
