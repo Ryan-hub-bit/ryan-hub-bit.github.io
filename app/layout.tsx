@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { themeInitScript } from "./theme";
 import "./globals.css";
 
 const websiteStructuredData = {
@@ -41,7 +42,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light" suppressHydrationWarning>
+      <head>
+        <script id="theme-init" dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body>
         <script
           type="application/ld+json"

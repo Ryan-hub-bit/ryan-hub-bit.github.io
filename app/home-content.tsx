@@ -6,6 +6,7 @@ import {
   UserRound,
 } from "lucide-react";
 import NewsList from "./news-list";
+import ThemeToggle from "./theme-toggle";
 
 const news = [
   {
@@ -199,16 +200,19 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               <span>{t("Service", "学术服务")}</span>
             </a>
           </div>
-          <a
-            className="language-switch"
-            href={isChinese ? "/" : "/zh/"}
-            hrefLang={isChinese ? "en" : "zh-CN"}
-            lang={isChinese ? "en" : "zh-CN"}
-            aria-label={t("切换到中文", "Switch to English")}
-            title={t("切换到中文", "Switch to English")}
-          >
-            {isChinese ? "EN" : "中"}
-          </a>
+          <div className="nav-actions">
+            <a
+              className="language-switch"
+              href={isChinese ? "/" : "/zh/"}
+              hrefLang={isChinese ? "en" : "zh-CN"}
+              lang={isChinese ? "en" : "zh-CN"}
+              aria-label={t("切换到中文", "Switch to English")}
+              title={t("切换到中文", "Switch to English")}
+            >
+              {isChinese ? "EN" : "中"}
+            </a>
+            <ThemeToggle language={language} />
+          </div>
         </div>
       </nav>
 

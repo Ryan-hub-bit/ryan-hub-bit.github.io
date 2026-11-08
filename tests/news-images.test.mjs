@@ -31,6 +31,7 @@ for (const [locale, file, textIndex] of [["English", "index.html", 1], ["Chinese
       assert.ok(proseAfterThumbnail.includes(image[textIndex]), "The matching news prose must follow the thumbnail");
       assert.match(thumbnail[1], /type="button"/);
       assert.match(thumbnail[1], /aria-haspopup="dialog"/);
+      assert.match(thumbnail[1], locale === "English" ? /title="View full-size image"/ : /title="查看完整图片"/);
       assert.match(thumbnail[1], locale === "English" ? /aria-label="View image: [^"]+"/ : /aria-label="查看图片: [^"]+"/);
       assert.match(thumbnail[2], /<img[^>]*class="news-thumbnail-image"/);
       assert.match(thumbnail[2], /<img[^>]*alt=""/);

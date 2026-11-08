@@ -41,6 +41,7 @@ function NewsContent({ item, language, onPreview }: {
           type="button"
           aria-haspopup="dialog"
           aria-label={`${language === "zh" ? "查看图片" : "View image"}: ${itemImage.alt}`}
+          title={language === "zh" ? "查看完整图片" : "View full-size image"}
           onClick={(event) => onPreview(itemImage, event.currentTarget)}
         >
           <Image
