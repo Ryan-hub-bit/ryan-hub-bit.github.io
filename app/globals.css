@@ -563,13 +563,11 @@ h2 {
 .news-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
 .news-empty { margin: 6px 0 0; color: var(--muted); font-size: 0.88rem; }
 
-.service ul,
 .teaching-list {
   margin: 0;
   padding-left: 25px;
 }
 
-.service li,
 .teaching-list li { margin-bottom: 8px; }
 
 .section-heading {
@@ -663,9 +661,12 @@ h2 {
   vertical-align: 0.12em;
 }
 
-.service li,
 .teaching-list li { font-size: 0.98rem; }
 
+.service-group,
+.teaching-group { margin-inline-start: 1rem; }
+
+.service-category,
 .teaching-institution {
   margin: 0 0 5px;
   color: var(--ink);
@@ -674,6 +675,8 @@ h2 {
 }
 
 .teaching-group + .teaching-group { margin-top: 14px; }
+.service-group + .service-group { margin-top: 10px; }
+.service-group .compact-entry-list li + li { margin-top: 2px; }
 .teaching-list { list-style: disc; }
 
 footer {

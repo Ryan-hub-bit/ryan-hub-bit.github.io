@@ -499,14 +499,28 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
 
         <section className="content-section service" id="service" aria-labelledby="service-heading">
           <h2 id="service-heading">{t("Academic Service", "学术服务")}</h2>
-          <ul className="experience-list">
-            <li>
-              {t("Research Assistant, Department of Computer Science, Tulane University — Jan 2023 – Present", "科研助理，杜兰大学计算机科学系 — 2023 年 1 月至今")}
-            </li>
-            <li>
-              {t("External Reviewer: USENIX Security Symposium 2024–2027; PLDI 2026", "外部审稿人：USENIX Security Symposium 2024–2027；PLDI 2026")}
-            </li>
-          </ul>
+          <div className="service-group">
+            <h3 className="service-category">{t("Poster Committee", "海报评审委员会")}</h3>
+            <ul className="compact-entry-list">
+              <li>NDSS 2027</li>
+            </ul>
+          </div>
+          <div className="service-group">
+            <h3 className="service-category">{t("Program Committee", "程序委员会")}</h3>
+          </div>
+          <div className="service-group">
+            <h3 className="service-category">{t("External Review", "外部审稿")}</h3>
+            <ul className="compact-entry-list">
+              <li>USENIX Security Symposium 2024–2027</li>
+              <li>PLDI 2026</li>
+            </ul>
+          </div>
+          <div className="service-group">
+            <h3 className="service-category">{t("Journal Reviewer", "期刊审稿")}</h3>
+            <ul className="compact-entry-list">
+              <li>Computers &amp; Security 2026</li>
+            </ul>
+          </div>
         </section>
 
         <footer>

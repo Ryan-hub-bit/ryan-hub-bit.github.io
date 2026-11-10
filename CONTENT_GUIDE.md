@@ -15,7 +15,7 @@ News images are stored in `public/news/`. Each news item's `image` contains its 
 - The introductory paragraphs: biography and research interests
 - `news`: recent academic updates
 - `publications`: publication entries
-- The Academic Service section: reviewing, teaching, and mentoring
+- The Academic Service section: poster committees, program committees, external reviews, and journal reviewing, with one list item per venue
 
 ## Portrait and CV
 
