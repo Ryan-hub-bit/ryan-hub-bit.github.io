@@ -104,26 +104,15 @@ test("groups academic service into committees, external reviews, and journal rev
       "[USENIX Sec]: USENIX Security Symposium, 2024, 2025, 2026, 2027",
       "[PLDI]: ACM SIGPLAN Conference on Programming Language Design and Implementation, 2026",
     ]);
-    for (const [entry, abbreviation, yearLinks] of [
-      [rawEntries(poster)[0], "[NDSS]", [
-        ["2027", "https://www.ndss-symposium.org/ndss2027/"],
-      ]],
-      [rawEntries(review)[0], "[USENIX Sec]", [
-        ["2024", "https://www.usenix.org/conference/usenixsecurity24"],
-        ["2025", "https://www.usenix.org/conference/usenixsecurity25"],
-        ["2026", "https://www.usenix.org/conference/usenixsecurity26"],
-        ["2027", "https://www.usenix.org/conference/usenixsecurity27"],
-      ]],
-      [rawEntries(review)[1], "[PLDI]", [
-        ["2026", "https://pldi26.sigplan.org/"],
-      ]],
-    ]) {
-      const boldText = [...entry.matchAll(/<strong\b[^>]*>([\s\S]*?)<\/strong>/g)].map(([, content]) => plain(content));
-      assert.deepEqual(boldText, [abbreviation, ...yearLinks.map(([year]) => year)]);
-      const linkedYears = [...entry.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
-        .map(([, tag, content]) => [plain(content), attributes(tag).href]);
-      assert.deepEqual(linkedYears, yearLinks);
-    }
+    assert.doesNotMatch(review, /<(?:a|strong|b|font)\b/i);
+    assert.doesNotMatch(review, /\bstyle\s*=|\bfont-size\s*[:=]/i);
+
+    const posterEntry = rawEntries(poster)[0];
+    const boldText = [...posterEntry.matchAll(/<strong\b[^>]*>([\s\S]*?)<\/strong>/g)].map(([, content]) => plain(content));
+    assert.deepEqual(boldText, ["[NDSS]", "2027"]);
+    const linkedYears = [...posterEntry.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
+      .map(([, tag, content]) => [plain(content), attributes(tag).href]);
+    assert.deepEqual(linkedYears, [["2027", "https://www.ndss-symposium.org/ndss2027/"]]);
     assert.deepEqual(entries(journal), ["Computers &amp; Security 2026"]);
   }
 });

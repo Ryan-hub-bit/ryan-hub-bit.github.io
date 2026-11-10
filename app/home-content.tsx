@@ -515,15 +515,10 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             <h3 className="service-category">{t("Conference External Reviewer", "会议外部审稿人")}</h3>
             <ul className="compact-entry-list">
               <li lang="en">
-                <strong>[USENIX Sec]</strong>: USENIX Security Symposium, {" "}
-                <a href="https://www.usenix.org/conference/usenixsecurity24" target="_blank" rel="noreferrer"><strong>2024</strong></a>, {" "}
-                <a href="https://www.usenix.org/conference/usenixsecurity25" target="_blank" rel="noreferrer"><strong>2025</strong></a>, {" "}
-                <a href="https://www.usenix.org/conference/usenixsecurity26" target="_blank" rel="noreferrer"><strong>2026</strong></a>, {" "}
-                <a href="https://www.usenix.org/conference/usenixsecurity27" target="_blank" rel="noreferrer"><strong>2027</strong></a>
+                [USENIX Sec]: USENIX Security Symposium, 2024, 2025, 2026, 2027
               </li>
               <li lang="en">
-                <strong>[PLDI]</strong>: ACM SIGPLAN Conference on Programming Language Design and Implementation, {" "}
-                <a href="https://pldi26.sigplan.org/" target="_blank" rel="noreferrer"><strong>2026</strong></a>
+                [PLDI]: ACM SIGPLAN Conference on Programming Language Design and Implementation, 2026
               </li>
             </ul>
           </div>
