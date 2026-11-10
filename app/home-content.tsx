@@ -505,14 +505,26 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
           <div className="service-group">
             <h3 className="service-category">{t("Conference Poster Committee", "会议海报评审委员会")}</h3>
             <ul className="compact-entry-list service-poster-list">
-              <li>NDSS 2027</li>
+              <li lang="en">
+                <strong>[NDSS]</strong>: Network and Distributed System Security Symposium, {" "}
+                <a href="https://www.ndss-symposium.org/ndss2027/" target="_blank" rel="noreferrer"><strong>2027</strong></a>
+              </li>
             </ul>
           </div>
           <div className="service-group">
             <h3 className="service-category">{t("Conference External Reviewer", "会议外部审稿人")}</h3>
             <ul className="compact-entry-list">
-              <li>USENIX Security 2024–2027</li>
-              <li>PLDI 2026</li>
+              <li lang="en">
+                <strong>[USENIX Sec]</strong>: USENIX Security Symposium, {" "}
+                <a href="https://www.usenix.org/conference/usenixsecurity24" target="_blank" rel="noreferrer"><strong>2024</strong></a>, {" "}
+                <a href="https://www.usenix.org/conference/usenixsecurity25" target="_blank" rel="noreferrer"><strong>2025</strong></a>, {" "}
+                <a href="https://www.usenix.org/conference/usenixsecurity26" target="_blank" rel="noreferrer"><strong>2026</strong></a>, {" "}
+                <a href="https://www.usenix.org/conference/usenixsecurity27" target="_blank" rel="noreferrer"><strong>2027</strong></a>
+              </li>
+              <li lang="en">
+                <strong>[PLDI]</strong>: ACM SIGPLAN Conference on Programming Language Design and Implementation, {" "}
+                <a href="https://pldi26.sigplan.org/" target="_blank" rel="noreferrer"><strong>2026</strong></a>
+              </li>
             </ul>
           </div>
           <div className="service-group">

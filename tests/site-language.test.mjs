@@ -79,7 +79,8 @@ test("lists teaching terms chronologically in both languages", () => {
 
 test("groups academic service into committees, external reviews, and journal reviews in both languages", () => {
   const plain = (html) => html.replace(/<!--.*?-->|<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-  const entries = (html) => [...html.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(([, item]) => plain(item));
+  const rawEntries = (html) => [...html.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(([, item]) => item);
+  const entries = (html) => rawEntries(html).map(plain);
 
   for (const [html, headings] of [
     [en, ["Conference Poster Committee", "Conference External Reviewer", "Journal Reviewer"]],
@@ -96,11 +97,33 @@ test("groups academic service into committees, external reviews, and journal rev
       [...service.matchAll(/<ul\b[^>]*>/g)].map(([tag]) => attributes(tag).class),
       ["compact-entry-list service-poster-list", "compact-entry-list", "compact-entry-list"],
     );
-    assert.equal(entries(poster).length, 1);
-    assert.match(entries(poster)[0], /NDSS\s+2027/);
-    assert.equal(entries(review).length, 2);
-    assert.equal(entries(review)[0], "USENIX Security 2024–2027");
-    assert.match(entries(review)[1], /PLDI\s+2026/);
+    assert.deepEqual(entries(poster), [
+      "[NDSS]: Network and Distributed System Security Symposium, 2027",
+    ]);
+    assert.deepEqual(entries(review), [
+      "[USENIX Sec]: USENIX Security Symposium, 2024, 2025, 2026, 2027",
+      "[PLDI]: ACM SIGPLAN Conference on Programming Language Design and Implementation, 2026",
+    ]);
+    for (const [entry, abbreviation, yearLinks] of [
+      [rawEntries(poster)[0], "[NDSS]", [
+        ["2027", "https://www.ndss-symposium.org/ndss2027/"],
+      ]],
+      [rawEntries(review)[0], "[USENIX Sec]", [
+        ["2024", "https://www.usenix.org/conference/usenixsecurity24"],
+        ["2025", "https://www.usenix.org/conference/usenixsecurity25"],
+        ["2026", "https://www.usenix.org/conference/usenixsecurity26"],
+        ["2027", "https://www.usenix.org/conference/usenixsecurity27"],
+      ]],
+      [rawEntries(review)[1], "[PLDI]", [
+        ["2026", "https://pldi26.sigplan.org/"],
+      ]],
+    ]) {
+      const boldText = [...entry.matchAll(/<strong\b[^>]*>([\s\S]*?)<\/strong>/g)].map(([, content]) => plain(content));
+      assert.deepEqual(boldText, [abbreviation, ...yearLinks.map(([year]) => year)]);
+      const linkedYears = [...entry.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
+        .map(([, tag, content]) => [plain(content), attributes(tag).href]);
+      assert.deepEqual(linkedYears, yearLinks);
+    }
     assert.deepEqual(entries(journal), ["Computers &amp; Security 2026"]);
   }
 });
