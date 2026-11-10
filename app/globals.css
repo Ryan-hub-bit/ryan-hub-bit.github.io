@@ -676,6 +676,7 @@ h2 {
 
 .teaching-group + .teaching-group { margin-top: 14px; }
 .service-group + .service-group { margin-top: 10px; }
+.service-poster-list { font-size: 0.92rem; }
 .service-group .compact-entry-list li + li { margin-top: 2px; }
 .teaching-list { list-style: disc; }
 

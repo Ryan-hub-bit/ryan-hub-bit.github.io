@@ -65,13 +65,24 @@ test("lists the Wuhan University school and October 2026 talk after RSTCON in bo
   }
 });
 
+test("lists teaching terms chronologically in both languages", () => {
+  for (const [html, terms] of [
+    [en, "(Spring 2026, Fall 2026)"],
+    [zh, "（2026 年春季、2026 年秋季）"],
+  ]) {
+    const teaching = main(html).match(/<section\b[^>]*id="teaching"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+    assert.ok(teaching);
+    assert.ok(teaching.replace(/<!--.*?-->|<[^>]+>/g, "").includes(terms), terms);
+  }
+});
+
 test("groups academic service into committees, external reviews, and journal reviews in both languages", () => {
   const plain = (html) => html.replace(/<!--.*?-->|<[^>]+>/g, "").replace(/\s+/g, " ").trim();
   const entries = (html) => [...html.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(([, item]) => plain(item));
 
   for (const [html, headings] of [
-    [en, ["Poster Committee", "External Review", "Journal Reviewer"]],
-    [zh, ["海报评审委员会", "外部审稿", "期刊审稿"]],
+    [en, ["Conference Poster Committee", "Conference External Reviewer", "Journal Reviewer"]],
+    [zh, ["会议海报评审委员会", "会议外部审稿人", "期刊审稿"]],
   ]) {
     const service = main(html).match(/<section\b[^>]*id="service"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(service);
@@ -80,6 +91,10 @@ test("groups academic service into committees, external reviews, and journal rev
     const [, ...groups] = service.split(/<h3\b[^>]*>([\s\S]*?)<\/h3>/g);
     assert.deepEqual(groups.filter((_, index) => index % 2 === 0).map(plain), headings);
     const [, poster, , review, , journal] = groups;
+    assert.deepEqual(
+      [...service.matchAll(/<ul\b[^>]*>/g)].map(([tag]) => attributes(tag).class),
+      ["compact-entry-list service-poster-list", "compact-entry-list", "compact-entry-list"],
+    );
     assert.equal(entries(poster).length, 1);
     assert.match(entries(poster)[0], /NDSS\s+2027/);
     assert.equal(entries(review).length, 2);

@@ -486,7 +486,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
           <div className="teaching-group">
             <h3 className="teaching-institution">{t("Tulane University", "杜兰大学")}</h3>
             <ul className="teaching-list">
-              <li>{t("Language-Based Security, Teaching Assistant (Fall 2026, Spring 2026)", "基于语言的安全（Language-Based Security），教学助理（2026 年秋季、2026 年春季）")}</li>
+              <li>{t("Language-Based Security, Teaching Assistant (Spring 2026, Fall 2026)", "基于语言的安全（Language-Based Security），教学助理（2026 年春季、2026 年秋季）")}</li>
             </ul>
           </div>
           <div className="teaching-group">
@@ -500,13 +500,13 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
         <section className="content-section service" id="service" aria-labelledby="service-heading">
           <h2 id="service-heading">{t("Academic Service", "学术服务")}</h2>
           <div className="service-group">
-            <h3 className="service-category">{t("Poster Committee", "海报评审委员会")}</h3>
-            <ul className="compact-entry-list">
+            <h3 className="service-category">{t("Conference Poster Committee", "会议海报评审委员会")}</h3>
+            <ul className="compact-entry-list service-poster-list">
               <li>NDSS 2027</li>
             </ul>
           </div>
           <div className="service-group">
-            <h3 className="service-category">{t("External Review", "外部审稿")}</h3>
+            <h3 className="service-category">{t("Conference External Reviewer", "会议外部审稿人")}</h3>
             <ul className="compact-entry-list">
               <li>USENIX Security 2024–2027</li>
               <li>PLDI 2026</li>
