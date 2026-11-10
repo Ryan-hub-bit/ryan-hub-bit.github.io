@@ -506,12 +506,9 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             </ul>
           </div>
           <div className="service-group">
-            <h3 className="service-category">{t("Program Committee", "程序委员会")}</h3>
-          </div>
-          <div className="service-group">
             <h3 className="service-category">{t("External Review", "外部审稿")}</h3>
             <ul className="compact-entry-list">
-              <li>USENIX Security Symposium 2024–2027</li>
+              <li>USENIX Security 2024–2027</li>
               <li>PLDI 2026</li>
             </ul>
           </div>

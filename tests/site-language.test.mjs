@@ -70,8 +70,8 @@ test("groups academic service into committees, external reviews, and journal rev
   const entries = (html) => [...html.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(([, item]) => plain(item));
 
   for (const [html, headings] of [
-    [en, ["Poster Committee", "Program Committee", "External Review", "Journal Reviewer"]],
-    [zh, ["海报评审委员会", "程序委员会", "外部审稿", "期刊审稿"]],
+    [en, ["Poster Committee", "External Review", "Journal Reviewer"]],
+    [zh, ["海报评审委员会", "外部审稿", "期刊审稿"]],
   ]) {
     const service = main(html).match(/<section\b[^>]*id="service"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(service);
@@ -79,12 +79,11 @@ test("groups academic service into committees, external reviews, and journal rev
 
     const [, ...groups] = service.split(/<h3\b[^>]*>([\s\S]*?)<\/h3>/g);
     assert.deepEqual(groups.filter((_, index) => index % 2 === 0).map(plain), headings);
-    const [, poster, , program, , review, , journal] = groups;
+    const [, poster, , review, , journal] = groups;
     assert.equal(entries(poster).length, 1);
     assert.match(entries(poster)[0], /NDSS\s+2027/);
-    assert.deepEqual(entries(program), []);
     assert.equal(entries(review).length, 2);
-    assert.match(entries(review)[0], /USENIX Security Symposium\s+2024–2027/);
+    assert.equal(entries(review)[0], "USENIX Security 2024–2027");
     assert.match(entries(review)[1], /PLDI\s+2026/);
     assert.deepEqual(entries(journal), ["Computers &amp; Security 2026"]);
   }
