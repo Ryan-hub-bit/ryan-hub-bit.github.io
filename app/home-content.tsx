@@ -456,8 +456,8 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             <li>
               <span className="entry-title">
                 {t(
-                  "Can AI Reverse-Engineer Everything? From Incomplete Program Maps to More Reliable Binary Analysis",
-                  "AI 能逆向一切吗？从不完整的程序地图到更可靠的二进制分析",
+                  "Can AI Reverse-Engineer Everything?",
+                  "AI 能逆向一切吗？",
                 )}
               </span>
               {" @ "}
