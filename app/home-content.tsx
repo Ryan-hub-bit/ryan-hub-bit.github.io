@@ -443,6 +443,21 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
           <h2 id="invited-talks-heading">{t("Recent Talk", "近期报告")}</h2>
           <ul className="compact-entry-list">
             <li>
+              <a
+                className="entry-title"
+                href="https://ogps.tulane.edu/sites/default/files/2026-2027/3MT%2011-11-26%20Full%20Program.pdf#page=4"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t("Mapping What Software Hides, Before Attackers Do", "抢在攻击者之前，绘出软件隐藏的路径")}
+              </a>
+              {" @ "}
+              <a href="https://ogps.tulane.edu/three-minute-thesis" target="_blank" rel="noreferrer">
+                {t("Three Minute Thesis (3MT), Tulane University", "杜兰大学三分钟论文演讲（3MT）")}
+              </a>
+              {t(", Nov. 11, 2026", "，2026 年 11 月 11 日")}
+            </li>
+            <li>
               <span className="entry-title">
                 {t("Building More Reliable Program Maps from Stripped Binaries", "从去符号二进制程序中构建更可靠的程序图")}
               </span>

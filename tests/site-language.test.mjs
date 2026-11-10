@@ -48,6 +48,30 @@ test("omits the job-market notice from both homepages", () => {
   }
 });
 
+test("lists the November 2026 Tulane 3MT talk first with its program and event links in both languages", () => {
+  const plain = (html) => html.replace(/<!--.*?-->|<[^>]+>/g, "").trim();
+  for (const [html, title, event, date] of [
+    [en, "Mapping What Software Hides, Before Attackers Do", "Three Minute Thesis (3MT), Tulane University", ", Nov. 11, 2026"],
+    [zh, "抢在攻击者之前，绘出软件隐藏的路径", "杜兰大学三分钟论文演讲（3MT）", "，2026 年 11 月 11 日"],
+  ]) {
+    const section = main(html).match(/<section[^>]*id="invited-talks"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+    assert.ok(section);
+    const firstEntry = section.match(/<li>([\s\S]*?)<\/li>/)?.[1];
+    assert.ok(firstEntry);
+    const talkLinks = [...firstEntry.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)];
+    assert.equal(talkLinks.length, 2);
+    assert.equal(attributes(talkLinks[0][1]).class, "entry-title");
+    assert.deepEqual(
+      talkLinks.map(([, tag, content]) => [plain(content), attributes(tag).href]),
+      [
+        [title, "https://ogps.tulane.edu/sites/default/files/2026-2027/3MT%2011-11-26%20Full%20Program.pdf#page=4"],
+        [event, "https://ogps.tulane.edu/three-minute-thesis"],
+      ],
+    );
+    assert.ok(plain(firstEntry).endsWith(date), date);
+  }
+});
+
 test("lists the Wuhan University school and October 2026 talk after RSTCON in both languages", () => {
   for (const [html, title, removedSubtitle, institution, date] of [
     [en, "Can AI Reverse-Engineer Everything?", "From Incomplete Program Maps to More Reliable Binary Analysis", "School of Cyber Science and Engineering, Wuhan University", "Oct. 2026"],
@@ -56,13 +80,13 @@ test("lists the Wuhan University school and October 2026 talk after RSTCON in bo
     const section = main(html).match(/<section[^>]*id="invited-talks"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(section);
     const entries = [...section.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((match) => match[1]);
-    assert.equal(entries.length, 2);
-    assert.ok(entries[0].includes("RSTCON"));
-    assert.ok(entries[0].includes("2026"));
-    assert.ok(entries[1].includes(title));
-    assert.ok(!entries[1].replace(/<!--.*?-->|<[^>]+>/g, "").includes(removedSubtitle), removedSubtitle);
-    assert.ok(entries[1].includes(institution));
-    assert.ok(entries[1].includes(date));
+    assert.equal(entries.length, 3);
+    assert.ok(entries[1].includes("RSTCON"));
+    assert.ok(entries[1].includes("2026"));
+    assert.ok(entries[2].includes(title));
+    assert.ok(!entries[2].replace(/<!--.*?-->|<[^>]+>/g, "").includes(removedSubtitle), removedSubtitle);
+    assert.ok(entries[2].includes(institution));
+    assert.ok(entries[2].includes(date));
   }
 });
 
