@@ -437,7 +437,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
         </section>
 
         <section className="content-section" id="invited-talks" aria-labelledby="invited-talks-heading">
-          <h2 id="invited-talks-heading">{t("Invited Talks", "受邀报告")}</h2>
+          <h2 id="invited-talks-heading">{t("Recent Talk", "近期报告")}</h2>
           <ul className="compact-entry-list">
             <li>
               <span className="entry-title">
