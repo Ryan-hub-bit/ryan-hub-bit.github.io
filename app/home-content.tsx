@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import NewsList from "./news-list";
 import ThemeToggle from "./theme-toggle";
+import { formatLastUpdated } from "./site-updated.mjs";
 
 const news = [
   {
@@ -145,6 +146,8 @@ const posters = [
 ];
 
 export default function HomeContent({ language = "en" }: { language?: "en" | "zh" }) {
+  // This server component is statically exported on each push, not dated in the browser.
+  const lastUpdated = formatLastUpdated();
   const isChinese = language === "zh";
   const t = (english: string, chinese: string) => isChinese ? chinese : english;
   const localizedNews = news.map(({ zh, imageAltZh, ...item }) => ({
@@ -521,7 +524,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
         </section>
 
         <footer>
-          <p>{t("Last updated October 2026", "最近更新：2026 年 10 月")}</p>
+          <p><time dateTime={lastUpdated.dateTime}>{t(lastUpdated.en, lastUpdated.zh)}</time></p>
           <div className="visitor-map" aria-label={t("Visitor map", "访客地图")}>
             <a
               className="visitor-map-link"

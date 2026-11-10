@@ -23,3 +23,7 @@ Open `http://localhost:3000`.
 4. The included workflow builds and publishes the site after every push.
 
 Both user-site repositories (`username.github.io`) and ordinary project repositories are supported.
+
+The bilingual "Last updated" footer is generated during each production build
+using the current month in `America/Chicago`. Every push to `main` rebuilds and
+publishes it automatically; visitors' clocks do not affect the displayed month.

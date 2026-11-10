@@ -29,7 +29,7 @@ test("translates every main content section, including the newest remote updates
   for (const heading of ["关于我", "近期研究方向", "最新动态", "学术论文", "海报展示", "近期报告", "获奖情况", "教学经历", "学术服务"]) {
     assert.match(zh, new RegExp(`<h2[^>]*>${heading}</h2>`));
   }
-  for (const phrase of ["博士学习的最后一年", "智能体系统", "第一名", "最近更新：2026 年 10 月"]) {
+  for (const phrase of ["博士学习的最后一年", "智能体系统", "第一名"]) {
     assert.ok(text(zh).includes(phrase), phrase);
   }
   assert.ok(text(en).includes("I am a final-year Ph.D. student"));

@@ -37,6 +37,8 @@ jobs:
           fi
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build
+      - name: Verify exported homepage
+        run: node --test tests/site-language.test.mjs tests/site-metadata.test.mjs tests/news-images.test.mjs tests/publication-artifacts.test.mjs tests/theme.test.mjs tests/site-updated.test.mjs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
