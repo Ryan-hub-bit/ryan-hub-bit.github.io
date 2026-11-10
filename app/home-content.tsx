@@ -455,7 +455,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               <a href="https://ogps.tulane.edu/three-minute-thesis" target="_blank" rel="noreferrer">
                 {t("Three Minute Thesis (3MT), Tulane University", "杜兰大学三分钟论文演讲（3MT）")}
               </a>
-              {t(", Nov. 11, 2026", "，2026 年 11 月 11 日")}
+              {t(", Nov. 2026", "，2026 年 11 月")}
             </li>
             <li>
               <span className="entry-title">
@@ -521,7 +521,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             <h3 className="service-category">{t("Conference Poster Committee", "会议海报评审委员会")}</h3>
             <ul className="compact-entry-list service-poster-list">
               <li lang="en">
-                [NDSS]: Network and Distributed System Security Symposium, {" "}
+                Network and Distributed System Security Symposium (NDSS), {" "}
                 <a href="https://www.ndss-symposium.org/ndss2027/" target="_blank" rel="noreferrer">2027</a>
               </li>
             </ul>
@@ -530,10 +530,10 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             <h3 className="service-category">{t("Conference External Reviewer", "会议外部审稿人")}</h3>
             <ul className="compact-entry-list">
               <li lang="en">
-                [USENIX Sec]: USENIX Security Symposium, 2024, 2025, 2026, 2027
+                USENIX Security Symposium (USENIX Sec), 2024, 2025, 2026, 2027
               </li>
               <li lang="en">
-                [PLDI]: ACM SIGPLAN Conference on Programming Language Design and Implementation, 2026
+                ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI), 2026
               </li>
             </ul>
           </div>

@@ -51,8 +51,8 @@ test("omits the job-market notice from both homepages", () => {
 test("lists the November 2026 Tulane 3MT talk first with its program and event links in both languages", () => {
   const plain = (html) => html.replace(/<!--.*?-->|<[^>]+>/g, "").trim();
   for (const [html, title, event, date] of [
-    [en, "Mapping What Software Hides, Before Attackers Do", "Three Minute Thesis (3MT), Tulane University", ", Nov. 11, 2026"],
-    [zh, "抢在攻击者之前，绘出软件隐藏的路径", "杜兰大学三分钟论文演讲（3MT）", "，2026 年 11 月 11 日"],
+    [en, "Mapping What Software Hides, Before Attackers Do", "Three Minute Thesis (3MT), Tulane University", ", Nov. 2026"],
+    [zh, "抢在攻击者之前，绘出软件隐藏的路径", "杜兰大学三分钟论文演讲（3MT）", "，2026 年 11 月"],
   ]) {
     const section = main(html).match(/<section[^>]*id="invited-talks"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(section);
@@ -87,6 +87,9 @@ test("lists the Wuhan University school and October 2026 talk after RSTCON in bo
     assert.ok(!entries[2].replace(/<!--.*?-->|<[^>]+>/g, "").includes(removedSubtitle), removedSubtitle);
     assert.ok(entries[2].includes(institution));
     assert.ok(entries[2].includes(date));
+    for (const entry of entries.slice(1)) {
+      assert.ok(entry.replace(/<!--.*?-->|<[^>]+>/g, "").trim().endsWith(date), date);
+    }
   }
 });
 
@@ -122,11 +125,11 @@ test("groups academic service into committees, external reviews, and journal rev
       ["compact-entry-list service-poster-list", "compact-entry-list", "compact-entry-list"],
     );
     assert.deepEqual(entries(poster), [
-      "[NDSS]: Network and Distributed System Security Symposium, 2027",
+      "Network and Distributed System Security Symposium (NDSS), 2027",
     ]);
     assert.deepEqual(entries(review), [
-      "[USENIX Sec]: USENIX Security Symposium, 2024, 2025, 2026, 2027",
-      "[PLDI]: ACM SIGPLAN Conference on Programming Language Design and Implementation, 2026",
+      "USENIX Security Symposium (USENIX Sec), 2024, 2025, 2026, 2027",
+      "ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI), 2026",
     ]);
     assert.doesNotMatch(review, /<(?:a|strong|b|font)\b/i);
     assert.doesNotMatch(review, /\bstyle\s*=|\bfont-size\s*[:=]/i);
