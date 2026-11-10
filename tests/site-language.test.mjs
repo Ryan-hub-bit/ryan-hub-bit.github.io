@@ -108,8 +108,7 @@ test("groups academic service into committees, external reviews, and journal rev
     assert.doesNotMatch(review, /\bstyle\s*=|\bfont-size\s*[:=]/i);
 
     const posterEntry = rawEntries(poster)[0];
-    const boldText = [...posterEntry.matchAll(/<strong\b[^>]*>([\s\S]*?)<\/strong>/g)].map(([, content]) => plain(content));
-    assert.deepEqual(boldText, ["[NDSS]", "2027"]);
+    assert.doesNotMatch(posterEntry, /<(?:strong|b)\b/i);
     const linkedYears = [...posterEntry.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
       .map(([, tag, content]) => [plain(content), attributes(tag).href]);
     assert.deepEqual(linkedYears, [["2027", "https://www.ndss-symposium.org/ndss2027/"]]);

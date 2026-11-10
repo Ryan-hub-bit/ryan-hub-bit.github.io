@@ -506,8 +506,8 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             <h3 className="service-category">{t("Conference Poster Committee", "会议海报评审委员会")}</h3>
             <ul className="compact-entry-list service-poster-list">
               <li lang="en">
-                <strong>[NDSS]</strong>: Network and Distributed System Security Symposium, {" "}
-                <a href="https://www.ndss-symposium.org/ndss2027/" target="_blank" rel="noreferrer"><strong>2027</strong></a>
+                [NDSS]: Network and Distributed System Security Symposium, {" "}
+                <a href="https://www.ndss-symposium.org/ndss2027/" target="_blank" rel="noreferrer">2027</a>
               </li>
             </ul>
           </div>
