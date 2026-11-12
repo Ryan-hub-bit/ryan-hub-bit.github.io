@@ -16,6 +16,41 @@ const artifactBadges = (html) => [...html.matchAll(/(<span\b[^>]*>)([\s\S]*?)<\/
   .map((match) => ({ attributes: attributes(match[1]), openingTag: match[1], content: match[2], text: visibleText(match[2]), index: match.index }))
   .filter((badge) => badge.attributes.class?.split(/\s+/).includes("artifact-badge"));
 
+test("tightens only internal publication and poster gaps while preserving section and last-entry spacing", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  const declarations = (pattern, label) => {
+    const body = css.match(pattern)?.[1];
+    assert.ok(body, "Missing " + label + " rule");
+    return Object.fromEntries(
+      [...body.matchAll(/([\w-]+)\s*:\s*([^;]+);/g)].map(([, property, value]) => [property, value.trim()]),
+    );
+  };
+
+  assert.deepEqual(declarations(
+    /#publications\s+\.publication:not\(:last-child\),\s*#posters\s+\.publication:not\(:last-child\)\s*\{([^}]+)\}/,
+    "scoped non-last publication/poster",
+  ), { "margin-bottom": "12px", "padding-bottom": "10px" });
+  assert.deepEqual(declarations(/(?:^|\n)\.publication\s*\{([^}]+)\}/, "base publication"), {
+    "margin-bottom": "24px",
+    "padding-bottom": "20px",
+    "border-bottom": "1px solid var(--publication-border)",
+  });
+  assert.deepEqual(declarations(/\.publication:last-child\s*\{([^}]+)\}/, "last publication"), {
+    "margin-bottom": "var(--section-spacing)",
+  });
+  assert.deepEqual(declarations(/\.content-section\s*\{([^}]+)\}/, "content section"), {
+    "margin-top": "var(--section-spacing)",
+  });
+  assert.deepEqual(declarations(/\.publication-list\s*\{([^}]+)\}/, "publication list"), {
+    "margin-top": "4px",
+  });
+  assert.deepEqual(
+    [...css.matchAll(/--section-spacing\s*:\s*([^;]+);/g)].map(([, value]) => value.trim()),
+    ["16px", "14px"],
+    "Desktop and mobile section-spacing values must stay unchanged",
+  );
+});
+
 for (const [locale, file] of [["English", "index.html"], ["Chinese", "zh/index.html"]]) {
   test(`${locale} adds a noninteractive English artifact badge only after the CCS title`, async () => {
     const html = await readFile(new URL(`../out/${file}`, import.meta.url), "utf8");

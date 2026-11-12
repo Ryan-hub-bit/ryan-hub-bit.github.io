@@ -592,9 +592,10 @@ h2 {
 
 .publication:last-child { margin-bottom: var(--section-spacing); }
 
+#publications .publication:not(:last-child),
 #posters .publication:not(:last-child) {
-  margin-bottom: 20px;
-  padding-bottom: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
 }
 
 .paper-details h3 {
