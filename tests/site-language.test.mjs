@@ -48,7 +48,7 @@ test("omits the job-market notice from both homepages", () => {
   }
 });
 
-test("lists the November 2026 Tulane 3MT talk first with program, event, and certificate links in both languages", () => {
+test("lists the November 2026 Tulane 3MT talk first with program, certificate, and event links in both languages", () => {
   const plain = (html) => html.replace(/<!--.*?-->|<[^>]+>/g, "").trim();
   for (const [html, title, event, date, certificate] of [
     [en, "Mapping What Software Hides, Before Attackers Do", "Three Minute Thesis (3MT), Tulane University", ", Nov. 2026", "Certificate"],
@@ -65,23 +65,22 @@ test("lists the November 2026 Tulane 3MT talk first with program, event, and cer
       talkLinks.map(([, tag, content]) => [plain(content), attributes(tag).href]),
       [
         [title, "https://ogps.tulane.edu/sites/default/files/2026-2027/3MT%2011-11-26%20Full%20Program.pdf#page=4"],
+        [certificate, "/talks/3mt-certificate-cropped.png"],
         [event, "https://ogps.tulane.edu/three-minute-thesis"],
-        [certificate, "/talks/3mt-certificate.png"],
       ],
     );
-    const certificateAttributes = attributes(talkLinks[2][1]);
+    const certificateAttributes = attributes(talkLinks[1][1]);
     assert.equal(certificateAttributes.target, "_blank");
     assert.ok(certificateAttributes.rel?.split(/\s+/).includes("noreferrer"));
     assert.doesNotMatch(firstEntry, /<(?:img|picture)\b/i);
-    const beforeCertificate = plain(firstEntry.slice(0, talkLinks[2].index));
-    assert.ok(beforeCertificate.endsWith(date + " ·"), date);
+    assert.ok(plain(firstEntry).endsWith(date), date);
   }
 });
 
-test("exports the linked 3MT certificate unchanged as a landscape PNG", async () => {
+test("exports the linked cropped 3MT certificate unchanged as a landscape PNG", async () => {
   const [source, exported] = await Promise.all([
-    readFile(new URL("../public/talks/3mt-certificate.png", import.meta.url)),
-    readFile(new URL("../out/talks/3mt-certificate.png", import.meta.url)),
+    readFile(new URL("../public/talks/3mt-certificate-cropped.png", import.meta.url)),
+    readFile(new URL("../out/talks/3mt-certificate-cropped.png", import.meta.url)),
   ]);
   assert.deepEqual(exported, source);
   assert.ok(source.length >= 24);

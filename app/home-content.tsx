@@ -452,15 +452,15 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               >
                 {t("Mapping What Software Hides, Before Attackers Do", "抢在攻击者之前，绘出软件隐藏的路径")}
               </a>
+              {" · "}
+              <a href={`${basePath}/talks/3mt-certificate-cropped.png`} target="_blank" rel="noreferrer">
+                {t("Certificate", "参赛证书")}
+              </a>
               {" @ "}
               <a href="https://ogps.tulane.edu/three-minute-thesis" target="_blank" rel="noreferrer">
                 {t("Three Minute Thesis (3MT), Tulane University", "杜兰大学三分钟论文演讲（3MT）")}
               </a>
               {t(", Nov. 2026", "，2026 年 11 月")}
-              {" · "}
-              <a href={`${basePath}/talks/3mt-certificate.png`} target="_blank" rel="noreferrer">
-                {t("Certificate", "参赛证书")}
-              </a>
             </li>
             <li>
               <span className="entry-title">
