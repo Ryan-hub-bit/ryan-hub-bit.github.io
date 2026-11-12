@@ -48,28 +48,49 @@ test("omits the job-market notice from both homepages", () => {
   }
 });
 
-test("lists the November 2026 Tulane 3MT talk first with its program and event links in both languages", () => {
+test("lists the November 2026 Tulane 3MT talk first with program, event, and certificate links in both languages", () => {
   const plain = (html) => html.replace(/<!--.*?-->|<[^>]+>/g, "").trim();
-  for (const [html, title, event, date] of [
-    [en, "Mapping What Software Hides, Before Attackers Do", "Three Minute Thesis (3MT), Tulane University", ", Nov. 2026"],
-    [zh, "抢在攻击者之前，绘出软件隐藏的路径", "杜兰大学三分钟论文演讲（3MT）", "，2026 年 11 月"],
+  for (const [html, title, event, date, certificate] of [
+    [en, "Mapping What Software Hides, Before Attackers Do", "Three Minute Thesis (3MT), Tulane University", ", Nov. 2026", "Certificate"],
+    [zh, "抢在攻击者之前，绘出软件隐藏的路径", "杜兰大学三分钟论文演讲（3MT）", "，2026 年 11 月", "参赛证书"],
   ]) {
     const section = main(html).match(/<section[^>]*id="invited-talks"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(section);
     const firstEntry = section.match(/<li>([\s\S]*?)<\/li>/)?.[1];
     assert.ok(firstEntry);
     const talkLinks = [...firstEntry.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)];
-    assert.equal(talkLinks.length, 2);
+    assert.equal(talkLinks.length, 3);
     assert.equal(attributes(talkLinks[0][1]).class, "entry-title");
     assert.deepEqual(
       talkLinks.map(([, tag, content]) => [plain(content), attributes(tag).href]),
       [
         [title, "https://ogps.tulane.edu/sites/default/files/2026-2027/3MT%2011-11-26%20Full%20Program.pdf#page=4"],
         [event, "https://ogps.tulane.edu/three-minute-thesis"],
+        [certificate, "/talks/3mt-certificate.png"],
       ],
     );
-    assert.ok(plain(firstEntry).endsWith(date), date);
+    const certificateAttributes = attributes(talkLinks[2][1]);
+    assert.equal(certificateAttributes.target, "_blank");
+    assert.ok(certificateAttributes.rel?.split(/\s+/).includes("noreferrer"));
+    assert.doesNotMatch(firstEntry, /<(?:img|picture)\b/i);
+    const beforeCertificate = plain(firstEntry.slice(0, talkLinks[2].index));
+    assert.ok(beforeCertificate.endsWith(date + " ·"), date);
   }
+});
+
+test("exports the linked 3MT certificate unchanged as a landscape PNG", async () => {
+  const [source, exported] = await Promise.all([
+    readFile(new URL("../public/talks/3mt-certificate.png", import.meta.url)),
+    readFile(new URL("../out/talks/3mt-certificate.png", import.meta.url)),
+  ]);
+  assert.deepEqual(exported, source);
+  assert.ok(source.length >= 24);
+  assert.deepEqual(source.subarray(0, 8), Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+  assert.equal(source.readUInt32BE(8), 13);
+  assert.equal(source.toString("ascii", 12, 16), "IHDR");
+  const width = source.readUInt32BE(16);
+  const height = source.readUInt32BE(20);
+  assert.ok(height > 0 && width > height, "certificate must have landscape dimensions");
 });
 
 test("lists the Wuhan University school and October 2026 talk after RSTCON in both languages", () => {

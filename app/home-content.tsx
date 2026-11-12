@@ -148,6 +148,7 @@ const posters = [
 export default function HomeContent({ language = "en" }: { language?: "en" | "zh" }) {
   // This server component is statically exported on each push, not dated in the browser.
   const lastUpdated = formatLastUpdated();
+  const basePath = process.env.BASE_PATH || "";
   const isChinese = language === "zh";
   const t = (english: string, chinese: string) => isChinese ? chinese : english;
   const localizedNews = news.map(({ zh, imageAltZh, ...item }) => ({
@@ -456,6 +457,10 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
                 {t("Three Minute Thesis (3MT), Tulane University", "杜兰大学三分钟论文演讲（3MT）")}
               </a>
               {t(", Nov. 2026", "，2026 年 11 月")}
+              {" · "}
+              <a href={`${basePath}/talks/3mt-certificate.png`} target="_blank" rel="noreferrer">
+                {t("Certificate", "参赛证书")}
+              </a>
             </li>
             <li>
               <span className="entry-title">
