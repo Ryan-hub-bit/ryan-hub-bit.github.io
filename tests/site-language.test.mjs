@@ -34,7 +34,7 @@ test("translates every main content section, including the newest remote updates
   }
   assert.ok(text(en).includes("I am a final-year Ph.D. student"));
   assert.ok(text(en).includes("I won 1st place"));
-  assert.match(main(en), /<h2\b[^>]*>Recent Talk<\/h2>/);
+  assert.match(main(en), /<h2\b[^>]*>Recent Talks<\/h2>/);
   assert.ok(text(en).includes("Teaching"));
 });
 
@@ -48,13 +48,13 @@ test("omits the job-market notice from both homepages", () => {
   }
 });
 
-test("lists the November 2026 Tulane 3MT talk first with program, certificate, and event links in both languages", () => {
+test("places Recent Talks below Awards with the linked Tulane 3MT talk first in both languages", () => {
   const plain = (html) => html.replace(/<!--.*?-->|<[^>]+>/g, "").trim();
   for (const [html, title, event, date, certificate] of [
     [en, "Mapping What Software Hides, Before Attackers Do", "Three Minute Thesis (3MT), Tulane University", ", Nov. 2026", "Certificate"],
     [zh, "抢在攻击者之前，绘出软件隐藏的路径", "杜兰大学三分钟论文演讲（3MT）", "，2026 年 11 月", "参赛证书"],
   ]) {
-    const section = main(html).match(/<section[^>]*id="invited-talks"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+    const section = main(html).match(/<section[^>]*id="awards"[^>]*>[\s\S]*?<\/section>\s*<section[^>]*id="invited-talks"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(section);
     const firstEntry = section.match(/<li>([\s\S]*?)<\/li>/)?.[1];
     assert.ok(firstEntry);

@@ -440,8 +440,22 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
           </div>
         </section>
 
+        <section className="content-section" id="awards" aria-labelledby="awards-heading">
+          <h2 id="awards-heading">{t("Awards", "获奖情况")}</h2>
+          <ul className="compact-entry-list">
+            <li>
+              <span className="entry-title"><strong>{t("1st Place", "第一名")}</strong>{t(" — Ph.D. Student Research Competition", " — 博士生科研竞赛")}</span>
+              {", "}
+              <a href="https://rstcon.org/2026" target="_blank" rel="noreferrer">
+                RSTCON 2026
+              </a>
+              {t(" (Oct. 2026)", "（2026 年 10 月）")}
+            </li>
+          </ul>
+        </section>
+
         <section className="content-section" id="invited-talks" aria-labelledby="invited-talks-heading">
-          <h2 id="invited-talks-heading">{t("Recent Talk", "近期报告")}</h2>
+          <h2 id="invited-talks-heading">{t("Recent Talks", "近期报告")}</h2>
           <ul className="compact-entry-list">
             <li>
               <a
@@ -486,20 +500,6 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               {" @ "}
               {t("School of Cyber Science and Engineering, Wuhan University", "武汉大学国家网络安全学院")}
               {t(", Oct. 2026", "，2026 年 10 月")}
-            </li>
-          </ul>
-        </section>
-
-        <section className="content-section" id="awards" aria-labelledby="awards-heading">
-          <h2 id="awards-heading">{t("Awards", "获奖情况")}</h2>
-          <ul className="compact-entry-list">
-            <li>
-              <span className="entry-title"><strong>{t("1st Place", "第一名")}</strong>{t(" — Ph.D. Student Research Competition", " — 博士生科研竞赛")}</span>
-              {", "}
-              <a href="https://rstcon.org/2026" target="_blank" rel="noreferrer">
-                RSTCON 2026
-              </a>
-              {t(" (Oct. 2026)", "（2026 年 10 月）")}
             </li>
           </ul>
         </section>
