@@ -61,7 +61,7 @@ const news = [
 
 const publications = [
   {
-    venueLabel: "ICSE '27",
+    venueLabel: "ICSE'27",
     title:
       "Beyond Tokens: NumAnchor for Address-Grounded Numeric Operand Representation in Assembly Language Models",
     authors: [
@@ -87,7 +87,7 @@ const publications = [
     },
   },
   {
-    venueLabel: "CCS '26",
+    venueLabel: "CCS'26",
     title:
       "Long-Range Indirect Control-Flow Prediction in Stripped Binaries via Dual Virtual Hubs and Multi-Task Graph Learning",
     artifact: {
@@ -120,7 +120,7 @@ const publications = [
 
 const posters = [
   {
-    venueLabel: "USENIX Security '26",
+    venueLabel: "USENIX Security'26",
     title:
       "Addresses Are Not Tokens: Grounding Numeric Operands in Learned Binary Analysis",
     author: "Kun Liu",
@@ -132,7 +132,7 @@ const posters = [
     url: "https://www.usenix.org/conference/usenixsecurity26/poster-session",
   },
   {
-    venueLabel: "PLDI '26 SRC",
+    venueLabel: "PLDI'26 SRC",
     title:
       "Towards Taming Indirect Control Flow in Binaries with Multi-Task Graph Learning",
     author: "Kun Liu",
@@ -366,7 +366,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               <article className="publication" key={publication.title}>
                 <div className="paper-details">
                   <h3 lang="en">
-                    <span className="publication-tag">[{publication.venueLabel}]</span>
+                    <span className="publication-venue-label">{publication.venueLabel}</span>
                     {" "}
                     {publication.title}
                     {publication.artifact && (
@@ -422,7 +422,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               <article className="publication" key={poster.title}>
                 <div className="paper-details">
                   <h3 lang="en">
-                    <span className="publication-tag">[{poster.venueLabel}]</span>
+                    <span className="publication-venue-label">{poster.venueLabel}</span>
                     {" "}
                     <a href={poster.url} target="_blank" rel="noreferrer">
                       {poster.title}

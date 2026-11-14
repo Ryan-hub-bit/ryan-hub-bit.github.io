@@ -646,7 +646,7 @@ h2 {
 
 .paper-details .venue em { font-style: italic; }
 
-.publication-tag {
+.publication-venue-label {
   display: inline-block;
   margin: 0 8px 3px 0;
   padding: 2px 8px;

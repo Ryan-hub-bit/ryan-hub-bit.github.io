@@ -178,6 +178,14 @@ test("keeps original paper titles, publication authors, and numeric evidence sha
   }
 });
 
+test("renders compact, bracket-free venue labels for both publications and posters", () => {
+  for (const html of [en, zh]) {
+    const labels = [...main(html).matchAll(/<span\b[^>]*class="publication-venue-label"[^>]*>([^<]*)<\/span>/g)]
+      .map(([, label]) => label.replace(/&#x27;|&#39;|&apos;/gi, "'"));
+    assert.deepEqual(labels, ["ICSE'27", "CCS'26", "USENIX Security'26", "PLDI'26 SRC"]);
+  }
+});
+
 test("keeps the news archive collapsed and localizes its controls", () => {
   for (const [html, label] of [[en, "More news"], [zh, "更多动态"]]) {
     const news = main(html).match(/<section[^>]*id="news"[^>]*>([\s\S]*?)<\/section>/)?.[1];
