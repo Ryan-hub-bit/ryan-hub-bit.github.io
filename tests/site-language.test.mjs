@@ -50,34 +50,53 @@ test("omits the job-market notice from both homepages", () => {
 
 test("places Recent Talks below Awards with the linked Tulane 3MT talk first in both languages", () => {
   const plain = (html) => html.replace(/<!--.*?-->|<[^>]+>/g, "").trim();
-  for (const [html, title, event, date, certificate] of [
-    [en, "Mapping What Software Hides, Before Attackers Do", "Three Minute Thesis (3MT), Tulane University", ", Nov. 2026", "Certificate"],
-    [zh, "抢在攻击者之前，绘出软件隐藏的路径", "杜兰大学三分钟论文演讲（3MT）", "，2026 年 11 月", "参赛证书"],
+  for (const [html, title, event, date, photos, captions] of [
+    [en, "Mapping What Software Hides, Before Attackers Do", "Three Minute Thesis (3MT), Tulane University", ", Nov. 2026", "Photos", ["Certificate", "Portrait", "Group photo", "On stage"]],
+    [zh, "抢在攻击者之前，绘出软件隐藏的路径", "杜兰大学三分钟论文演讲（3MT）", "，2026 年 11 月", "照片", ["参赛证书", "个人肖像", "活动合照", "演讲现场"]],
   ]) {
     const section = main(html).match(/<section[^>]*id="awards"[^>]*>[\s\S]*?<\/section>\s*<section[^>]*id="invited-talks"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(section);
     const firstEntry = section.match(/<li>([\s\S]*?)<\/li>/)?.[1];
     assert.ok(firstEntry);
     const talkLinks = [...firstEntry.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)];
-    assert.equal(talkLinks.length, 3);
+    assert.equal(talkLinks.length, 2);
     assert.equal(attributes(talkLinks[0][1]).class, "entry-title");
     assert.deepEqual(
       talkLinks.map(([, tag, content]) => [plain(content), attributes(tag).href]),
       [
         [title, "https://ogps.tulane.edu/sites/default/files/2026-2027/3MT%2011-11-26%20Full%20Program.pdf#page=4"],
-        [certificate, "/talks/3mt-certificate-cropped.png"],
         [event, "https://ogps.tulane.edu/three-minute-thesis"],
       ],
     );
-    const certificateAttributes = attributes(talkLinks[1][1]);
-    assert.equal(certificateAttributes.target, "_blank");
-    assert.ok(certificateAttributes.rel?.split(/\s+/).includes("noreferrer"));
-    assert.doesNotMatch(firstEntry, /<(?:img|picture)\b/i);
+    const photosButton = firstEntry.match(/(<button\b[^>]*class="talk-photos-link"[^>]*>)([^<]*)<\/button>/);
+    assert.ok(photosButton);
+    assert.equal(attributes(photosButton[1])["aria-haspopup"], "dialog");
+    assert.equal(photosButton[2], photos);
+
+    const gallery = firstEntry.match(/(<dialog\b[^>]*class="image-dialog photo-gallery-dialog"[^>]*>)([\s\S]*?)<\/dialog>/);
+    assert.ok(gallery);
+    assert.doesNotMatch(gallery[1], /\sopen(?:[\s=>])/);
+    const cards = [...gallery[2].matchAll(/(<button\b[^>]*class="photo-gallery-card"[^>]*>)([\s\S]*?)<\/button>/g)];
+    assert.deepEqual(cards.map(([, , content]) => plain(content)), captions);
+    const imageSources = cards.map(([, button, content]) => {
+      assert.equal(attributes(button)["aria-haspopup"], "dialog");
+      const image = content.match(/<img\b[^>]*>/)?.[0];
+      assert.ok(image);
+      assert.equal(attributes(image).loading, "lazy");
+      return attributes(image).src;
+    });
+    assert.deepEqual(imageSources, [
+      "/talks/3mt-certificate-thumb.webp",
+      "/talks/3mt-portrait-thumb.webp",
+      "/talks/3mt-group-thumb.webp",
+      "/talks/3mt-presentation-thumb.webp",
+    ]);
+    assert.doesNotMatch(firstEntry.replace(gallery[0], ""), /<(?:img|picture)\b/i);
     assert.ok(plain(firstEntry).endsWith(date), date);
   }
 });
 
-test("exports the linked cropped 3MT certificate unchanged as a landscape PNG", async () => {
+test("exports the cropped 3MT certificate unchanged as a landscape PNG", async () => {
   const [source, exported] = await Promise.all([
     readFile(new URL("../public/talks/3mt-certificate-cropped.png", import.meta.url)),
     readFile(new URL("../out/talks/3mt-certificate-cropped.png", import.meta.url)),

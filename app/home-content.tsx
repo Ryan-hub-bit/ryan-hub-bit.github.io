@@ -6,6 +6,7 @@ import {
   UserRound,
 } from "lucide-react";
 import NewsList from "./news-list";
+import TalkPhotoGallery from "./talk-photo-gallery";
 import ThemeToggle from "./theme-toggle";
 import { formatLastUpdated } from "./site-updated.mjs";
 
@@ -145,6 +146,41 @@ const posters = [
   },
 ];
 
+const threeMinuteThesisPhotos = [
+  {
+    filename: "3mt-certificate-cropped.png",
+    thumbnail: "3mt-certificate-thumb.webp",
+    width: 1240,
+    height: 960,
+    label: { en: "Certificate", zh: "参赛证书" },
+    alt: { en: "Tulane 3MT participation certificate", zh: "杜兰大学 3MT 参赛证书" },
+  },
+  {
+    filename: "3mt-portrait.webp",
+    thumbnail: "3mt-portrait-thumb.webp",
+    width: 1024,
+    height: 1536,
+    label: { en: "Portrait", zh: "个人肖像" },
+    alt: { en: "Portrait of Kun Liu", zh: "刘坤的个人肖像" },
+  },
+  {
+    filename: "3mt-group.webp",
+    thumbnail: "3mt-group-thumb.webp",
+    width: 3000,
+    height: 2000,
+    label: { en: "Group photo", zh: "活动合照" },
+    alt: { en: "Tulane 3MT participants on stage", zh: "杜兰大学 3MT 参赛者在舞台上合影" },
+  },
+  {
+    filename: "3mt-presentation.webp",
+    thumbnail: "3mt-presentation-thumb.webp",
+    width: 3000,
+    height: 2000,
+    label: { en: "On stage", zh: "演讲现场" },
+    alt: { en: "Kun Liu presenting at Tulane 3MT", zh: "刘坤在杜兰大学 3MT 活动中演讲" },
+  },
+];
+
 export default function HomeContent({ language = "en" }: { language?: "en" | "zh" }) {
   // This server component is statically exported on each push, not dated in the browser.
   const lastUpdated = formatLastUpdated();
@@ -158,6 +194,13 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
     date: isChinese
       ? `${item.dateTime.slice(0, 4)}年${Number(item.dateTime.slice(5))}月`
       : item.date,
+  }));
+  const talkPhotos = threeMinuteThesisPhotos.map(({ filename, thumbnail, label, alt, ...size }) => ({
+    ...size,
+    src: `${basePath}/talks/${filename}`,
+    thumbnailSrc: `${basePath}/talks/${thumbnail}`,
+    label: label[language],
+    alt: alt[language],
   }));
 
   return (
@@ -467,9 +510,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
                 {t("Mapping What Software Hides, Before Attackers Do", "抢在攻击者之前，绘出软件隐藏的路径")}
               </a>
               {" · "}
-              <a href={`${basePath}/talks/3mt-certificate-cropped.png`} target="_blank" rel="noreferrer">
-                {t("Certificate", "参赛证书")}
-              </a>
+              <TalkPhotoGallery photos={talkPhotos} language={language} />
               {" @ "}
               <a href="https://ogps.tulane.edu/three-minute-thesis" target="_blank" rel="noreferrer">
                 {t("Three Minute Thesis (3MT), Tulane University", "杜兰大学三分钟论文演讲（3MT）")}
