@@ -48,6 +48,27 @@ test("omits the job-market notice from both homepages", () => {
   }
 });
 
+test("wraps all recent talk titles in straight double quotation marks in both languages", () => {
+  for (const [html, expectedTitles] of [
+    [en, [
+      "Mapping What Software Hides, Before Attackers Do",
+      "Building More Reliable Program Maps from Stripped Binaries",
+      "Can AI Reverse-Engineer Everything?",
+    ]],
+    [zh, [
+      "抢在攻击者之前，绘出软件隐藏的路径",
+      "从去符号二进制程序中构建更可靠的程序图",
+      "AI 能逆向一切吗？",
+    ]],
+  ]) {
+    const section = main(html).match(/<section[^>]*id="invited-talks"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+    assert.ok(section);
+    const titles = [...section.matchAll(/<(a|span)\b[^>]*class="entry-title"[^>]*>([\s\S]*?)<\/\1>/g)]
+      .map(([, , title]) => title.replace(/<!--[\s\S]*?-->/g, "").trim());
+    assert.deepEqual(titles, expectedTitles.map((title) => "&quot;" + title + "&quot;"));
+  }
+});
+
 test("places Recent Talks below Awards with the linked Tulane 3MT talk first in both languages", () => {
   const plain = (html) => html.replace(/<!--.*?-->|<[^>]+>/g, "").trim();
   for (const [html, title, event, date, photos, captions] of [
@@ -64,7 +85,7 @@ test("places Recent Talks below Awards with the linked Tulane 3MT talk first in 
     assert.deepEqual(
       talkLinks.map(([, tag, content]) => [plain(content), attributes(tag).href]),
       [
-        [title, "https://ogps.tulane.edu/sites/default/files/2026-2027/3MT%2011-11-26%20Full%20Program.pdf#page=4"],
+        ["&quot;" + title + "&quot;", "https://ogps.tulane.edu/sites/default/files/2026-2027/3MT%2011-11-26%20Full%20Program.pdf#page=4"],
         [event, "https://ogps.tulane.edu/three-minute-thesis"],
       ],
     );

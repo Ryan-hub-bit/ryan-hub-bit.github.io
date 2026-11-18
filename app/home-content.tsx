@@ -507,7 +507,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
                 target="_blank"
                 rel="noreferrer"
               >
-                {t("Mapping What Software Hides, Before Attackers Do", "抢在攻击者之前，绘出软件隐藏的路径")}
+                &quot;{t("Mapping What Software Hides, Before Attackers Do", "抢在攻击者之前，绘出软件隐藏的路径")}&quot;
               </a>
               {" · "}
               <TalkPhotoGallery photos={talkPhotos} language={language} />
@@ -519,7 +519,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             </li>
             <li>
               <span className="entry-title">
-                {t("Building More Reliable Program Maps from Stripped Binaries", "从去符号二进制程序中构建更可靠的程序图")}
+                &quot;{t("Building More Reliable Program Maps from Stripped Binaries", "从去符号二进制程序中构建更可靠的程序图")}&quot;
               </span>
               {" @ "}
               <a
@@ -533,10 +533,10 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             </li>
             <li>
               <span className="entry-title">
-                {t(
+                &quot;{t(
                   "Can AI Reverse-Engineer Everything?",
                   "AI 能逆向一切吗？",
-                )}
+                )}&quot;
               </span>
               {" @ "}
               {t("School of Cyber Science and Engineering, Wuhan University", "武汉大学国家网络安全学院")}
