@@ -63,6 +63,7 @@ const news = [
 const publications = [
   {
     venueLabel: "ICSE'27",
+    toAppear: true,
     title:
       "Beyond Tokens: NumAnchor for Address-Grounded Numeric Operand Representation in Assembly Language Models",
     authors: [
@@ -89,6 +90,7 @@ const publications = [
   },
   {
     venueLabel: "CCS'26",
+    toAppear: false,
     title:
       "Long-Range Indirect Control-Flow Prediction in Stripped Binaries via Dual Virtual Hubs and Multi-Task Graph Learning",
     artifact: {
@@ -436,7 +438,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
                     </p>
                   )}
                   <p className="venue">
-                    {t("To appear in ", "即将发表于 ")}<em lang="en">{publication.venue}</em>, {t(publication.venueLocation, publication.venueLocationZh)}, {t(publication.venueDate, publication.venueDateZh)}
+                    {publication.toAppear ? t("To appear in ", "即将发表于 ") : t("In ", "发表于 ")}<em lang="en">{publication.venue}</em>, {t(publication.venueLocation, publication.venueLocationZh)}, {t(publication.venueDate, publication.venueDateZh)}
                     {publication.acceptance && (
                       <span className="acceptance-statistics">
                         {t(" (Direct acceptance rate ", "（直接录用率 ")}

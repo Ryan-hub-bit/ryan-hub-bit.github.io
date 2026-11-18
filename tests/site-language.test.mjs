@@ -218,6 +218,29 @@ test("keeps original paper titles, publication authors, and numeric evidence sha
   }
 });
 
+test("uses published wording for CCS 2026 and forthcoming wording for ICSE 2027 in both languages", () => {
+  for (const [html, ccsPrefix, icsePrefix] of [
+    [en, "In ", "To appear in "],
+    [zh, "发表于 ", "即将发表于 "],
+  ]) {
+    const section = main(html).match(/<section\b[^>]*id="publications"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+    assert.ok(section);
+    const articles = [...section.matchAll(/<article\b[^>]*class="publication"[^>]*>([\s\S]*?)<\/article>/g)]
+      .map(([, article]) => article);
+    for (const [title, expectedPrefix] of [
+      ["Long-Range Indirect Control-Flow Prediction in Stripped Binaries via Dual Virtual Hubs and Multi-Task Graph Learning", ccsPrefix],
+      ["Beyond Tokens: NumAnchor for Address-Grounded Numeric Operand Representation in Assembly Language Models", icsePrefix],
+    ]) {
+      const article = articles.find((entry) => entry.includes(title));
+      assert.ok(article, title);
+      const venue = article.match(/<p\b[^>]*class="venue"[^>]*>([\s\S]*?)<\/p>/)?.[1];
+      assert.ok(venue, title + " venue");
+      const prefix = venue.split(/<em\b/)[0].replace(/<!--[\s\S]*?-->/g, "");
+      assert.equal(prefix, expectedPrefix, title + " venue prefix");
+    }
+  }
+});
+
 test("renders compact, bracket-free venue labels for both publications and posters", () => {
   for (const html of [en, zh]) {
     const labels = [...main(html).matchAll(/<span\b[^>]*class="publication-venue-label"[^>]*>([^<]*)<\/span>/g)]
