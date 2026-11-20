@@ -14,6 +14,11 @@ type NewsItem = {
     text: string;
     url: string;
   };
+  acknowledgment?: {
+    text: string;
+    linkText: string;
+    url: string;
+  };
   image?: PreviewImage;
 };
 
@@ -62,6 +67,16 @@ function NewsContent({ item, language, onPreview }: {
             {item.link.text}
           </a>
           {language === "zh" ? "。" : "."}
+        </>
+      )}
+      {item.acknowledgment && (
+        <>
+          {" "}
+          {item.acknowledgment.text}
+          <a href={item.acknowledgment.url} target="_blank" rel="noreferrer">
+            {item.acknowledgment.linkText}
+          </a>
+          {language === "zh" ? "！" : "!"}
         </>
       )}
     </span>

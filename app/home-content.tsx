@@ -10,6 +10,8 @@ import TalkPhotoGallery from "./talk-photo-gallery";
 import ThemeToggle from "./theme-toggle";
 import { formatLastUpdated } from "./site-updated.mjs";
 
+const tulaneSpotlightUrl = "https://lnkd.in/p/eXuZrkP8";
+
 const news = [
   {
     date: "Oct. 2026",
@@ -18,7 +20,20 @@ const news = [
     emphasis: "1st place",
     image: { src: "/news/RSTCON.jpg", alt: "RSTCON 2026 first-place certificate", width: 1420, height: 1017 },
     imageAltZh: "RSTCON 2026 博士生科研竞赛第一名获奖证书",
-    zh: { text: "我在博士生科研竞赛中获得第一名，赛事：", emphasis: "第一名" },
+    acknowledgment: {
+      text: "Thanks to Tulane SSE for the ",
+      linkText: "spotlight",
+      url: tulaneSpotlightUrl,
+    },
+    zh: {
+      text: "我在博士生科研竞赛中获得第一名，赛事：",
+      emphasis: "第一名",
+      acknowledgment: {
+        text: "感谢 Tulane SSE 的",
+        linkText: "报道",
+        url: tulaneSpotlightUrl,
+      },
+    },
     link: {
       text: "RSTCON 2026",
       url: "https://rstcon.org/2026",
@@ -591,6 +606,17 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               <li>Computers &amp; Security 2026</li>
             </ul>
           </div>
+        </section>
+
+        <section className="content-section" id="media-coverage" aria-labelledby="media-coverage-heading">
+          <h2 id="media-coverage-heading">{t("Media Coverage", "媒体报道")}</h2>
+          <ul className="compact-entry-list">
+            <li>
+              <a href={tulaneSpotlightUrl} target="_blank" rel="noreferrer" lang="en">
+                Tulane SSE spotlight
+              </a>
+            </li>
+          </ul>
         </section>
 
         <footer>
