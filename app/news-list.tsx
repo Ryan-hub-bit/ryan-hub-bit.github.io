@@ -14,9 +14,8 @@ type NewsItem = {
     text: string;
     url: string;
   };
-  acknowledgment?: {
+  emphasisLink?: {
     text: string;
-    linkText: string;
     url: string;
   };
   image?: PreviewImage;
@@ -53,36 +52,31 @@ function NewsContent({ item, language, onPreview }: {
           />
         </button>
       )}
-      <span className="news-entry-text">
-        {item.emphasis && emphasisIndex >= 0 ? (
-          <>
-            {item.text.slice(0, emphasisIndex)}
-            <strong>{item.emphasis}</strong>
-            {item.text.slice(emphasisIndex + item.emphasis.length)}
-          </>
-        ) : item.text}
-        {item.link && (
-          <>
-            {" "}
-            <a href={item.link.url} target="_blank" rel="noreferrer">
-              {item.link.text}
-            </a>
-            {language === "zh" ? "。" : "."}
-          </>
-        )}
-        {item.acknowledgment && (
-          <>
-            {" "}
-            <span className="news-acknowledgment">
-              {item.acknowledgment.text}
-              <a href={item.acknowledgment.url} target="_blank" rel="noreferrer">
-                {item.acknowledgment.linkText}
+      {item.emphasis && emphasisIndex >= 0 ? (
+        <>
+          {item.text.slice(0, emphasisIndex)}
+          <strong>{item.emphasis}</strong>
+          {item.emphasisLink && (
+            <>
+              {language === "zh" ? "（" : " ("}
+              <a href={item.emphasisLink.url} target="_blank" rel="noreferrer">
+                {item.emphasisLink.text}
               </a>
-              {language === "zh" ? "！" : "!"}
-            </span>
-          </>
-        )}
-      </span>
+              {language === "zh" ? "）" : ")"}
+            </>
+          )}
+          {item.text.slice(emphasisIndex + item.emphasis.length)}
+        </>
+      ) : item.text}
+      {item.link && (
+        <>
+          {" "}
+          <a href={item.link.url} target="_blank" rel="noreferrer">
+            {item.link.text}
+          </a>
+          {language === "zh" ? "。" : "."}
+        </>
+      )}
     </span>
   );
 }

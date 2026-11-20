@@ -20,19 +20,13 @@ const news = [
     emphasis: "1st place",
     image: { src: "/news/RSTCON.jpg", alt: "RSTCON 2026 first-place certificate", width: 1420, height: 1017 },
     imageAltZh: "RSTCON 2026 博士生科研竞赛第一名获奖证书",
-    acknowledgment: {
-      text: "Thanks to Tulane SSE for the ",
-      linkText: "spotlight",
+    emphasisLink: {
+      text: "spotlight",
       url: tulaneSpotlightUrl,
     },
     zh: {
       text: "我在博士生科研竞赛中获得第一名，赛事：",
       emphasis: "第一名",
-      acknowledgment: {
-        text: "感谢 Tulane SSE 的",
-        linkText: "报道",
-        url: tulaneSpotlightUrl,
-      },
     },
     link: {
       text: "RSTCON 2026",

@@ -16,7 +16,7 @@ const artifactBadges = (html) => [...html.matchAll(/(<span\b[^>]*>)([\s\S]*?)<\/
   .map((match) => ({ attributes: attributes(match[1]), openingTag: match[1], content: match[2], text: visibleText(match[2]), index: match.index }))
   .filter((badge) => badge.attributes.class?.split(/\s+/).includes("artifact-badge"));
 
-test("uses compact publication, poster, and section spacing", async () => {
+test("tightens only internal publication and poster gaps while preserving section and last-entry spacing", async () => {
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   const declarations = (pattern, label) => {
     const body = css.match(pattern)?.[1];
@@ -29,10 +29,10 @@ test("uses compact publication, poster, and section spacing", async () => {
   assert.deepEqual(declarations(
     /#publications\s+\.publication:not\(:last-child\),\s*#posters\s+\.publication:not\(:last-child\)\s*\{([^}]+)\}/,
     "scoped non-last publication/poster",
-  ), { "margin-bottom": "8px", "padding-bottom": "8px" });
+  ), { "margin-bottom": "12px", "padding-bottom": "10px" });
   assert.deepEqual(declarations(/(?:^|\n)\.publication\s*\{([^}]+)\}/, "base publication"), {
-    "margin-bottom": "16px",
-    "padding-bottom": "10px",
+    "margin-bottom": "24px",
+    "padding-bottom": "20px",
     "border-bottom": "1px solid var(--publication-border)",
   });
   assert.deepEqual(declarations(/\.publication:last-child\s*\{([^}]+)\}/, "last publication"), {
@@ -46,8 +46,8 @@ test("uses compact publication, poster, and section spacing", async () => {
   });
   assert.deepEqual(
     [...css.matchAll(/--section-spacing\s*:\s*([^;]+);/g)].map(([, value]) => value.trim()),
-    ["14px", "12px"],
-    "Desktop and mobile sections should use the compact spacing scale",
+    ["16px", "14px"],
+    "Desktop and mobile section-spacing values must stay unchanged",
   );
 });
 
