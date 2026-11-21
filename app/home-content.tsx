@@ -578,6 +578,9 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             <h3 className="service-category">{t("Conference Program Committee (Reviewer)", "会议程序委员会（审稿人）")}</h3>
             <ul className="compact-entry-list">
               <li lang="en">
+                21st USENIX WOOT Conference on Offensive Technologies, 2027 (Cycle 1)
+              </li>
+              <li lang="en">
                 AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027
               </li>
             </ul>

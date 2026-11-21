@@ -184,7 +184,10 @@ test("lists program committee reviewing first in academic service in both langua
       [...service.matchAll(/<ul\b[^>]*>/g)].map(([tag]) => attributes(tag).class),
       ["compact-entry-list", "compact-entry-list service-poster-list", "compact-entry-list", "compact-entry-list"],
     );
-    assert.deepEqual(entries(programCommittee), ["AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027"]);
+    assert.deepEqual(entries(programCommittee), [
+      "21st USENIX WOOT Conference on Offensive Technologies, 2027 (Cycle 1)",
+      "AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027",
+    ]);
     assert.deepEqual(entries(poster), [
       "Network and Distributed System Security Symposium (NDSS), 2027",
     ]);
