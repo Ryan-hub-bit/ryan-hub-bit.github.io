@@ -595,6 +595,14 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             </ul>
           </div>
           <div className="service-group">
+            <h3 className="service-category">{t("Workshop Reviewer", "研讨会审稿人")}</h3>
+            <ul className="compact-entry-list">
+              <li lang="en">
+                AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027
+              </li>
+            </ul>
+          </div>
+          <div className="service-group">
             <h3 className="service-category">{t("Journal Reviewer", "期刊审稿")}</h3>
             <ul className="compact-entry-list">
               <li>Computers &amp; Security 2026</li>
