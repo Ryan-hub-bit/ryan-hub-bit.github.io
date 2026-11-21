@@ -575,6 +575,14 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
         <section className="content-section service" id="service" aria-labelledby="service-heading">
           <h2 id="service-heading">{t("Academic Service", "学术服务")}</h2>
           <div className="service-group">
+            <h3 className="service-category">{t("Conference Program Committee (Reviewer)", "会议程序委员会（审稿人）")}</h3>
+            <ul className="compact-entry-list">
+              <li lang="en">
+                AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027
+              </li>
+            </ul>
+          </div>
+          <div className="service-group">
             <h3 className="service-category">{t("Conference Poster Committee", "会议海报评审委员会")}</h3>
             <ul className="compact-entry-list service-poster-list">
               <li lang="en">
@@ -591,14 +599,6 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               </li>
               <li lang="en">
                 ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI), 2026
-              </li>
-            </ul>
-          </div>
-          <div className="service-group">
-            <h3 className="service-category">{t("Workshop Reviewer", "研讨会审稿人")}</h3>
-            <ul className="compact-entry-list">
-              <li lang="en">
-                AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027
               </li>
             </ul>
           </div>

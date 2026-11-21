@@ -164,14 +164,14 @@ test("lists teaching terms chronologically in both languages", () => {
   }
 });
 
-test("groups academic service into committees, conference reviews, workshop reviews, and journal reviews in both languages", () => {
+test("lists program committee reviewing first in academic service in both languages", () => {
   const plain = (html) => html.replace(/<!--.*?-->|<[^>]+>/g, "").replace(/\s+/g, " ").trim();
   const rawEntries = (html) => [...html.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(([, item]) => item);
   const entries = (html) => rawEntries(html).map(plain);
 
   for (const [html, headings] of [
-    [en, ["Conference Poster Committee", "Conference External Reviewer", "Workshop Reviewer", "Journal Reviewer"]],
-    [zh, ["会议海报评审委员会", "会议外部审稿人", "研讨会审稿人", "期刊审稿"]],
+    [en, ["Conference Program Committee (Reviewer)", "Conference Poster Committee", "Conference External Reviewer", "Journal Reviewer"]],
+    [zh, ["会议程序委员会（审稿人）", "会议海报评审委员会", "会议外部审稿人", "期刊审稿"]],
   ]) {
     const service = main(html).match(/<section\b[^>]*id="service"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(service);
@@ -179,11 +179,12 @@ test("groups academic service into committees, conference reviews, workshop revi
 
     const [, ...groups] = service.split(/<h3\b[^>]*>([\s\S]*?)<\/h3>/g);
     assert.deepEqual(groups.filter((_, index) => index % 2 === 0).map(plain), headings);
-    const [, poster, , review, , workshop, , journal] = groups;
+    const [, programCommittee, , poster, , review, , journal] = groups;
     assert.deepEqual(
       [...service.matchAll(/<ul\b[^>]*>/g)].map(([tag]) => attributes(tag).class),
-      ["compact-entry-list service-poster-list", "compact-entry-list", "compact-entry-list", "compact-entry-list"],
+      ["compact-entry-list", "compact-entry-list service-poster-list", "compact-entry-list", "compact-entry-list"],
     );
+    assert.deepEqual(entries(programCommittee), ["AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027"]);
     assert.deepEqual(entries(poster), [
       "Network and Distributed System Security Symposium (NDSS), 2027",
     ]);
@@ -199,7 +200,6 @@ test("groups academic service into committees, conference reviews, workshop revi
     const linkedYears = [...posterEntry.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
       .map(([, tag, content]) => [plain(content), attributes(tag).href]);
     assert.deepEqual(linkedYears, [["2027", "https://www.ndss-symposium.org/ndss2027/"]]);
-    assert.deepEqual(entries(workshop), ["AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027"]);
     assert.deepEqual(entries(journal), ["Computers &amp; Security 2026"]);
   }
 });
