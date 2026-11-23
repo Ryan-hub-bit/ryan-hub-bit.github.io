@@ -485,6 +485,7 @@ h2 {
 }
 
 .news-entry-content { min-width: 0; }
+.news-entry-content a { display: inline-block; max-width: 100%; }
 
 .news-thumbnail {
   display: inline-flex;
