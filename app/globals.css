@@ -607,6 +607,8 @@ body:has(.image-dialog[open]) { overflow: hidden; }
   text-wrap: pretty;
 }
 
+#posters .paper-details h3 a { color: inherit; }
+
 .artifact-badge {
   display: inline-block;
   max-width: calc(100% - 0.85em);
