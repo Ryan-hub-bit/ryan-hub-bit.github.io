@@ -253,8 +253,8 @@ test("renders compact, bracket-free venue labels for both publications and poste
 
 test("shows four current news entries and keeps the localized archive collapsed", () => {
   for (const [html, label, latestText, emphasis] of [
-    [en, "More news", "Invited as a PC reviewer for ISSTA, USENIX WOOT & AAAI AgenticSE 2027.", "PC reviewer"],
-    [zh, "更多动态", "受邀担任 ISSTA、USENIX WOOT 及 AAAI AgenticSE 2027 程序委员会审稿人。", "程序委员会审稿人"],
+    [en, "More news", "Invited as a PC member (ISSTA, USENIX WOOT & AAAI AgenticSE), 2027.", "PC member"],
+    [zh, "更多动态", "受邀担任程序委员会委员（ISSTA、USENIX WOOT 及 AAAI AgenticSE），2027。", "程序委员会委员"],
   ]) {
     const news = main(html).match(/<section[^>]*id="news"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(news);
@@ -268,7 +268,6 @@ test("shows four current news entries and keeps the localized archive collapsed"
     assert.ok(latestContent);
     assert.equal(latestContent.replace(/<!--.*?-->|<[^>]+>/g, "").replace(/&amp;/g, "&"), latestText);
     assert.ok(latestContent.includes(`<strong>${emphasis}</strong>`));
-    assert.doesNotMatch(latestEntry, /news-thumbnail|<img\b/);
     assert.match(news, /<div[^>]*hidden=""/);
     assert.match(news, /aria-expanded="false"/);
     assert.ok(news.includes(label));

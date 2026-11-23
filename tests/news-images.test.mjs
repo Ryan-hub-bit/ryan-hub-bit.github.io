@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const images = [
+  ["WOOT2027-PC.png", "ISSTA", "ISSTA"],
   ["RSTCON.jpg", "RSTCON 2026", "RSTCON 2026"],
   ["ICSE2027.jpg", "ICSE 2027", "ICSE 2027"],
   ["CCS2026.jpg", "ACM CCS 2026", "ACM CCS 2026"],
@@ -11,15 +12,17 @@ const images = [
 ];
 
 for (const [locale, file, textIndex] of [["English", "index.html", 1], ["Chinese", "zh/index.html", 2]]) {
-  test(`${locale} news maps all five image previews to the matching entries`, async () => {
+  test(`${locale} news maps all six image previews to the matching entries`, async () => {
     const html = await readFile(new URL(`../out/${file}`, import.meta.url), "utf8");
     const section = html.match(/<section[^>]*id="news"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(section);
     const entries = [...section.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((match) => match[1]);
-    assert.equal(entries.length, images.length + 1);
-    assert.doesNotMatch(entries[0], /news-thumbnail|<img\b/);
+    assert.equal(entries.length, images.length);
     const imageEntries = entries.filter((entry) => /class="news-thumbnail"/.test(entry));
     assert.equal(imageEntries.length, images.length);
+    assert.ok(imageEntries[0].includes(locale === "English"
+      ? 'aria-label="View image: USENIX WOOT 2027 program committee confirmation email"'
+      : 'aria-label="查看图片: USENIX WOOT 2027 程序委员会确认邮件"'));
     for (const [index, image] of images.entries()) {
       assert.ok(imageEntries[index].includes(image[textIndex]));
       assert.ok(imageEntries[index].includes(`src="/news/${image[0]}"`));

@@ -16,11 +16,13 @@ const news = [
   {
     date: "Nov. 2026",
     dateTime: "2026-11",
-    text: "Invited as a PC reviewer for ISSTA, USENIX WOOT & AAAI AgenticSE 2027.",
-    emphasis: "PC reviewer",
+    text: "Invited as a PC member (ISSTA, USENIX WOOT & AAAI AgenticSE), 2027.",
+    emphasis: "PC member",
+    image: { src: "/news/WOOT2027-PC.png", alt: "USENIX WOOT 2027 program committee confirmation email", width: 1290, height: 1515 },
+    imageAltZh: "USENIX WOOT 2027 程序委员会确认邮件",
     zh: {
-      text: "受邀担任 ISSTA、USENIX WOOT 及 AAAI AgenticSE 2027 程序委员会审稿人。",
-      emphasis: "程序委员会审稿人",
+      text: "受邀担任程序委员会委员（ISSTA、USENIX WOOT 及 AAAI AgenticSE），2027。",
+      emphasis: "程序委员会委员",
     },
   },
   {
