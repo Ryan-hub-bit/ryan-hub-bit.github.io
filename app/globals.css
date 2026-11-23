@@ -686,18 +686,18 @@ body:has(.image-dialog[open]) { overflow: hidden; }
 
 .publication-venue-label {
   display: inline-block;
-  margin: 0 8px 3px 0;
-  padding: 2px 8px;
-  border-radius: 4px;
+  margin: 0 6px 0 0;
+  padding: 1px 5px;
+  border-radius: 3px;
   background: var(--tulane-green);
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.025em;
-  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.2;
   white-space: nowrap;
-  vertical-align: 0.12em;
+  vertical-align: baseline;
 }
 
 .service-group,
