@@ -31,21 +31,17 @@ const news = [
   {
     date: "Oct. 2026",
     dateTime: "2026-10",
-    text: "I won 1st place in the Ph.D. Student Research Competition at",
+    text: "I won 1st place in the Ph.D. Student Research Competition at RSTCON 2026. Tulane SSE Spotlight",
     emphasis: "1st place",
+    inlineLinks: [
+      { text: "RSTCON 2026", url: "https://rstcon.org/2026" },
+      { text: "Tulane SSE Spotlight", url: tulaneSpotlightUrl },
+    ],
     image: { src: "/news/RSTCON.jpg", alt: "RSTCON 2026 first-place certificate", width: 1420, height: 1017 },
     imageAltZh: "RSTCON 2026 博士生科研竞赛第一名获奖证书",
-    emphasisLink: {
-      text: "spotlight",
-      url: tulaneSpotlightUrl,
-    },
     zh: {
-      text: "我在博士生科研竞赛中获得第一名，赛事：",
+      text: "我在博士生科研竞赛中获得第一名，赛事：RSTCON 2026。 Tulane SSE Spotlight",
       emphasis: "第一名",
-    },
-    link: {
-      text: "RSTCON 2026",
-      url: "https://rstcon.org/2026",
     },
   },
   {
