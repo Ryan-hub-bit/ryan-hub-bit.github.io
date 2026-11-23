@@ -424,9 +424,9 @@ a.social-link:focus-visible {
 .email-address { white-space: nowrap; }
 .contact-invitation { white-space: nowrap; }
 
-.research-interests { margin-top: calc(var(--section-spacing) / 2); }
+.research-interests { margin-top: calc(var(--section-spacing) / 4); }
 .research-interests h2 {
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 .research-interests ul {
   display: grid;
@@ -441,7 +441,7 @@ a.social-link:focus-visible {
 .content-section { margin-top: var(--section-spacing); }
 
 h2 {
-  margin: 0 0 14px;
+  margin: 0 0 7px;
   color: var(--title);
   font-size: 1.3rem;
   font-weight: 400;
