@@ -251,11 +251,24 @@ test("renders compact, bracket-free venue labels for both publications and poste
   }
 });
 
-test("keeps the news archive collapsed and localizes its controls", () => {
-  for (const [html, label] of [[en, "More news"], [zh, "更多动态"]]) {
+test("shows four current news entries and keeps the localized archive collapsed", () => {
+  for (const [html, label, latestText, emphasis] of [
+    [en, "More news", "Invited as a PC reviewer for ISSTA, USENIX WOOT & AAAI AgenticSE 2027.", "PC reviewer"],
+    [zh, "更多动态", "受邀担任 ISSTA、USENIX WOOT 及 AAAI AgenticSE 2027 程序委员会审稿人。", "程序委员会审稿人"],
+  ]) {
     const news = main(html).match(/<section[^>]*id="news"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(news);
-    assert.equal([...news.matchAll(/<time\b/g)].length, 5);
+    assert.equal([...news.matchAll(/<time\b/g)].length, 6);
+    const lists = [...news.matchAll(/<ul\b[^>]*class="news-list"[^>]*>([\s\S]*?)<\/ul>/g)]
+      .map(([, content]) => [...content.matchAll(/<li>([\s\S]*?)<\/li>/g)].map(([, entry]) => entry));
+    assert.deepEqual(lists.map((entries) => entries.length), [4, 2]);
+    const latestEntry = lists[0][0];
+    assert.match(latestEntry, /<time\b[^>]*dateTime="2026-11"/);
+    const latestContent = latestEntry.match(/<span\b[^>]*class="news-entry-content"[^>]*>([\s\S]*)<\/span>/)?.[1];
+    assert.ok(latestContent);
+    assert.equal(latestContent.replace(/<!--.*?-->|<[^>]+>/g, "").replace(/&amp;/g, "&"), latestText);
+    assert.ok(latestContent.includes(`<strong>${emphasis}</strong>`));
+    assert.doesNotMatch(latestEntry, /news-thumbnail|<img\b/);
     assert.match(news, /<div[^>]*hidden=""/);
     assert.match(news, /aria-expanded="false"/);
     assert.ok(news.includes(label));

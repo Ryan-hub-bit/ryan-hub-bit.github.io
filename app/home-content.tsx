@@ -14,6 +14,16 @@ const tulaneSpotlightUrl = "https://lnkd.in/p/eXuZrkP8";
 
 const news = [
   {
+    date: "Nov. 2026",
+    dateTime: "2026-11",
+    text: "Invited as a PC reviewer for ISSTA, USENIX WOOT & AAAI AgenticSE 2027.",
+    emphasis: "PC reviewer",
+    zh: {
+      text: "受邀担任 ISSTA、USENIX WOOT 及 AAAI AgenticSE 2027 程序委员会审稿人。",
+      emphasis: "程序委员会审稿人",
+    },
+  },
+  {
     date: "Oct. 2026",
     dateTime: "2026-10",
     text: "I won 1st place in the Ph.D. Student Research Competition at",
@@ -201,7 +211,9 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
   const localizedNews = news.map(({ zh, imageAltZh, ...item }) => ({
     ...item,
     ...(isChinese ? zh : {}),
-    image: { ...item.image, alt: isChinese ? imageAltZh : item.image.alt },
+    image: item.image
+      ? { ...item.image, alt: isChinese ? (imageAltZh ?? item.image.alt) : item.image.alt }
+      : undefined,
     date: isChinese
       ? `${item.dateTime.slice(0, 4)}年${Number(item.dateTime.slice(5))}月`
       : item.date,

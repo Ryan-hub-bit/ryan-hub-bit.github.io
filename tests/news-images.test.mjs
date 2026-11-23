@@ -16,11 +16,14 @@ for (const [locale, file, textIndex] of [["English", "index.html", 1], ["Chinese
     const section = html.match(/<section[^>]*id="news"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(section);
     const entries = [...section.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((match) => match[1]);
-    assert.equal(entries.length, images.length);
+    assert.equal(entries.length, images.length + 1);
+    assert.doesNotMatch(entries[0], /news-thumbnail|<img\b/);
+    const imageEntries = entries.filter((entry) => /class="news-thumbnail"/.test(entry));
+    assert.equal(imageEntries.length, images.length);
     for (const [index, image] of images.entries()) {
-      assert.ok(entries[index].includes(image[textIndex]));
-      assert.ok(entries[index].includes(`src="/news/${image[0]}"`));
-      const entryMarkup = entries[index].replace(/<!--[\s\S]*?-->/g, "").trim();
+      assert.ok(imageEntries[index].includes(image[textIndex]));
+      assert.ok(imageEntries[index].includes(`src="/news/${image[0]}"`));
+      const entryMarkup = imageEntries[index].replace(/<!--[\s\S]*?-->/g, "").trim();
       assert.match(entryMarkup, /^<time\b[^>]*>[\s\S]*?<\/time>\s*<span[^>]*class="news-entry-content"[^>]*>/, "The date must remain before the separate news content");
       const content = entryMarkup.match(/<span[^>]*class="news-entry-content"[^>]*>([\s\S]*)<\/span>$/)?.[1];
       assert.ok(content, `Missing news-entry-content for ${image[0]}`);

@@ -21,7 +21,7 @@ type NewsItem = {
   image?: PreviewImage;
 };
 
-const VISIBLE_ITEMS = 3;
+const VISIBLE_ITEMS = 4;
 
 function NewsContent({ item, language, onPreview }: {
   item: NewsItem;
