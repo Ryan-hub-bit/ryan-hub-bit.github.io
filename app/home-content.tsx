@@ -578,7 +578,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
             <h3 className="service-category">{t("Conference Program Committee (Reviewer)", "会议程序委员会（审稿人）")}</h3>
             <ul className="compact-entry-list">
               <li lang="en">
-                ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA), 2027 (Invited)
+                ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA), 2027
               </li>
               <li lang="en">
                 USENIX WOOT Conference on Offensive Technologies, 2027
