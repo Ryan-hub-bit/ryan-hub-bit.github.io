@@ -185,6 +185,7 @@ test("lists program committee reviewing first in academic service in both langua
       ["compact-entry-list", "compact-entry-list service-poster-list", "compact-entry-list", "compact-entry-list"],
     );
     assert.deepEqual(entries(programCommittee), [
+      "ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA), 2027 (Invited)",
       "USENIX WOOT Conference on Offensive Technologies, 2027",
       "AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027",
     ]);
