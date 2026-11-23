@@ -441,7 +441,7 @@ a.social-link:focus-visible {
 .content-section { margin-top: var(--section-spacing); }
 
 h2 {
-  margin: 0 0 7px;
+  margin: 0 0 3px;
   color: var(--title);
   font-size: 1.3rem;
   font-weight: 400;
@@ -595,6 +595,7 @@ body:has(.image-dialog[open]) { overflow: hidden; }
 .paper-details h3 {
   margin: 0 0 5px;
   color: var(--title);
+  font-size: 14px;
   line-height: 1.4;
   text-wrap: pretty;
 }
@@ -690,6 +691,7 @@ body:has(.image-dialog[open]) { overflow: hidden; }
   background: var(--tulane-green);
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.025em;
   line-height: 1.45;
