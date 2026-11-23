@@ -416,6 +416,7 @@ a.social-link:focus-visible {
   line-height: 1.45;
 }
 .introduction > p {
+  margin-bottom: 0;
   text-align: justify;
   text-align-last: left;
 }
@@ -427,7 +428,7 @@ a.social-link:focus-visible {
 .email-address { white-space: nowrap; }
 .contact-invitation { white-space: nowrap; }
 
-.research-interests { margin-top: 20px; }
+.research-interests { margin-top: calc(var(--section-spacing) / 2); }
 .research-interests h2 {
   margin: 0 0 8px;
   font-size: 1rem;
