@@ -42,7 +42,7 @@ test("tightens only internal publication and poster gaps while preserving sectio
     "margin-top": "var(--section-spacing)",
   });
   assert.deepEqual(declarations(/\.publication-list\s*\{([^}]+)\}/, "publication list"), {
-    "margin-top": "4px",
+    "margin-top": "0",
   });
   assert.deepEqual(
     [...css.matchAll(/--section-spacing\s*:\s*([^;]+);/g)].map(([, value]) => value.trim()),

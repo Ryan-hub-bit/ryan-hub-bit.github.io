@@ -407,8 +407,6 @@ a.social-link:focus-visible {
   margin-bottom: var(--section-spacing);
 }
 
-.introduction > h2 { margin: 0; }
-
 .introduction p {
   margin: 0 0 8px;
   line-height: 1.45;
@@ -428,7 +426,6 @@ a.social-link:focus-visible {
 
 .research-interests { margin-top: calc(var(--section-spacing) / 2); }
 .research-interests h2 {
-  margin: 0 0 4px;
   font-size: 1.125rem;
 }
 .research-interests ul {
@@ -444,7 +441,7 @@ a.social-link:focus-visible {
 .content-section { margin-top: var(--section-spacing); }
 
 h2 {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   color: var(--title);
   font-size: 1.3rem;
   font-weight: 400;
@@ -579,7 +576,7 @@ body:has(.image-dialog[open]) { overflow: hidden; }
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.publication-list { margin-top: 4px; }
+.publication-list { margin-top: 0; }
 
 .publication {
   margin-bottom: 24px;
