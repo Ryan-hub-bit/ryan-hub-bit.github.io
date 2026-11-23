@@ -16,13 +16,13 @@ const news = [
   {
     date: "Nov. 2026",
     dateTime: "2026-11",
-    text: "Invited as a PC member (ISSTA, USENIX WOOT & AAAI AgenticSE), 2027.",
-    emphasis: "PC member",
+    text: "Invited to serve as PC/reviewer (ISSTA, USENIX WOOT & AAAI AgenticSE), 2027.",
+    emphasis: "PC/reviewer",
     image: { src: "/news/WOOT2027-PC.png", alt: "USENIX WOOT 2027 program committee confirmation email", width: 1290, height: 1515 },
     imageAltZh: "USENIX WOOT 2027 程序委员会确认邮件",
     zh: {
-      text: "受邀担任程序委员会委员（ISSTA、USENIX WOOT 及 AAAI AgenticSE），2027。",
-      emphasis: "程序委员会委员",
+      text: "受邀担任 PC／审稿人（ISSTA、USENIX WOOT 及 AAAI AgenticSE），2027。",
+      emphasis: "PC／审稿人",
     },
   },
   {
@@ -589,7 +589,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
         <section className="content-section service" id="service" aria-labelledby="service-heading">
           <h2 id="service-heading">{t("Academic Service", "学术服务")}</h2>
           <div className="service-group">
-            <h3 className="service-category">{t("Conference Program Committee (Reviewer)", "会议程序委员会（审稿人）")}</h3>
+            <h3 className="service-category">{t("Conference Program Committee / Reviewer", "会议程序委员会／审稿人")}</h3>
             <ul className="compact-entry-list">
               <li lang="en">
                 ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA), 2027
@@ -598,7 +598,7 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
                 USENIX WOOT Conference on Offensive Technologies, 2027
               </li>
               <li lang="en">
-                AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027
+                AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027 (Reviewer)
               </li>
             </ul>
           </div>

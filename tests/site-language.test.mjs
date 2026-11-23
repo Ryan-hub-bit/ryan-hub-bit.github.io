@@ -170,8 +170,8 @@ test("lists program committee reviewing first in academic service in both langua
   const entries = (html) => rawEntries(html).map(plain);
 
   for (const [html, headings] of [
-    [en, ["Conference Program Committee (Reviewer)", "Conference Poster Committee", "Conference External Reviewer", "Journal Reviewer"]],
-    [zh, ["会议程序委员会（审稿人）", "会议海报评审委员会", "会议外部审稿人", "期刊审稿"]],
+    [en, ["Conference Program Committee / Reviewer", "Conference Poster Committee", "Conference External Reviewer", "Journal Reviewer"]],
+    [zh, ["会议程序委员会／审稿人", "会议海报评审委员会", "会议外部审稿人", "期刊审稿"]],
   ]) {
     const service = main(html).match(/<section\b[^>]*id="service"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(service);
@@ -187,7 +187,7 @@ test("lists program committee reviewing first in academic service in both langua
     assert.deepEqual(entries(programCommittee), [
       "ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA), 2027",
       "USENIX WOOT Conference on Offensive Technologies, 2027",
-      "AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027",
+      "AAAI Workshop on Agentic Software Engineering (AgenticSE), 2027 (Reviewer)",
     ]);
     assert.deepEqual(entries(poster), [
       "Network and Distributed System Security Symposium (NDSS), 2027",
@@ -253,8 +253,8 @@ test("renders compact, bracket-free venue labels for both publications and poste
 
 test("shows four current news entries and keeps the localized archive collapsed", () => {
   for (const [html, label, latestText, emphasis] of [
-    [en, "More news", "Invited as a PC member (ISSTA, USENIX WOOT & AAAI AgenticSE), 2027.", "PC member"],
-    [zh, "更多动态", "受邀担任程序委员会委员（ISSTA、USENIX WOOT 及 AAAI AgenticSE），2027。", "程序委员会委员"],
+    [en, "More news", "Invited to serve as PC/reviewer (ISSTA, USENIX WOOT & AAAI AgenticSE), 2027.", "PC/reviewer"],
+    [zh, "更多动态", "受邀担任 PC／审稿人（ISSTA、USENIX WOOT 及 AAAI AgenticSE），2027。", "PC／审稿人"],
   ]) {
     const news = main(html).match(/<section[^>]*id="news"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(news);
