@@ -2,7 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
-import { useId, useMemo, useRef, useState } from "react";
+import { useId, useMemo, useRef, useState, type ReactNode } from "react";
 import ImagePreview, { type PreviewImage } from "./image-preview";
 
 type NewsItem = {
@@ -10,6 +10,7 @@ type NewsItem = {
   dateTime: string;
   text: string;
   emphasis?: string;
+  inlineLinks?: { text: string; url: string }[];
   link?: {
     text: string;
     url: string;
@@ -22,6 +23,30 @@ type NewsItem = {
 };
 
 const VISIBLE_ITEMS = 4;
+
+function linkedText(text: string, links: NewsItem["inlineLinks"]) {
+  if (!links?.length) return text;
+
+  const matches = links
+    .map((link) => ({ ...link, index: text.indexOf(link.text) }))
+    .filter((link) => link.index >= 0)
+    .sort((a, b) => a.index - b.index);
+  const parts: ReactNode[] = [];
+  let cursor = 0;
+
+  for (const link of matches) {
+    if (link.index < cursor) continue;
+    parts.push(text.slice(cursor, link.index));
+    parts.push(
+      <a key={`${link.index}-${link.url}`} href={link.url} target="_blank" rel="noreferrer">
+        {link.text}
+      </a>,
+    );
+    cursor = link.index + link.text.length;
+  }
+  parts.push(text.slice(cursor));
+  return parts;
+}
 
 function NewsContent({ item, language, onPreview }: {
   item: NewsItem;
@@ -54,7 +79,7 @@ function NewsContent({ item, language, onPreview }: {
       )}
       {item.emphasis && emphasisIndex >= 0 ? (
         <>
-          {item.text.slice(0, emphasisIndex)}
+          {linkedText(item.text.slice(0, emphasisIndex), item.inlineLinks)}
           <strong>{item.emphasis}</strong>
           {item.emphasisLink && (
             <>
@@ -65,9 +90,9 @@ function NewsContent({ item, language, onPreview }: {
               {language === "zh" ? "）" : ")"}
             </>
           )}
-          {item.text.slice(emphasisIndex + item.emphasis.length)}
+          {linkedText(item.text.slice(emphasisIndex + item.emphasis.length), item.inlineLinks)}
         </>
-      ) : item.text}
+      ) : linkedText(item.text, item.inlineLinks)}
       {item.link && (
         <>
           {" "}

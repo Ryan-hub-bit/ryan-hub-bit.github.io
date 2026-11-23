@@ -252,9 +252,9 @@ test("renders compact, bracket-free venue labels for both publications and poste
 });
 
 test("shows four current news entries and keeps the localized archive collapsed", () => {
-  for (const [html, label, latestText, emphasis] of [
-    [en, "More news", "Invited to serve as PC/reviewer (ISSTA, USENIX WOOT & AAAI AgenticSE), 2027.", "PC/reviewer"],
-    [zh, "更多动态", "受邀担任 PC／审稿人（ISSTA、USENIX WOOT 及 AAAI AgenticSE），2027。", "PC／审稿人"],
+  for (const [html, label, latestText, pldiLabel] of [
+    [en, "More news", "Invited to serve as PC/reviewer (ISSTA, USENIX WOOT & AAAI AgenticSE), 2027.", "PLDI Student Research Competition (SRC)"],
+    [zh, "更多动态", "受邀担任 PC／审稿人（ISSTA、USENIX WOOT 及 AAAI AgenticSE），2027。", "PLDI 学生科研竞赛（SRC）"],
   ]) {
     const news = main(html).match(/<section[^>]*id="news"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(news);
@@ -267,7 +267,31 @@ test("shows four current news entries and keeps the localized archive collapsed"
     const latestContent = latestEntry.match(/<span\b[^>]*class="news-entry-content"[^>]*>([\s\S]*)<\/span>/)?.[1];
     assert.ok(latestContent);
     assert.equal(latestContent.replace(/<!--.*?-->|<[^>]+>/g, "").replace(/&amp;/g, "&"), latestText);
-    assert.ok(latestContent.includes(`<strong>${emphasis}</strong>`));
+    assert.doesNotMatch(latestEntry, /<strong\b/);
+    const entryLinks = lists.flat().map((entry) =>
+      [...entry.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)].map(([, tag, content]) => {
+        const { href, target, rel } = attributes(tag);
+        return [content.replace(/<!--.*?-->|<[^>]+>/g, ""), href, target, rel];
+      }),
+    );
+    assert.deepEqual(entryLinks[0], [
+      ["ISSTA", "https://conf.researchr.org/home/issta-2027", "_blank", "noreferrer"],
+      ["USENIX WOOT", "https://www.usenix.org/conference/woot27", "_blank", "noreferrer"],
+      ["AAAI AgenticSE", "https://agenticse-aaai.github.io/", "_blank", "noreferrer"],
+    ]);
+    const conferenceLinks = [
+      ["RSTCON 2026", "https://rstcon.org/2026"],
+      ["ICSE 2027", "https://conf.researchr.org/home/icse-2027"],
+      ["ACM CCS 2026", "https://www.sigsac.org/ccs/CCS2026/index.html"],
+      ["USENIX Security 2026", "https://www.usenix.org/conference/usenixsecurity26"],
+      [pldiLabel, "https://pldi26.sigplan.org/track/pldi-2026-src"],
+    ];
+    for (const [index, [conferenceLabel, url]] of conferenceLinks.entries()) {
+      assert.deepEqual(
+        entryLinks[index + 1].filter(([linkLabel]) => linkLabel === conferenceLabel),
+        [[conferenceLabel, url, "_blank", "noreferrer"]],
+      );
+    }
     assert.match(news, /<div[^>]*hidden=""/);
     assert.match(news, /aria-expanded="false"/);
     assert.ok(news.includes(label));

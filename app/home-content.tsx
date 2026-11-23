@@ -17,12 +17,15 @@ const news = [
     date: "Nov. 2026",
     dateTime: "2026-11",
     text: "Invited to serve as PC/reviewer (ISSTA, USENIX WOOT & AAAI AgenticSE), 2027.",
-    emphasis: "PC/reviewer",
+    inlineLinks: [
+      { text: "ISSTA", url: "https://conf.researchr.org/home/issta-2027" },
+      { text: "USENIX WOOT", url: "https://www.usenix.org/conference/woot27" },
+      { text: "AAAI AgenticSE", url: "https://agenticse-aaai.github.io/" },
+    ],
     image: { src: "/news/WOOT2027-PC.png", alt: "USENIX WOOT 2027 program committee confirmation email", width: 1290, height: 1515 },
     imageAltZh: "USENIX WOOT 2027 程序委员会确认邮件",
     zh: {
       text: "受邀担任 PC／审稿人（ISSTA、USENIX WOOT 及 AAAI AgenticSE），2027。",
-      emphasis: "PC／审稿人",
     },
   },
   {
@@ -50,6 +53,7 @@ const news = [
     dateTime: "2026-10",
     text: "One paper was directly accepted to ICSE 2027.",
     emphasis: "directly accepted",
+    inlineLinks: [{ text: "ICSE 2027", url: "https://conf.researchr.org/home/icse-2027" }],
     image: { src: "/news/ICSE2027.jpg", alt: "ICSE 2027 acceptance email", width: 1290, height: 2091 },
     imageAltZh: "ICSE 2027 论文录用邮件",
     zh: { text: "一篇论文被 ICSE 2027 直接录用。", emphasis: "直接录用" },
@@ -59,6 +63,7 @@ const news = [
     dateTime: "2026-07",
     text: "One paper was directly accepted to ACM CCS 2026 (Cycle B).",
     emphasis: "directly accepted",
+    inlineLinks: [{ text: "ACM CCS 2026", url: "https://www.sigsac.org/ccs/CCS2026/index.html" }],
     image: { src: "/news/CCS2026.jpg", alt: "ACM CCS 2026 acceptance email", width: 1290, height: 1373 },
     imageAltZh: "ACM CCS 2026 论文录用邮件",
     zh: { text: "一篇论文被 ACM CCS 2026（Cycle B）直接录用。", emphasis: "直接录用" },
@@ -67,6 +72,7 @@ const news = [
     date: "Jul. 2026",
     dateTime: "2026-07",
     text: "One poster was accepted to USENIX Security 2026. See you in Baltimore!",
+    inlineLinks: [{ text: "USENIX Security 2026", url: "https://www.usenix.org/conference/usenixsecurity26" }],
     image: { src: "/news/Usenix26.jpg", alt: "USENIX Security 2026 poster acceptance email", width: 1290, height: 1518 },
     imageAltZh: "USENIX Security 2026 海报录用邮件",
     zh: { text: "一项海报展示被 USENIX Security 2026 接收。巴尔的摩见！" },
@@ -75,9 +81,13 @@ const news = [
     date: "Apr. 2026",
     dateTime: "2026-04",
     text: "One poster was accepted to the PLDI Student Research Competition (SRC). See you in Denver!",
+    inlineLinks: [{ text: "PLDI Student Research Competition (SRC)", url: "https://pldi26.sigplan.org/track/pldi-2026-src" }],
     image: { src: "/news/PLDISRC.jpg", alt: "PLDI 2026 SRC poster acceptance email", width: 1290, height: 1630 },
     imageAltZh: "PLDI 2026 SRC 海报录用邮件",
-    zh: { text: "一项海报展示被 PLDI 学生科研竞赛（SRC）接收。丹佛见！" },
+    zh: {
+      text: "一项海报展示被 PLDI 学生科研竞赛（SRC）接收。丹佛见！",
+      inlineLinks: [{ text: "PLDI 学生科研竞赛（SRC）", url: "https://pldi26.sigplan.org/track/pldi-2026-src" }],
+    },
   },
 ];
 
