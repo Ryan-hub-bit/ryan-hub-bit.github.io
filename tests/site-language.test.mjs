@@ -276,7 +276,7 @@ test("shows four current news entries and keeps the localized archive collapsed"
     );
     assert.deepEqual(entryLinks[0], [
       ["ISSTA", "https://conf.researchr.org/home/issta-2027", "_blank", "noreferrer"],
-      ["NDSS (Poster)", "https://www.ndss-symposium.org/ndss2027/", "_blank", "noreferrer"],
+      ["NDSS (Poster)", "https://www.ndss-symposium.org/ndss2027/submissions/call-for-posters/", "_blank", "noreferrer"],
       ["USENIX WOOT", "https://www.usenix.org/conference/woot27", "_blank", "noreferrer"],
       ["AAAI AgenticSE", "https://agenticse-aaai.github.io/", "_blank", "noreferrer"],
     ]);

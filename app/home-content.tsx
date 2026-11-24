@@ -19,7 +19,7 @@ const news = [
     text: "Invited to serve as PC/reviewer (ISSTA, NDSS (Poster), USENIX WOOT & AAAI AgenticSE), 2027.",
     inlineLinks: [
       { text: "ISSTA", url: "https://conf.researchr.org/home/issta-2027" },
-      { text: "NDSS (Poster)", url: "https://www.ndss-symposium.org/ndss2027/" },
+      { text: "NDSS (Poster)", url: "https://www.ndss-symposium.org/ndss2027/submissions/call-for-posters/" },
       { text: "USENIX WOOT", url: "https://www.usenix.org/conference/woot27" },
       { text: "AAAI AgenticSE", url: "https://agenticse-aaai.github.io/" },
     ],
