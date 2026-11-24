@@ -253,8 +253,8 @@ test("renders compact, bracket-free venue labels for both publications and poste
 
 test("shows four current news entries and keeps the localized archive collapsed", () => {
   for (const [html, label, latestText, pldiLabel] of [
-    [en, "More news", "Invited to serve as PC/reviewer (ISSTA, USENIX WOOT & AAAI AgenticSE), 2027.", "PLDI Student Research Competition (SRC)"],
-    [zh, "更多动态", "受邀担任 PC／审稿人（ISSTA、USENIX WOOT 及 AAAI AgenticSE），2027。", "PLDI 学生科研竞赛（SRC）"],
+    [en, "More news", "Invited to serve as PC/reviewer (ISSTA, NDSS (Poster), USENIX WOOT & AAAI AgenticSE), 2027.", "PLDI Student Research Competition (SRC)"],
+    [zh, "更多动态", "受邀担任 PC／审稿人（ISSTA、NDSS (Poster)、USENIX WOOT 及 AAAI AgenticSE），2027。", "PLDI 学生科研竞赛（SRC）"],
   ]) {
     const news = main(html).match(/<section[^>]*id="news"[^>]*>([\s\S]*?)<\/section>/)?.[1];
     assert.ok(news);
@@ -276,6 +276,7 @@ test("shows four current news entries and keeps the localized archive collapsed"
     );
     assert.deepEqual(entryLinks[0], [
       ["ISSTA", "https://conf.researchr.org/home/issta-2027", "_blank", "noreferrer"],
+      ["NDSS (Poster)", "https://www.ndss-symposium.org/ndss2027/", "_blank", "noreferrer"],
       ["USENIX WOOT", "https://www.usenix.org/conference/woot27", "_blank", "noreferrer"],
       ["AAAI AgenticSE", "https://agenticse-aaai.github.io/", "_blank", "noreferrer"],
     ]);

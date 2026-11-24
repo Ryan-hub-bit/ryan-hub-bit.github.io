@@ -16,16 +16,17 @@ const news = [
   {
     date: "Nov. 2026",
     dateTime: "2026-11",
-    text: "Invited to serve as PC/reviewer (ISSTA, USENIX WOOT & AAAI AgenticSE), 2027.",
+    text: "Invited to serve as PC/reviewer (ISSTA, NDSS (Poster), USENIX WOOT & AAAI AgenticSE), 2027.",
     inlineLinks: [
       { text: "ISSTA", url: "https://conf.researchr.org/home/issta-2027" },
+      { text: "NDSS (Poster)", url: "https://www.ndss-symposium.org/ndss2027/" },
       { text: "USENIX WOOT", url: "https://www.usenix.org/conference/woot27" },
       { text: "AAAI AgenticSE", url: "https://agenticse-aaai.github.io/" },
     ],
     image: { src: "/news/WOOT2027-PC.png", alt: "USENIX WOOT 2027 program committee confirmation email", width: 1290, height: 1515 },
     imageAltZh: "USENIX WOOT 2027 程序委员会确认邮件",
     zh: {
-      text: "受邀担任 PC／审稿人（ISSTA、USENIX WOOT 及 AAAI AgenticSE），2027。",
+      text: "受邀担任 PC／审稿人（ISSTA、NDSS (Poster)、USENIX WOOT 及 AAAI AgenticSE），2027。",
     },
   },
   {
