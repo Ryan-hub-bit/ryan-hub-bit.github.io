@@ -11,6 +11,7 @@ import ThemeToggle from "./theme-toggle";
 import { formatLastUpdated } from "./site-updated.mjs";
 
 const tulaneSpotlightUrl = "https://lnkd.in/p/eXuZrkP8";
+const primaryNewsUrl = "https://theprimary.com/ai-tech/2026-11-24/icflownet-stripped-binaries";
 
 const news = [
   {
@@ -58,12 +59,15 @@ const news = [
   {
     date: "Jul. 2026",
     dateTime: "2026-07",
-    text: "One paper was directly accepted to ACM CCS 2026 (Cycle B).",
+    text: "One paper was directly accepted to ACM CCS 2026 (Cycle B). Featured by Primary News.",
     emphasis: "directly accepted",
-    inlineLinks: [{ text: "ACM CCS 2026", url: "https://www.sigsac.org/ccs/CCS2026/index.html" }],
+    inlineLinks: [
+      { text: "ACM CCS 2026", url: "https://www.sigsac.org/ccs/CCS2026/index.html" },
+      { text: "Primary News", url: primaryNewsUrl },
+    ],
     image: { src: "/news/CCS2026.jpg", alt: "ACM CCS 2026 acceptance email", width: 1290, height: 1373 },
     imageAltZh: "ACM CCS 2026 论文录用邮件",
-    zh: { text: "一篇论文被 ACM CCS 2026（Cycle B）直接录用。", emphasis: "直接录用" },
+    zh: { text: "一篇论文被 ACM CCS 2026（Cycle B）直接录用。相关报道：Primary News。", emphasis: "直接录用" },
   },
   {
     date: "Jul. 2026",
@@ -643,6 +647,13 @@ export default function HomeContent({ language = "en" }: { language?: "en" | "zh
               <a href={tulaneSpotlightUrl} target="_blank" rel="noreferrer" lang="en">
                 Tulane SSE spotlight
               </a>
+              {t(", ", "，")}<time dateTime="2026-11">{t("Nov. 2026", "2026 年 11 月")}</time>
+            </li>
+            <li>
+              <a href={primaryNewsUrl} target="_blank" rel="noreferrer" lang="en">
+                Primary News
+              </a>
+              {t(", ", "，")}<time dateTime="2026-11">{t("Nov. 2026", "2026 年 11 月")}</time>
             </li>
           </ul>
         </section>
