@@ -33,16 +33,16 @@ const news = [
   {
     date: "Oct. 2026",
     dateTime: "2026-10",
-    text: "I won 1st place in the Ph.D. Student Research Competition at RSTCON 2026. Featured in Tulane SSE Spotlight.",
+    text: "I won 1st place in the Ph.D. Student Research Competition at RSTCON 2026. Featured by Tulane School of Science and Engineering.",
     emphasis: "1st place",
     inlineLinks: [
       { text: "RSTCON 2026", url: "https://rstcon.org/2026" },
-      { text: "Tulane SSE Spotlight", url: tulaneSpotlightUrl },
+      { text: "Tulane School of Science and Engineering", url: tulaneSpotlightUrl },
     ],
     image: { src: "/news/RSTCON.jpg", alt: "RSTCON 2026 first-place certificate", width: 1420, height: 1017 },
     imageAltZh: "RSTCON 2026 博士生科研竞赛第一名获奖证书",
     zh: {
-      text: "我在博士生科研竞赛中获得第一名，赛事：RSTCON 2026。相关报道：Tulane SSE Spotlight。",
+      text: "我在博士生科研竞赛中获得第一名，赛事：RSTCON 2026。相关报道：Tulane School of Science and Engineering。",
       emphasis: "第一名",
     },
   },
@@ -59,7 +59,7 @@ const news = [
   {
     date: "Jul. 2026",
     dateTime: "2026-07",
-    text: "One paper was directly accepted to ACM CCS 2026 (Cycle B). Featured by Primary News.",
+    text: "One paper was directly accepted to ACM CCS 2026 (Cycle B). Featured in Primary News.",
     emphasis: "directly accepted",
     inlineLinks: [
       { text: "ACM CCS 2026", url: "https://www.sigsac.org/ccs/CCS2026/index.html" },
